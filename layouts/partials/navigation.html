@@ -1,0 +1,24 @@
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-between" id="navbar-content">
+  <ul class="navbar-nav mr-auto">
+    {{ range .Site.Menus.main }}<li class="nav-item"><a href="{{ .URL }}" class="nav-link">{{ if .Pre }}{{ .Pre }}&nbsp;{{ end }}{{ .Name }}</a></li>{{ end }}
+  </ul>
+  <div class="navbar-right row">
+    <div class="search" role="dialog">
+      <div class="search-inner">
+        <div class="search-form">
+          <label class="search-icon"><i class="fa fas fa-search"></i></label>
+          <input class="search-input" type="text" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="search-output">
+          <p class="info">Type your query to search.</p>
+        </div>
+      </div>
+    </div>
+    <div class="toggler-mode">
+      <p class="mx-1" id="toggler"><i class="fas"></i></p>
+    </div>
+  </div>
+</div>

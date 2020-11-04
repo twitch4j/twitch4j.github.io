@@ -1,0 +1,7 @@
+.vscode/
+public/
+resources/
+node_modules/
+.idea/
+*.iml
+static/javadoc/

@@ -1,0 +1,10 @@
+{{- $jquery := resources.Get "js/jquery/jquery.js" | resources.ExecuteAsTemplate "assets/js/jquery.js" . | resources.Minify | resources.Fingerprint -}}
+{{- $bootstrap := resources.Get "js/bootstrap/bootstrap.bundle.js" | resources.ExecuteAsTemplate "assets/js/bootstrap.js" . | resources.Minify | resources.Fingerprint -}}
+{{- $fuse := resources.Get "js/fuse/fuse.js" | resources.ExecuteAsTemplate "assets/js/fuse.js" . | resources.Minify | resources.Fingerprint -}}
+{{- $searchScript := resources.Get "js/search.js" | resources.ExecuteAsTemplate "assets/js/search.js" . | resources.Minify | resources.Fingerprint -}}
+{{- $script := resources.Get "js/script.js" | resources.ExecuteAsTemplate "assets/js/script.js" . | resources.Minify | resources.Fingerprint -}}
+<script type="text/javascript" src="{{ $jquery.RelPermalink }}" integrity="{{ $jquery.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ $bootstrap.RelPermalink }}" integrity="{{ $bootstrap.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ $fuse.RelPermalink }}" integrity="{{ $fuse.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ $searchScript.RelPermalink }}" integrity="{{ $searchScript.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous"></script>

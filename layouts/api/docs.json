@@ -1,0 +1,7 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- range .Site.AllPages -}}
+{{- if and (hasPrefix .RelPermalink ("/docs/" | relURL)) .Title -}}
+{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.tags "url" .RelPermalink "content" .Plain) -}}
+{{- end -}}
+{{- end -}}
+{{ $.Scratch.Get "index" | jsonify }}

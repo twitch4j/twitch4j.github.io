@@ -1,0 +1,33 @@
+.index {
+  @for $i from 1 through 6 {
+    h#{$i} {
+      text-align: center;
+
+      a {
+        color: theme-color("black-ops");
+
+        body.dark-mode & {
+          color: theme-color("ice");
+
+          &:hover {
+            color: darken(theme-color("ice"), 5%);
+          }
+        }
+        &:hover {
+          color: lighten(theme-color("black-ops"), 40%);
+        }
+      }
+    }
+  }
+  .card {
+    border: 0;
+    min-height: 8rem;
+    background-color: transparent;
+  }
+  .header {
+    position: relative;
+    top: 0;
+    height: 640px;
+    padding: 5rem 0;
+  }
+}

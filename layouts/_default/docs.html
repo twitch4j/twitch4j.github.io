@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="container docs mt-4">
+  <div class="row">
+    <section class="col-12 col-md-3 float-md-right float-none">
+      {{ partial "docs/sidebar.html" . }}
+    </section>
+    <div class="col-12 col-md-9">
+    {{ .Content | emojify }}
+    </div>
+  </div>
+</div>
+{{ end }}

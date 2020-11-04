@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{- partial "head.html" . -}}
+</head>
+
+<body>
+  {{- partial "header.html" . -}}
+  <main role="main" class="flex-shrink-0 mb-5">
+    {{- block "main" . -}}{{- end -}}
+  </main>
+  {{- partial "footer.html" . -}}
+  {{- partial "scripts.html" . -}}
+</body>
+
+</html>

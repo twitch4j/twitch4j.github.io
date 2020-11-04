@@ -1,0 +1,32 @@
+.docs {
+  .nav {
+
+  }
+
+  .breadcrumb {
+    background-color: transparent;
+    .active {
+      
+    }
+  }
+  @for $i from 1 through 6 {
+    h#{$i} {
+      margin-top: 1.5rem;
+      margin-bottom: .5rem;
+      & + div, & + blockquote, & + a, & + p {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .blockquote {
+    margin-left: 1.5rem;
+    border-left: 4px solid $gray-400;
+    padding-left: .75rem;
+    font-size: 12pt;
+
+    .blockquote-footer {
+      font-size: 8pt;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+baseURL: https://twitch4j.github.io
+title: Twitch4J
+
+markup:
+  highlight:
+    style: monokai
+    tabWidth: 2
+
+disableKinds:
+  - sitemap
+  - RSS
+  - taxonomy
+  - term
+
+module:
+  mounts:
+    - source: content
+      target: content
+    - source: static
+      target: static
+    - source: layouts
+      target: layouts
+    - source: data
+      target: data
+    - source: assets
+      target: assets
+    - source: archetypes
+      target: archetypes
+    - source: node_modules/bootstrap/scss # Bootstrap CSS
+      target: assets/css/bootstrap
+    - source: node_modules/@fortawesome/fontawesome-free/css # Bootstrap CSS
+      target: assets/css/fontawesome
+    - source: node_modules/bootstrap/dist/js # Bootstrap JS
+      target: assets/js/bootstrap
+    - source: node_modules/jquery/dist # jQuery
+      target: assets/js/jquery
+    - source: node_modules/popper.js/dist # Popper.js
+      target: assets/js/popper
+    - source: node_modules/fuse.js/dist # fuse.js
+      target: assets/js/fuse
+    - source: node_modules/@fortawesome/fontawesome-free/webfonts # Bootstrap CSS
+      target: static/assets/webfonts
+    - source: node_modules/mdb-ui-kit/src/scss # MDBootstrap CSS
+      target: assets/css/mdb
+    - source: node_modules/mdb-ui-kit/js # MDBootstrap JS
+      target: assets/js/mdb
+
+params:
+  github: twitch4j/twitch4j
+  discord: 
+    twitch4j: https://discord.gg/FQ5vgW3
+    twitchapi: https://discord.gg/8NXaEyV
+
+menu:
+  main:
+    - name: Documentation
+      url: /docs
+      pre: <i class="fas fa-book"></i>
+      weight: 1
+    - name: Javadoc
+      url: /javadoc
+      pre: <i class="fab fa-java"></i>
+      weight: 2
+    - name: Discord
+      url: /discord
+      pre: <i class="fab fa-discord"></i>
+      weight: 3
+    - name: GitHub
+      url: /github/twitch4j
+      pre: <i class="fab fa-github"></i>
+      weight: 4
+  
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+    disable: true
+  instagram:
+    disable: true
+  twitter:
+    disable: true
+  vimeo:
+    disable: true
+  youtube:
+    disable: true

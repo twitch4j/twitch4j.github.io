@@ -1,0 +1,26 @@
+{
+ "author": "",
+ "bugs": {
+  "url": "https://github.com/stachu540/twitch4j.page/issues"
+ },
+ "description": "Page builded by hugo",
+ "homepage": "https://github.com/stachu540/twitch4j.page#readme",
+ "license": "MIT",
+ "name": "twitch4j.page",
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/stachu540/twitch4j.page.git"
+ },
+ "scripts": {
+  "generate": "hugo",
+  "generate:minify": "hugo --minify",
+  "start": "hugo server"
+ },
+ "version": "0.0.1",
+ "dependencies": {
+  "@fortawesome/fontawesome-free": "^5.15.1",
+  "bootstrap": "^4.5.2",
+  "jquery": "^3.5.1",
+  "fuse.js": "^6.4.1"
+ }
+}

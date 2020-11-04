@@ -1,0 +1,63 @@
+body {
+  font-family: "Inter";
+  scrollbar-width: thin;
+  scrollbar-color: $twitch-purple $gray-500;
+
+  .wordmark {
+    fill: theme-color("black-ops");
+  }
+
+  &::-webkit-scrollbar-track, *::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: $gray-500;
+  }
+  
+  &::-webkit-scrollbar, *::-webkit-scrollbar {
+    width: 4px;
+    background-color: $gray-500;
+  }
+  
+  &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: $twitch-purple;
+  }
+
+  &.dark-mode {
+    color: theme-color("ice");
+    background-color: theme-color("dark");
+    scrollbar-color: $black-ops $gray-500;
+
+    &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
+      background-color: $black-ops;
+    }
+
+    .wordmark {
+      fill: #FFFFFF;
+    }
+  
+    a {
+      color: theme-color("ice");
+  
+      &:hover {
+        color: darken(theme-color("ice"), 5%);
+      }
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.btn {
+  font-family: "Inter";
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: "Inter";
+    font-weight: bold;
+  }
+}

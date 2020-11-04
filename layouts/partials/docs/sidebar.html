@@ -1,0 +1,18 @@
+{{- $active := false -}}
+<ul class="nav nav-pills flex-column">
+  {{- $current := .RelPermalink }}
+  {{- range .Site.Menus.docs -}}
+    <li class="nav-item">
+      <a href="{{.URL}}" class="nav-link p-2{{if (eq .URL $current)}} active{{end}}">{{ .Title }}</a>
+      {{- if (.HasChildren) -}}
+        <ul class="nav nav-pills flex-column">
+          {{- range .Children -}}
+            <li class="nav-item">
+              <a href="{{.URL}}" class="nav-link px-4{{if (eq .URL $current)}} active{{end}}">{{ .Title }}</a>
+            </li>
+          {{- end -}}
+        </ul>
+      {{- end -}}
+    </li>
+  {{- end -}}
+  </ul>

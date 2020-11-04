@@ -1,0 +1,204 @@
+
+.search {
+  z-index: 100;
+  padding: 20px;
+  flex-grow: 1;
+
+  &.active {
+    background: rgba(#000000, .54);
+    position: fixed;
+    cursor: pointer;
+    flex-grow: 0;
+    top: 0;
+    left: 0;
+    padding: 2.5rem 6rem;
+    width: 100vw !important;
+    height: 100vh !important;
+    transition: background 200ms ease-in;
+
+    @include media-breakpoint-down(md) { 
+      margin: 0;
+      padding: 15px;
+    }
+
+    @include media-breakpoint-down(xs) { 
+      margin: 0;
+      padding: 5px;
+    }
+
+    body.dark-mode & {
+      background: rgba($ice, .4);
+      
+      .search-inner {
+        background: lighten($black-ops, 20%);
+
+        .search-form {
+          background-color: lighten($black-ops, 60%) !important;
+  
+          .search-icon {
+            color: #000000 !important;
+          }
+        }
+      }
+
+      .search-output .search-result-header {
+        color: $ice;
+      }
+    }
+
+    .search-inner {
+      @extend .container;
+      padding: 8px;
+      background: #FFFFFF;
+      border-radius: 8px;
+      max-width: 650px;
+      
+      .search-form {
+        @extend .container-fluid;
+        vertical-align: top;
+        float: none !important;
+    
+        .search-input::placeholder {
+          color: transparent;
+        }
+      }
+
+      .search-output {
+        display: block;
+      }
+    }
+  }
+  
+  .search-inner {
+    z-index: 200;
+    width: 100%;
+    
+    .search-form {
+      @extend .container-fluid;
+      padding: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 4px;
+      align-content: center;
+      background-color: darken($ice, 5%);
+
+      body.dark-mode & {
+        background-color: lighten(#212121, 5%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      .search-icon {
+        margin: 0 4px;
+        color: #000000;
+        position: absolute;
+
+        body.dark-mode & {
+          color: #CCCCCC;
+        }
+      }
+
+      .search-input {
+        width: 100%;
+        margin: 0 4px;
+        padding-left: 24px;
+        background: transparent;
+        color: lighten(#000000, 60%);
+
+        &::placeholder {
+          color: lighten(#000000, 40%);
+        }
+
+        &:focus {
+          outline: 0;
+          color: #000000;
+        }
+      }
+    }
+    
+    .search-output {
+      width: 100%;
+      max-height: 50vh;
+      margin: 16px 2px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      color: #000000;
+      display: none;
+
+      p {
+        margin: 0;
+      }
+
+      .info {
+        color: lighten(#000000, 60%);
+        padding: .5rem 1.5rem;
+        font-size: 12px;
+      }
+
+      .search-result {
+        padding: 0;
+
+        .search-result-header {
+          font-size: 26px;
+          text-align: center;
+          font-weight: 800;
+          color: $black-ops;
+
+          body.dark-mode & {
+            color: $ice;
+          }
+        }
+
+        .search-result-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          .search-result-index {
+            padding: .4rem .6rem;
+            a {
+              color: #000000;
+
+              &:hover {
+                color: lighten(#000000, 25%);
+              }
+
+              body.dark-mode & {
+                color: $ice;
+              }
+            }
+
+            .search-result-title {
+              font-size: 18px !important;
+              margin: 4px 0;
+            }
+
+            .search-result-content {
+              font-size: 10px !important;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              max-width: 100%;
+              margin: 0;
+            }
+
+            &:hover {
+              background-color: darken($ice, 5%);
+              border-radius: .4rem;
+            }
+
+            mark {
+              text-decoration: underline;
+              background-color: transparent;
+              color: $twitch-purple;
+            }
+          }
+        }
+      }
+    }
+  }
+}
