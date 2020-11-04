@@ -1,0 +1,5 @@
+var documentationIndex;function search(query,output){var docQuery=documentationIndex.search(query).map(function(i){return `<li class="search-result-index"><a href="${i.item.url}"><h2 class="search-result-title">${i.item.title}</h2><p class="search-result-content">${i.item.content}</p></a></li>`;});output.empty();output.append(`<div class="search-result">
+  <h1 class="search-result-header">Documentation</h1>
+    ${(docQuery.length!=0)?'<ul class="search-result-list">'+docQuery.join("")+'</ul>':'<p class="info">No results.<p>'}
+  </div>`);}
+function createIndex(){var javadocUrl="/javadoc/";$.getJSON("/api/docs.json",function(data){documentationIndex=new Fuse(data,{keys:[{name:"title",weight:0.8},{name:"content",weight:0.5},{name:"tags",weight:0.3}],useExtendedSearch:true,includeMatches:true,shouldSort:true});});}
