@@ -5,7 +5,10 @@
       {{ partial "docs/sidebar.html" . }}
     </section>
     <div class="col-12 col-md-9">
-    {{ .Content | emojify }}
+      {{ .Content | emojify }}
+      <div class="text-center">
+        <a href="{{ replace (printf "https://github.com/twitch4j/twitch4j.github.io/edit/master/content/%v" .File.Path) "%5c" "/" }}" class="btn btn-sm btn-edit-page">Edit this page</a>
+      </div>
     </div>
   </div>
 </div>

@@ -170,4 +170,7 @@ $(function() {
       body.css("overflow", "hidden");
     }
   });
+  $.getJSON("https://api.github.com/repos/{{ .Param "github" }}/releases/latest", function(body) {   
+    $(".release").text(body.tag_name);
+  })
 });

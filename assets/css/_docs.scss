@@ -29,4 +29,13 @@
       font-size: 8pt;
     }
   }
+  .btn.btn-edit-page {
+    @extend .btn-twitch-purple;
+    font-size: .875rem;
+
+    body.dark-mode & {
+      @extend .btn-outline-ice;
+      background-color: transparent;
+    }
+  }
 }

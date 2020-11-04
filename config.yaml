@@ -68,6 +68,7 @@ menu:
     - name: GitHub
       url: /github/twitch4j
       pre: <i class="fab fa-github"></i>
+      post: <sup class="release"></sup>
       weight: 4
   
 privacy:

@@ -3,7 +3,7 @@
 </button>
 <div class="collapse navbar-collapse justify-content-between" id="navbar-content">
   <ul class="navbar-nav mr-auto">
-    {{ range .Site.Menus.main }}<li class="nav-item"><a href="{{ .URL }}" class="nav-link">{{ if .Pre }}{{ .Pre }}&nbsp;{{ end }}{{ .Name }}</a></li>{{ end }}
+    {{ range .Site.Menus.main }}<li class="nav-item"><a href="{{ .URL }}" class="nav-link">{{ if .Pre }}{{ .Pre }}&nbsp;{{ end }}{{ .Name }}{{ if .Post }}&nbsp;{{ .Post }}{{ end }}</a></li>{{ end }}
   </ul>
   <div class="navbar-right row">
     <div class="search" role="dialog">
