@@ -2,7 +2,7 @@
 title: API - Helix
 layout: docs
 menu: docs
-weight : 5
+weight: 5
 ---
 
 # Twitch API - Helix
@@ -71,9 +71,15 @@ Games:
 - [Games -> Search](./games-get)
 - [Games -> Top Games](./games-top)
 
+Moderation:
+
+- [Moderators -> Get](./moderators-get)
+- [Moderators -> Get Events](./moderators-get-events)
+
 Streams:
 
 - [Streams -> Search](./streams-get)
+- [Streams -> Get Key](./streams-get-key)
 - Create Stream Marker
 - [Streams -> Get Markers](./streams-markers-get)
 
@@ -95,4 +101,3 @@ Videos:
 
 - [Videos -> Search](./videos-get)
 - Get Webhook Subscriptions
-

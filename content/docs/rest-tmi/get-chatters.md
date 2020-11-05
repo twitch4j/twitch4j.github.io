@@ -1,13 +1,13 @@
 ---
-title: TMI - Get Viewers
-layout: docs
+title: TMI - Get Chatters
 weight : 10
+layout: docs
 menu: 
   docs:
     parent: API - Kraken
 ---
 
-# Get Viewers
+# Get Chatters
 
 ## Description
 
@@ -41,6 +41,7 @@ None
 ```java
 Chatters chatters = twitchClient.getMessagingInterface().getChatters("lirik").execute();
 
+System.out.println("Broadcaster: " + chatters.getBroadcaster());
 System.out.println("VIPs: " + chatters.getVips());
 System.out.println("Mods: " + chatters.getModerators());
 System.out.println("Admins: " + chatters.getAdmins());
