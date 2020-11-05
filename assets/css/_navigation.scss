@@ -1,45 +1,99 @@
-section.side-menu {
+.side-menu {
   @extend .col-12;
   @extend .col-md-3;
   @extend .float-md-right;
   @extend .float-none;
 
-  .fas {
-    margin-right: 8px;
+  .btn-link {
+    
+    body.dark-mode & {
+      color: $ice;
+      &:hover {
+        color: darken($ice, 10%);
+      }
+    }
 
     &:hover {
-      cursor: pointer;
+      text-decoration: none;
     }
   }
 
-  li {
-    padding: 0;
-    font-size: 14px;
+  .doc-nav {
+    padding: 24px 0 0;
+    .fas {
+      margin-right: 8px;
 
-    &.active-parent {
-      ul {
-        display: block;
+      &:hover {
+        cursor: pointer;
       }
     }
 
-    .active {
-      color: $ice !important;
-      background-color: $twitch-purple !important;
+    li {
+      padding: 0;
+      font-size: 14px;
 
-      a, a:hover {
+      &.active-parent {
+        ul {
+          display: block;
+        }
+      }
+
+      .active {
         color: $ice !important;
+        background-color: $twitch-purple !important;
+
+        a, a:hover {
+          color: $ice !important;
+        }
+      }
+
+      ul {
+        display: none;
+
+        li {
+          a {
+            padding-left: 24px;
+            margin: 0 10px;
+            font-size: 12px;
+          }
+        }
       }
     }
+  }
+
+  #TableOfContents {
+    margin: 10px 0;
 
     ul {
-      display: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
 
       li {
-        a {
-          padding-left: 24px;
-          margin: 0 10px;
-          font-size: 12px;
-        }
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+
+    a {
+      @extend .btn;
+      @extend .btn-block;
+      font-size: 14px;
+      color: $black-ops;
+      text-align: left;
+
+      body.dark-mode & {
+        color: $ice;
+      }
+
+      &:hover {
+        @extend .btn-twitch-purple;
+        background-color: $twitch-purple;
       }
     }
   }

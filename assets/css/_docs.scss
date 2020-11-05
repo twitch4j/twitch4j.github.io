@@ -1,9 +1,12 @@
 .docs {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
 
   .breadcrumb {
     background-color: transparent;
-
   }
+  
   @for $i from 1 through 6 {
     h#{$i} {
       margin-top: 1.5rem;

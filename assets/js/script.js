@@ -179,4 +179,22 @@ $(function() {
     $(this).toggleClass("fa-caret-right fa-caret-down");
     $(this).closest(".nav-parent").children("ul").toggle(250, "linear");
   });
+
+  $(this).parent(".nav-parent").children("ul").toggle();
+  
+  var btt = $("#back-to-top").first();
+
+  $(window).on("scroll", function() {
+    var top = $(this).scrollTop();
+    if (top > 100) {
+      btt.fadeIn("slow", "linear");
+    } else if (top < 100) {
+      btt.fadeOut("slow", "linear");
+    }
+  })
+
+  $("#back-to-top a").first().on("click", function(e) {
+    e.preventDefault();
+    $("html,body").animate({scrollTop: 0}, 500);
+  })
 });
