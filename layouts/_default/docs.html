@@ -1,9 +1,7 @@
 {{ define "main" }}
 <div class="container docs mt-4">
   <div class="row">
-    <section class="side-menu">
-      {{ partial "docs/sidebar.html" . }}
-    </section>
+    {{ partial "docs/sidebar.html" . }}
     <div class="docs-content col-12 col-md-9">
       {{ .Content | emojify }}
       <div class="edit-page-btn">

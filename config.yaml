@@ -2,6 +2,8 @@ baseURL: https://twitch4j.github.io
 title: Twitch4J
 
 markup:
+  tableOfContents:
+    startLevel: 1
   highlight:
     style: monokai
     tabWidth: 2
