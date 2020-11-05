@@ -1,4 +1,7 @@
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: "Inter";
   scrollbar-width: thin;
   scrollbar-color: $twitch-purple $gray-500;
@@ -44,6 +47,10 @@ body {
       }
     }
   }
+  
+* {
+  box-sizing: border-box;
+}
 
   a:hover {
     text-decoration: none;

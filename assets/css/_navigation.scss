@@ -1,7 +1,47 @@
-.nav-pills {
-  a.active {
-    color: theme-color("ice") !important;
-    background-color: theme-color("twitch-purple") !important;
+section.side-menu {
+  @extend .col-12;
+  @extend .col-md-3;
+  @extend .float-md-right;
+  @extend .float-none;
+
+  .fas {
+    margin-right: 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  li {
+    padding: 0;
+    font-size: 14px;
+
+    &.active-parent {
+      ul {
+        display: block;
+      }
+    }
+
+    .active {
+      color: $ice !important;
+      background-color: $twitch-purple !important;
+
+      a, a:hover {
+        color: $ice !important;
+      }
+    }
+
+    ul {
+      display: none;
+
+      li {
+        a {
+          padding-left: 24px;
+          margin: 0 10px;
+          font-size: 12px;
+        }
+      }
+    }
   }
 }
 

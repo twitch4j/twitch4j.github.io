@@ -172,5 +172,11 @@ $(function() {
   });
   $.getJSON("https://api.github.com/repos/{{ .Param "github" }}/releases/latest", function(body) {   
     $(".release").text(body.tag_name);
-  })
+    $(".version_release").text(body.tag_name.substring(1));
+  });
+
+  $(".nav-parent .fas").on("click", function() {
+    $(this).toggleClass("fa-caret-right fa-caret-down");
+    $(this).closest(".nav-parent").children("ul").toggle(250, "linear");
+  });
 });

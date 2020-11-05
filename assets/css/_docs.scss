@@ -1,13 +1,8 @@
 .docs {
-  .nav {
-
-  }
 
   .breadcrumb {
     background-color: transparent;
-    .active {
-      
-    }
+
   }
   @for $i from 1 through 6 {
     h#{$i} {
@@ -29,6 +24,12 @@
       font-size: 8pt;
     }
   }
+
+  .edit-page-btn {
+    @extend .text-center;
+    margin: 40px 0 0;
+  }
+
   .btn.btn-edit-page {
     @extend .btn-twitch-purple;
     font-size: .875rem;

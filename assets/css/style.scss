@@ -11,3 +11,7 @@
 @import "docs";
 @import "codeblock";
 @import "footer";
+
+header, main, footer {
+  flex-shrink: 0;
+}
