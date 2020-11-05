@@ -18,9 +18,9 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'com.github.twitch4j', name: 'twitch4j', version: '1.1.3'
+    implementation group: 'com.github.twitch4j', name: 'twitch4j', version: '{{< current_version >}}'
     // or using it into compile
-    api group: 'com.github.twitch4j', name: 'twitch4j', version: '1.1.3'
+    api group: 'com.github.twitch4j', name: 'twitch4j', version: '{{< current_version >}}'
 }
 ```
 {{</ build >}}
@@ -31,9 +31,9 @@ repositories {
 }
 
 dependencies {
-    implementation(group = "com.github.twitch4j", name = "twitch4j", version = "1.1.3")
+    implementation(group = "com.github.twitch4j", name = "twitch4j", version = "{{< current_version >}}")
     // or using it into compile
-    api(group = "com.github.twitch4j", name = "twitch4j", version = "1.1.3")
+    api(group = "com.github.twitch4j", name = "twitch4j", version = "{{< current_version >}}")
 }
 ```
 {{</ build >}}
@@ -49,7 +49,7 @@ dependencies {
 <dependency>
     <groupId>com.github.twitch4j</groupId>
     <artifactId>twitch4j</artifactId>
-    <version>1.1.3</version>
+    <version>{{< current_version >}}</version>
 </dependency>
 ```
 {{</ build >}}
