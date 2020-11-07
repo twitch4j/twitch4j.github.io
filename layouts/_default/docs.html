@@ -1,8 +1,9 @@
 {{ define "main" }}
-<div class="container docs mt-4">
-  <div class="row">
-    {{ partial "docs/sidebar.html" . }}
-    <div class="docs-content col-12 col-md-9">
+<div class="docs w-100">
+  <div class="row w-100">
+    {{ partial "docs/navigation.html" . }}
+    {{ partial "docs/toc.html" . }}
+    <div class="docs-content">
       {{ .Content | emojify }}
       <div class="edit-page-btn">
         <a href="https://github.com/twitch4j/twitch4j.github.io/edit/master/content/{{ .File.Path }}" class="btn btn-sm btn-edit-page">Improve this page</a>
