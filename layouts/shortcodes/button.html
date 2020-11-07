@@ -6,12 +6,12 @@
 {{- if or (eq $type "link") (not $type) -}}
 {{- $href := .Get "href" -}}
 <a class="btn{{if $color}} btn{{if $outline}}-outline{{end}}-{{$color}}{{end}}{{if $size}} btn-{{$size}}{{end}}{{if $disabled}} disabled{{end}}" href="{{$href}}">
-  {{.Inner}}
+  {{ .Inner | markdownify }}
 </a>
 {{- else if eq $type "button" -}}
 {{- $button := .Get "btn_type" -}}
 <button class="btn{{if $color}} btn{{if $outline}}-outline{{end}}-{{$color}}{{end}}{{if $size}} btn-{{$size}}{{end}}{{if $disabled}} disabled{{end}}" type="{{$button}}">
-  {{.Inner}}
+  {{ .Inner | markdownify }}
 </button>
 {{- else if eq $type "input" -}}
 {{- $input := .Get "input" -}}

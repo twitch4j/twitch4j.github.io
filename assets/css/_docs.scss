@@ -43,8 +43,12 @@
       
       li > :first-child:hover, li > :first-child.active, li.active-parent > :first-child {
         color: $ice;
-        background-color: $twitch-purple;
+        background-color: darken($twitch-purple, 10%);
 
+        &:not(.active) {
+          background-color: $twitch-purple;
+        }
+        
         a {
           color: $ice;
         }

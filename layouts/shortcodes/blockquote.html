@@ -1,5 +1,5 @@
 {{ $footer := .Get 0 | safeHTML }}
 <blockquote class="blockquote">
-  <p>{{ .Inner }}</p>
+  <p>{{ .Inner | markdownify }}</p>
   {{- if $footer -}}<footer class="blockquote-footer"><cite title="{{ $footer }}">{{ $footer }}</cite></footer>{{ end }}
 </blockquote>
