@@ -59,23 +59,12 @@ body {
     }
   }
   
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
 
   a:hover {
     text-decoration: none;
-  }
-}
-
-
-@for $i from 1 through 6 {
-  h#{$i} {
-    font-family: "Inter";
-    font-weight: bold;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 }
 
@@ -83,4 +72,11 @@ body {
   font-family: "Inter";
   font-size: 1.25rem;
   font-weight: normal;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-family: "Inter";
+    font-weight: bold;
+  }
 }

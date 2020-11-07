@@ -84,13 +84,6 @@
       h#{$i} {
         margin-top: 1.5rem;
         margin-bottom: .5rem;
-
-        @include media-breakpoint-up(xs) { font-size: ((28 / 8 - 1) * 8) + px; }
-        @include media-breakpoint-up(sm) { font-size: ((40 / 8 - 1) * 8) + px; }
-        @include media-breakpoint-up(md) { font-size: ((44 / 8 - 1) * 8) + px; }
-        @include media-breakpoint-up(lg) { font-size: ((48 / 8 - 1) * 8) + px; }
-        @include media-breakpoint-up(xl) { font-size: ((52 / 8 - 1) * 8) + px; }
-
         & + div, & + blockquote, & + a, & + p {
           margin-top: 0;
           margin-bottom: 0;

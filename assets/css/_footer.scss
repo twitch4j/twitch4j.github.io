@@ -1,10 +1,9 @@
 .footer {
-  background-color: $twitch-purple;
+  background-color: theme-color("twitch-purple");
   min-height: 3rem;
   padding: 1rem 0;
-  font-size: 12px;
 }
 
 body.dark-mode .blockquote-footer {
-  color: darken($ice, 10%);
+  color: darken(theme-color("ice"), 10%);
 }
