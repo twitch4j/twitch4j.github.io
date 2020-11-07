@@ -1,104 +1,3 @@
-.side-menu {
-  @extend .col-12;
-  @extend .col-md-3;
-  @extend .float-md-right;
-  @extend .float-none;
-
-  .btn-link {
-    
-    body.dark-mode & {
-      color: $ice;
-      &:hover {
-        color: darken($ice, 10%);
-      }
-    }
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .doc-nav {
-    padding: 24px 0 0;
-    .fas {
-      margin-right: 8px;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    li {
-      padding: 0;
-      font-size: 14px;
-
-      &.active-parent {
-        ul {
-          display: block;
-        }
-      }
-
-      .active {
-        color: $ice !important;
-        background-color: $twitch-purple !important;
-
-        a, a:hover {
-          color: $ice !important;
-        }
-      }
-
-      ul {
-        display: none;
-
-        li {
-          a {
-            padding-left: 24px;
-            margin: 0 10px;
-            font-size: 12px;
-          }
-        }
-      }
-    }
-  }
-
-  #TableOfContents {
-    margin: 10px 0;
-
-    ul {
-      margin: 0;
-      padding: 0;
-    }
-
-    li {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-
-      li {
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-    }
-
-    a {
-      @extend .btn;
-      @extend .btn-block;
-      font-size: 14px;
-      color: $black-ops;
-      text-align: left;
-
-      body.dark-mode & {
-        color: $ice;
-      }
-
-      &:hover {
-        @extend .btn-twitch-purple;
-        background-color: $twitch-purple;
-      }
-    }
-  }
-}
-
 header {
   nav.navbar {
     display: flex;
@@ -136,7 +35,7 @@ header {
       height: 56px;
   
       body.dark-mode & {
-        background: theme-color("ice");
+        background: $ice;
         border-radius: 100%;
       }
     }
@@ -166,10 +65,19 @@ header {
       .release {
         @extend .badge-ice;
         color: $black-ops;
+        background-color: darken($ice, 2%);
+      }
+
+      .nav-link {
+        color: darken($ice, 2%);
+
+        &:hover {
+          color: $ice;
+        }
       }
 
       a:hover .release {
-        background-color: rgba(#FFFFFF, .75);
+        background-color: $ice;
         color: rgba($black-ops, .75);
       }
 
@@ -194,7 +102,8 @@ header {
           justify-content: center;
           border-radius: 50%;
           margin: 21px 28px !important;
-      
+          transition: color 150ms linear, background-color 150ms linear, content 50ms linear;
+
           &:hover {
             cursor: pointer;
           }

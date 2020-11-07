@@ -1,29 +1,46 @@
 .index {
+  @extend .container;
+  @extend .flex-shrink-0;
+  @extend .mb-5;
+
   @for $i from 1 through 6 {
     h#{$i} {
       text-align: center;
+    }
+  }
 
-      a {
-        color: theme-color("black-ops");
+  .btn-black-ops, .btn-outline-black-ops {
+    &:hover {
+      background-color: lighten($black-ops, 14%);
+      border-color: lighten($black-ops, 7%);
+    }
+  }
 
-        body.dark-mode & {
-          color: theme-color("ice");
-
-          &:hover {
-            color: darken(theme-color("ice"), 5%);
-          }
-        }
-        &:hover {
-          color: lighten(theme-color("black-ops"), 40%);
-        }
+  a {
+    &.btn {
+      color: $light;
+      &:hover {
+        color: darken($ice, 2%);
       }
     }
   }
+
   .card {
     border: 0;
     min-height: 8rem;
     background-color: transparent;
+    text-align: center;
+
+    img {
+      max-width: 64px;
+      max-height: 64px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 6px;
+      background-color: $ice;
+    }
   }
+
   .header {
     position: relative;
     top: 0;

@@ -7,7 +7,7 @@ body {
   scrollbar-color: $twitch-purple $gray-500;
 
   .wordmark {
-    fill: theme-color("black-ops");
+    fill: $black-ops;
   }
 
   &::-webkit-scrollbar-track, *::-webkit-scrollbar-track {
@@ -27,12 +27,12 @@ body {
   }
 
   &.dark-mode {
-    color: theme-color("ice");
-    background-color: theme-color("dark");
+    color: $ice;
+    background-color: $dark;
     scrollbar-color: $black-ops $gray-500;
 
     &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
-      background-color: $black-ops;
+      background-color: $gray-900;
     }
 
     .wordmark {
@@ -40,10 +40,10 @@ body {
     }
   
     a {
-      color: theme-color("ice");
+      color: darken($ice, 10%);
   
       &:hover {
-        color: darken(theme-color("ice"), 5%);
+        color: darken($ice, 5%);
       }
     }
   }
