@@ -235,6 +235,24 @@ Same rules like a [*Codeblock with tabs*](#codeblock-with-tabs), but:
 
 The `build` example shows only currently supported builds. In the near future we can expand to the other build tools.
 
+## Spoiler
+
+The content which you wanna hide it
+`spoiler <name>`
+- `name` spoiler name (optional)
+
+```md
+{{< spoiler >}}
+This is content to hide.
+{{</ spoiler >}}
+```
+
+```md
+{{< spoiler "Example" >}}
+This is content to hide.
+{{</ spoiler >}}
+```
+
 # Color
 
 Currently avaliable colors are followed up by the [Bootstrap documentation](https://getbootstrap.com/docs/4.5/utilities/colors/)

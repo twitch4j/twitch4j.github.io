@@ -1,0 +1,4 @@
+<details>
+  <summary>{{ if (.Get 0) }}{{ .Get 0 }}{{ else }}Spoiler{{ end }}</summary>
+  {{ .Inner | markdownify | emojify }}
+</details>
