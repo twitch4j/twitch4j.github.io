@@ -101,6 +101,20 @@
         font-size: 8pt;
       }
     }
+
+    table {
+      @extend .table;
+      @extend .table-bordered;
+      @extend .table-sm;
+
+      tbody {
+        @extend .table-striped;
+      }
+
+      body.dark-mode & {
+        @extend .table-dark;
+      }
+    }
   
     .edit-page-btn {
       @extend .text-center;
