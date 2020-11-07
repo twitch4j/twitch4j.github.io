@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   font-family: "Inter";
   scrollbar-width: thin;
-  scrollbar-color: $twitch-purple $gray-500;
+  scrollbar-color: lighten($twitch-purple, 5%) $gray-400;
 
   .wordmark {
     fill: $black-ops;
@@ -16,27 +16,34 @@ body {
 
   &::-webkit-scrollbar-track, *::-webkit-scrollbar-track {
     border-radius: 2px;
-    background-color: $gray-500;
+    background-color: $gray-400;
   }
   
   &::-webkit-scrollbar, *::-webkit-scrollbar {
     width: 5px;
     height: 5px;
-    background-color: $gray-500;
+    background-color: $gray-400;
   }
   
   &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    background-color: $twitch-purple;
+    background-color: lighten($twitch-purple, 5%);
   }
 
   &.dark-mode {
     color: $ice;
     background-color: $dark;
-    scrollbar-color: $black-ops $gray-500;
+    scrollbar-color: $gray-300 $gray-700;
 
+    &::-webkit-scrollbar-track, *::-webkit-scrollbar-track {
+      background-color: $gray-700;
+    }
+    
+    &::-webkit-scrollbar, *::-webkit-scrollbar {
+      background-color: $gray-700;
+    }
     &::-webkit-scrollbar-thumb, *::-webkit-scrollbar-thumb {
-      background-color: $gray-900;
+      background-color: $gray-300;
     }
 
     .wordmark {
