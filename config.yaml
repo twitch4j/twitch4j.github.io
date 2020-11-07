@@ -14,6 +14,12 @@ disableKinds:
   - taxonomy
   - term
 
+params:
+  github: twitch4j/twitch4j
+  discord: 
+    twitch4j: https://discord.gg/FQ5vgW3
+    twitchapi: https://discord.gg/8NXaEyV
+
 module:
   mounts:
     - source: content
@@ -46,12 +52,6 @@ module:
       target: assets/css/mdb
     - source: node_modules/mdb-ui-kit/js # MDBootstrap JS
       target: assets/js/mdb
-
-params:
-  github: twitch4j/twitch4j
-  discord: 
-    twitch4j: https://discord.gg/FQ5vgW3
-    twitchapi: https://discord.gg/8NXaEyV
 
 menu:
   main:
