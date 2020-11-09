@@ -28,6 +28,8 @@ With all undocumented topics, use at your own risk.
 
 Subscribe to all user community points events for `twitch4j` and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // Subscribe to topic
 twitchClient.getPubSub().listenForUserChannelPointsEvents(credential, "149223493");
@@ -39,3 +41,15 @@ twitchClient.getEventManager().onEvent(ClaimClaimedEvent.class, System.out::prin
 twitchClient.getEventManager().onEvent(PointsSpentEvent.class, System.out::println);
 twitchClient.getEventManager().onEvent(RewardRedeemedEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

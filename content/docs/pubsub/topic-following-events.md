@@ -29,8 +29,22 @@ With all undocumented topics, use at your own risk.
 
 Subscribe to new follower events for user twitch4j and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForFollowingEvents(credential, "149223493");
 
 twitchClient.getEventManager().onEvent(FollowingEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

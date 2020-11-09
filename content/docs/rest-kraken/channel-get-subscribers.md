@@ -50,9 +50,23 @@ HystrixCommand<KrakenSubscriptionList> getChannelSubscribers(
 
 ### print 25 subscribers of a channel (first page)
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 KrakenSubscriptionList resultList = twitchClient.getKraken().getChannelSubscribers("accessToken", channelId, null, null, null).execute();
 resultList.getSubscriptions().forEach(sub -> {
 	System.out.println(sub.toString());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

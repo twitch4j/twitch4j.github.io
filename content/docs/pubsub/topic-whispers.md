@@ -32,8 +32,22 @@ None
 
 Subscribe to all whispers to user twitch4j and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForWhisperEvents(credential, "149223493");
 
 twitchClient.getEventManager().onEvent(PrivateMessageEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

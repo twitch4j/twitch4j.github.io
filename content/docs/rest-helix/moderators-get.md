@@ -44,9 +44,23 @@ HystrixCommand<ModeratorList> getModerators(
 
 ### print list of moderators
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 ModeratorList resultList = twitchClient.getHelix().getModerators(authToken, broadcasterId, null, null).execute();
 resultList.getModerators().forEach(moderator -> {
     System.out.println(moderator);
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

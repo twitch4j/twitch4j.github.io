@@ -19,6 +19,8 @@ The Twitch PubSub system allows back-end services to broadcast realtime messages
 
 To use PubSub you need to enable the PubSub when building the Twitch4J Instance, as shown below:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchClient twitchClient = TwitchClientBuilder.builder()
 	...
@@ -26,14 +28,40 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 	...
 	.build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Standalone
 
 Initialize the PubSub as Standalone Module:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchPubSub client = TwitchPubSubBuilder.builder().build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Handle the Results
 
@@ -83,6 +111,8 @@ We hope Twitch will document these topics as there is no official way to get muc
 
 Once a topic is no longer relevant, one can unsubscribe from it to stop receiving further events of that type.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // Initial subscription
 PubSubSubscription subscription = twitchClient.getPubSub().listenForWhisperEvents(credential, userId);
@@ -90,6 +120,18 @@ PubSubSubscription subscription = twitchClient.getPubSub().listenForWhisperEvent
 // Later unsubscription
 twitchClient.getPubSub().unsubscribeFromTopic(subscription);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Rate-limits
 

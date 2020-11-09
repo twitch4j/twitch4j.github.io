@@ -21,8 +21,26 @@ Requires the TwitchChat Module to be enabled and active for the source channel. 
 
 ### Write Chat to Console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 eventManager.onEvent(ChannelMessageEvent.class).subscribe(event -> {
 	System.out.println("[" + event.getChannel().getName() + "] " + event.getUser().getName() + ": " + event.getMessage());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+eventManager.onEvent(ChannelMessageEvent).subscribe { event ->
+	System.out.println "[${event.channel.name}] ${event.user.name}: ${event.message}"
+}
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+eventManager.onEvent(ChannelMessageEvent::class.java).subscribe { event ->
+	println("[${event.channel.name}] ${event.user.name}: ${event.message}")
+});
+```
+{{</code>}}
+{{</codeblocks>}}

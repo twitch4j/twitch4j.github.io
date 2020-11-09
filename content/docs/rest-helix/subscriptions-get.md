@@ -46,4 +46,4 @@ HystrixCommand<SubscriptionList> getSubscriptions(
 
 ## Code-Snippets
 
-...
+

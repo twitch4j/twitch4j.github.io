@@ -19,6 +19,20 @@ Sends a message to a twitch channel.
 
 ## Example
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getChat().sendMessage("twitch4j", "Hey!");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+twitchClient.chat.sendMessage("twitch4j", "Hey!")
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+twitchClient.chat.sendMessage("twitch4j", "Hey!")
+```
+{{</code>}}
+{{</codeblocks>}}

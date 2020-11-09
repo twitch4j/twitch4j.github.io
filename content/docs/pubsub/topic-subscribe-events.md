@@ -30,8 +30,22 @@ None
 
 Subscribe to all subscription events to the twitch4j channel and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForSubscriptionEvents(credential, "149223493");
 
 twitchClient.getEventManager().onEvent(ChannelSubscribeEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

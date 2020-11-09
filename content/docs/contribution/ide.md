@@ -9,20 +9,24 @@ menu:
 
 # Development Environment
 
-We use lombok the automatically some parts of the java code, so you will have to setup the lombok plugin in your ide to compile / run `Twitch4J`.
+We are using Project Lombok to generate some parts of the java code, so you will have to setup the lombok plugin in your ide to compile / run `Twitch4J`.
 
-## `Lombok`
+## Project Lombok
 This repository uses lombok to avoid the Getter/Setter boilerplate code in many classes.
 Therefore you need to install Lombok for you IDE:
 
 ### IntelliJ - Plugin Installation
 
 - Using IDE built-in plugin system on Windows:
-  - <kbd>File</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "lombok"</kbd> > <kbd>Install Plugin</kbd>
+  ```txt
+  File > Settings > Plugins > Browse repositories... > Search for "lombok" > Install Plugin
+  ```
 - Using IDE built-in plugin system on MacOs:
-  - <kbd>Preferences</kbd> > <kbd>Settings</kbd> > <kbd>Plugins</kbd> > <kbd>Browse repositories...</kbd> > <kbd>Search for "lombok"</kbd> > <kbd>Install Plugin</kbd>
+  ```txt
+  Preferences > Settings > Plugins > Browse repositories... > Search for "lombok" > Install Plugin
+  ```
 - Manually:
-  - Download the [latest release](https://github.com/mplushnikov/lombok-intellij-plugin/releases/latest) and install it manually using <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Install plugin from disk...</kbd>
+  Download the [latest release](https://github.com/mplushnikov/lombok-intellij-plugin/releases/latest) and install it manually using **`Preferences > Plugins > Install plugin from disk...`**
 
 Restart IDE.
 
@@ -34,4 +38,4 @@ Just run `lombok.jar` which will open the setup dialog, you need to specify your
 
 ## Javadoc Generation
 
-To generate the Javadocs in HTML5 you should use Java 9 or newer - the option will be set automatically based on your java version.
+To generate the Javadocs in HTML5 you should use JDK9 or newer - the option will be set automatically based on your java version.

@@ -24,6 +24,8 @@ You can create new application on the [Twitch Developer Console](https://glass.t
 
 To use Helix you need to enable the Helix API when building the Twitch4J Instance, as shown below:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
@@ -32,16 +34,42 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
     .build();
 ```
 
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 ## Standalone
 
 Initialize the Helix API as Standalone Module:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchHelix client = TwitchHelixBuilder.builder()
     .withClientId("clientId")
     .withClientSecret("clientSecret")
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## API Methods
 

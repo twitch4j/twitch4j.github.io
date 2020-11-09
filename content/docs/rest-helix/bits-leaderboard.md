@@ -46,9 +46,23 @@ HystrixCommand<BitsLeaderboard> getBitsLeaderboard(
 
 ### print ranking
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 BitsLeaderboard resultList = twitchClient.getHelix().getBitsLeaderboard(accessToken, "10", "all", null, null).execute();
 resultList.getEntries().forEach(entry -> {
 	System.out.println(entry.getRank() + ": " + entry.getUserId());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

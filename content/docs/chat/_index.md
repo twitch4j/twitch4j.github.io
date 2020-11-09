@@ -140,7 +140,7 @@ val credentialManager = CredentialManagerBuilder.builder().build().also {
 }
 
 // twitch4j - chat
-TwitchChat client = TwitchChatBuilder.builder().apply {
+val client = TwitchChatBuilder.builder().apply {
             withEventManager(eventManager)
             withCredentialManager(credentialManager)
             withChatAccount(oAuth2CredentialHere)

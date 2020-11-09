@@ -31,17 +31,45 @@ None
 
 ### Subscribe to the topic for a given channel
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForChannelPointsRedemptionEvents(credential, "149223493");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen for Custom Reward Redemptions
 
 Fired when a _custom_ reward is redeemed in the channel.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(RewardRedeemedEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen for Redemption Status Updates
 
@@ -51,9 +79,23 @@ Fired when the status of a redemption changes (e.g. completed or rejected).
 
 Note that, at the time of writing, the status is `ACTION_TAKEN` whether the reward was completed or rejected, rather than `FULFILLED` or `UNFULFILLED`.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(RedemptionStatusUpdateEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen for Reward Creations
 
@@ -61,9 +103,23 @@ Not documented by Twitch.
 
 Fired when a _custom_ reward is **created**.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(CustomRewardCreatedEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen for Reward Updates
 
@@ -71,9 +127,23 @@ Not documented by Twitch.
 
 Fired when a _custom_ reward is **updated**.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(CustomRewardUpdatedEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen for Reward Deletions
 
@@ -81,9 +151,23 @@ Not documented by Twitch.
 
 Fired when _custom_ reward is **deleted**.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(CustomRewardDeletedEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen for Update Redemption Status Progress
 
@@ -91,9 +175,23 @@ Not documented by Twitch.
 
 Fired when there is an update to the redemption progress.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(UpdateRedemptionProgressEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen for Update Redemption Status Completion
 
@@ -101,6 +199,20 @@ Not documented by Twitch.
 
 Fired when the redemption progress has completed.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(UpdateRedemptionFinishedEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

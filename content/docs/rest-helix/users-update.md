@@ -39,6 +39,20 @@ None
 
 ### update the description of a user
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getHelix().updateUser(accessToken, "Twitch4J IntegrationTest User").execute();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

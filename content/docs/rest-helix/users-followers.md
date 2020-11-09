@@ -47,6 +47,8 @@ None
 
 ### print followers
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 FollowList resultList = twitchClient.getHelix().getFollowers(OAuth2.getAccessToken(), "149223493", null, null, 100).execute();
 
@@ -54,3 +56,15 @@ resultList.getFollows().forEach(follow -> {
     System.out.println(follow.getFromName() + " is following " + follow.getToName());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

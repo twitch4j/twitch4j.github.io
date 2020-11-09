@@ -40,6 +40,20 @@ None
 
 ### get team by name
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getKraken().updateTitle("authToken", "44322889", "Hello World!").execute();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

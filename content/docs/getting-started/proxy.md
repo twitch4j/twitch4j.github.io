@@ -14,6 +14,8 @@ All components support the usage of a proxy server, it can be set globally like 
 
 *TwitchClientBuilder*
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
@@ -21,5 +23,17 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 You can also call `.withProxyConfig()` on any module builder if you'r using some modules standalone.

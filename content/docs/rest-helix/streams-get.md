@@ -56,9 +56,24 @@ As with all Helix endpoints, twitch requires an oauth token. If when using `Twit
 ## Code-Snippets
 
 ### get the top 5 streams
+
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 StreamList resultList = twitchClient.getHelix().getStreams(null, null, null, 5, null, null, null, null).execute();
 resultList.getStreams().forEach(stream -> {
     System.out.println("ID: " + stream.getId() + " - Title: " + stream.getTitle());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

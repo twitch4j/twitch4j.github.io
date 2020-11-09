@@ -24,6 +24,8 @@ You can register a new application on the [Twitch Developer Console](https://dev
 
 To use Kraken you need to enable the Kraken API when building the full Twitch4J Client Instance, as shown below:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
@@ -31,17 +33,43 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Standalone
 
 If you just want to use the Kraken API by itself, as Standalone Module:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchKraken client = TwitchKrakenBuilder.builder()
     .withClientId("clientId")
     .withClientSecret("clientSecret")
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## API Methods
 

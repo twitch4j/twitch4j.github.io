@@ -44,6 +44,8 @@ HystrixCommand<GameList> getGames(
 
 ### print game name
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 GameList resultList = twitchClient.getHelix().getGames(Arrays.asList(overwatchGameId), null).execute();
 
@@ -51,3 +53,15 @@ resultList.getGames().forEach(game -> {
     System.out.println("Game ID: " + game.getId() + " is " + game.getName());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

@@ -17,6 +17,8 @@ Therefore you need to use the client id of the twitch site and a auth token of t
 
 To use GraphQL you need to enable the GraphQL Module when building the Twitch4J Instance, as shown below:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
@@ -24,14 +26,40 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Standalone
 
 Initialize the GraphQL as Standalone Module:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchGraphQL client = TwitchGraphQLBuilder.builder().build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## API Methods
 

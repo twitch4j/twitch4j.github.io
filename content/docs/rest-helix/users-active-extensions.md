@@ -39,8 +39,22 @@ None
 
 ### print active extensions
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 ExtensionActiveList resultList = twitchClient.getHelix().getUserActiveExtensions(testUtils.getCredential().getAccessToken(), twitchUserId).execute();
 
 System.out.println(resultList.getData());
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

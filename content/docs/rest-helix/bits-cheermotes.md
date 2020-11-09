@@ -41,6 +41,8 @@ HystrixCommand<CheermoteList> getCheermotes(
 
 ### print cheermotes image urls by tiers
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 CheermoteList cheermoteList = twitchClient.getHelix().getCheermotes(authToken, "41245072").execute();
 cheermoteList.getCheermotes().forEach(cheermote -> {
@@ -50,3 +52,15 @@ cheermoteList.getCheermotes().forEach(cheermote -> {
     });
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

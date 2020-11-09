@@ -38,9 +38,23 @@ None
 
 ### print who is hosting a channel
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 HostList hosts = twitchClient.getMessagingInterface().getHostsOf("29829912").execute();
 hosts.getHosts().forEach(host -> {
     System.out.println(host.getHostDisplayName());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

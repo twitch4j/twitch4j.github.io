@@ -32,9 +32,23 @@ None
 
 ### print name of all ingest servers
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 KrakenIngestList resultList = twitchClient.getKraken().getIngestServers().execute();
 resultList.getIngests().forEach(ingest -> {
 	System.out.println(ingest.getName());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

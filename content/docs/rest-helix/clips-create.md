@@ -51,6 +51,8 @@ HystrixCommand<CreateClipList> createClip(
 
 ### create clip and show id
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 CreateClipList clipData = twitchClient.getHelix().createClip(accessToken, "149223493", false).execute();
 
@@ -58,3 +60,15 @@ clipData.getData().forEach(clip -> {
 	System.out.println("Created Clip with ID: " + clip.getId());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

@@ -26,8 +26,22 @@ With all undocumented topics, use at your own risk.
 
 Subscribe to hype train rewards for channel `twitch4j` and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForHypeTrainRewardEvents(credential, "149223493");
 
 twitchClient.getEventManager().onEvent(HypeTrainRewardsEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

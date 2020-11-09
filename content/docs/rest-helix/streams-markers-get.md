@@ -49,6 +49,8 @@ HystrixCommand<StreamMarkersList> getStreamMarkers(
 ## Code-Snippets
 
 ### print markers
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // TestCase
 StreamMarkersList resultList = twitchClient.getHelix().getStreamMarkers(authToken, "", "", null, "217359661l", "137512364l").execute();
@@ -60,3 +62,15 @@ resultList.getStreamMarkers().forEach(stream -> {
 	});
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

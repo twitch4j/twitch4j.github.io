@@ -39,9 +39,23 @@ None
 
 ### print stream key
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 StreamKeyList resultList = twitchClient.getHelix().getStreamKey(authToken, broadcasterId).execute();
 resultList.getKeys().forEach(key -> {
     System.out.println(key);
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

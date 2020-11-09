@@ -39,6 +39,8 @@ With all undocumented topics, use at your own risk.
 
 Subscribe to presence events for user `twitch4j` and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForPresenceEvents(credential, "149223493");
 
@@ -48,6 +50,18 @@ twitchClient.getEventManager().onEvent(UserPresenceEvent.class, System.out::prin
 // Listen for updates to the user's presence settings
 twitchClient.getEventManager().onEvent(PresenceSettingsEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Example: Live status monitoring
 
@@ -57,6 +71,8 @@ Note: these events tend to be fired significantly faster than the documented ana
 
 Disclaimer: do not solely rely upon this code; fallback mechanisms should be employed as well.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(UserPresenceEvent.class, e -> {
 	boolean wentLive = e.getData().getActivities().stream().anyMatch(a -> "broadcasting".equalsIgnoreCase(a.getType()));
@@ -65,3 +81,15 @@ twitchClient.getEventManager().onEvent(UserPresenceEvent.class, e -> {
 	}
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

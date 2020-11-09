@@ -43,6 +43,20 @@ None
 
 ### get information about a single user
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 KrakenUserList resultList = getTwitchKrakenClient().getUsersByLogin(Arrays.asList("twitch4j")).execute();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

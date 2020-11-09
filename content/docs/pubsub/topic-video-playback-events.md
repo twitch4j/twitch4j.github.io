@@ -48,20 +48,50 @@ With all undocumented topics, use at your own risk.
 
 **Preferred** way to subscribe to the topic; used by first-party clients and more resistant to name weirdness.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForVideoPlaybackEvents(credential, "149223493");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 #### By Channel Name
 
 An _alternative_ means to subscribe to the topic, if one does not have the channel ID and does not wish to query it.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForVideoPlaybackByNameEvents(credential, "twitch4j");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen for Events
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // Handle all subtypes
 twitchClient.getEventManager().onEvent(VideoPlaybackEvent.class, System.out::println);
@@ -73,3 +103,15 @@ twitchClient.getEventManager().onEvent(VideoPlaybackEvent.class, e -> {
 	}
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

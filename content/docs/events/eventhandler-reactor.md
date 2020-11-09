@@ -19,12 +19,18 @@ Check out the following class if you want to customize the parameters used when 
 
 ## Dependencies
 
-Gradle:
-
-`api group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.9.2'`
-
-Maven:
-
+{{<builds>}}
+{{<build gradle>}}
+```groovy
+api group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.9.2'
+```
+{{</build>}}
+{{<build kotlin>}}
+```kotlin
+api(group = "com.github.philippheuer.events4j", name = "events4j-handler-reactor", version = "0.9.2")
+```
+{{</build>}}
+{{<build pom>}}
 ```xml
 <dependency>
     <groupId>com.github.philippheuer.events4j</groupId>
@@ -32,11 +38,31 @@ Maven:
     <version>0.9.2</version>
 </dependency>
 ```
+{{</build>}}
+{{</builds>}}
 
 ## Set as default in Twitch4J and for eventManager.onEvent
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchClient twitchClient = TwitchClientBuilder.builder()
     .withDefaultEventHandler(ReactorEventHandler.class)
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+def twitchClient = TwitchClientBuilder.builder()
+    .withDefaultEventHandler(ReactorEventHandler)
+    .build();
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+val twitchClient = TwitchClientBuilder.builder()
+    .withDefaultEventHandler(ReactorEventHandler::class.java)
+    .build();
+```
+{{</code>}}
+{{</codeblocks>}}

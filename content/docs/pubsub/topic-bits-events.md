@@ -30,8 +30,22 @@ None
 
 Subscribe to all cheers to user twitch4j and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForCheerEvents(credential, "149223493");
 
 twitchClient.getEventManager().onEvent(ChannelBitsEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

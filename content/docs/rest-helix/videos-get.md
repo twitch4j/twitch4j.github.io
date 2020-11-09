@@ -60,6 +60,8 @@ HystrixCommand<VideoList> getVideos(
 
 ### print videos
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 VideoList resultList = twitchClient.getHelix().getVideos(null, null, "488552", null, null, null, null, null, null, 100).execute();
 
@@ -67,3 +69,15 @@ resultList.getVideos().forEach(video -> {
 	System.out.println(video.getId() + ": " + video.getTitle() + " - by: " + video.getUserName());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

@@ -37,6 +37,8 @@ None
 
 ### print all extensions
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 ExtensionList resultList = twitchClient.getHelix().getUserExtensions(accessToken).execute();
 
@@ -44,3 +46,15 @@ resultList.getExtensions().forEach(extension -> {
     System.out.println(extension.toString());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

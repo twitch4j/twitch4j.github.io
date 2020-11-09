@@ -15,6 +15,8 @@ The Twitch Chat System has a few unofficial endpoints which get exposed from `ht
 
 To use TMI you need to enable the TMI API when building the Twitch4J Instance, as shown below:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
@@ -22,17 +24,43 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
     ...
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Standalone
 
 Initialize the Helix API as Standalone Module:
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchHelix client = TwitchMessagingInterfaceBuilder.builder()
     .withClientId("clientId")
     .withClientSecret("clientSecret")
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## API Methods
 

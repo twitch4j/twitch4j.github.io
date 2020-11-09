@@ -44,9 +44,23 @@ None
 
 ### print game id and name for the top 10 games
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 GameTopList resultList = twitchClient.getHelix().getTopGames(null, null, 10).execute();
 resultList.getGames().forEach(game -> {
     System.out.println("ID: " + game.getId() + " - " + game.getName());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

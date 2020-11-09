@@ -50,9 +50,23 @@ HystrixCommand<GameAnalyticsList> getGameAnalyticUrl(
 
 ### print report url (to download the files)
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 ExtensionAnalyticsList resultList =twitchClient.getHelix().getGameAnalyticUrl(accessToken, null, 10, null, null, null, null).execute();
 resultList.getGameAnalytics().forEach(analytic -> {
 	System.out.println("URL: " + analytic.getURL());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

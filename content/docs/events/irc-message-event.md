@@ -21,8 +21,26 @@ Requires the TwitchChat Module to be enabled and active for the source channel. 
 
 ### Printing the RAW Message
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 eventManager.onEvent(IRCMessageEvent.class).subscribe(event -> {
 	System.out.println(event.getRawMessage());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+eventManager.onEvent(IRCMessageEvent).subscribe { event ->
+	System.out.println event.rawMessage
+}
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+eventManager.onEvent(IRCMessageEvent::class.java).subscribe { event ->
+	println(event.rawMessage);
+}
+```
+{{</code>}}
+{{</codeblocks>}}

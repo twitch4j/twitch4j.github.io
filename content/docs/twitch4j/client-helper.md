@@ -21,20 +21,62 @@ Those methods require the `Helix Module`, so enable it in the `TwitchClientBuild
 
 When using the client helper, you will need to specify a default credential (any) that gets used for all requests for increased ratelimits, this is mandatory!
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 TwitchClient twitchClient = TwitchClientBuilder.builder()
     .withDefaultAuthToken(new OAuth2Credential("twitch", "oauthtokenhere"))
     .build();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Register for Stream GoLive / GoOffline / GameChange / TitleChange Events
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getClientHelper().enableStreamEventListener("twitch4j");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Register for Follow Event
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getClientHelper().enableFollowEventListener("twitch4j");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

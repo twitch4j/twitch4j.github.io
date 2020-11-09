@@ -30,6 +30,20 @@ None
 
 ### unfollow a user
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getGraphQL().unfollowUser(credential, 24943033l).execute();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

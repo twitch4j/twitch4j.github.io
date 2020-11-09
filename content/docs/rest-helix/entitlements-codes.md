@@ -38,9 +38,23 @@ HystrixCommand<CodeStatusList> getCodeStatus(
 
 ### print code status
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 CodeStatusList codeStatusList = twitchClient.getHelix().getCodeStatus(authToken, List.of("KUHXV-4GXYP-AKAKK"), 156900877).execute();
 codeStatusList.getStatuses().forEach(codeStatus -> {
     System.out.println(codeStatus.getCode() + " " + codeStatus.getStatus());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

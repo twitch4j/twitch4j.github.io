@@ -28,6 +28,8 @@ With all undocumented topics, use at your own risk.
 
 Subscribe to all onsite notifications for user `twitch4j` and register listeners that print all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // Subscribe to the topic
 twitchClient.getPubSub().listenForOnsiteNotificationEvents(credential, "149223493");
@@ -38,6 +40,18 @@ twitchClient.getEventManager().onEvent(OnsiteNotificationCreationEvent.class, Sy
 // Listen for notification summary updates
 twitchClient.getEventManager().onEvent(UpdateOnsiteNotificationSummaryEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Example: Live status monitoring
 
@@ -45,8 +59,11 @@ Note: a single channel can be following up to 2000 channels, as of the time of w
 
 Note: these notifications tend to be fired faster than repeatedly querying API - Helix > Streams Get, as `TwitchClientHelper` (Twitch4J > Client Helper) does.
 
-Disclaimer: do not solely rely upon this code; fallback mechanisms should be employed as well.
-
+{{<alert info>}}
+**Disclaimer**: Do not solely rely upon this code; fallback mechanisms should be employed as well.
+{{</alert>}}
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // Establish which channels' live state is relevant
 Set<String> interestedChannelIds = new HashSet<>();
@@ -69,3 +86,15 @@ twitchClient.getEventManager().onEvent(OnsiteNotificationCreationEvent.class, e 
 	}
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

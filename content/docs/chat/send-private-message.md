@@ -19,6 +19,20 @@ Sends a private message to a user.
 
 ## Example
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getChat().sendPrivateMessage("twitch4j", "Hey! This is a direct message.");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+twitchClient.chat.sendPrivateMessage("twitch4j", "Hey! This is a direct message.")
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+twitchClient.chat.sendPrivateMessage("twitch4j", "Hey! This is a direct message.")
+```
+{{</code>}}
+{{</codeblocks>}}

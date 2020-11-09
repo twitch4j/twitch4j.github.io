@@ -17,9 +17,23 @@ Publish a event that should be processed somewhere:
 * The event object needs to implement the IEvent interface.
 * The event will be passed to all registered handlers.
 
-```
+{{<codeblocks>}}
+{{<code Java>}}
+```java
 eventManager.publish(object);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+eventManager.publish(object)
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+eventManager.publish(`object`)
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ## Handle / Process Events
 
@@ -44,15 +58,42 @@ If you want all your events to be processed by a specific eventHandler, then che
 
 Only the consumers registered with `eventManager.onEvent` will use the `defaultEventHandler`.
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // register handler
 IDisposable handlerReg = twitchClient.getEventManager().onEvent(ChannelMessageEvent.class, event -> {
-	System.out.println("[" + event.getChannel().getName() + "]["+event.getPermissions().toString()+"] " + event.getUser().getName() + ": " + event.getMessage());
+	System.out.println "[" + event.getChannel().getName() + "]["+event.getPermissions().toString()+"] " + event.getUser().getName() + ": " + event.getMessage());
 });
 
 // cancel handler (don't call the method for new events of the required type anymore)
 handlerReg.dispose();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+// register handler
+def handlerReg = twitchClient.eventManager.onEvent(ChannelMessageEvent) { event ->
+	System.out.println "[${event.channel.name}][${event.permissions}] ${event.user.name}: ${event.message}"
+}
+
+// cancel handler (don't call the method for new events of the required type anymore)
+handlerReg.dispose()
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+// register handler
+val handlerReg = twitchClient.eventManager.onEvent(ChannelMessageEvent::class.java) { event ->
+	println("[${event.channel.name}][${event.permissions}] ${event.user.name}: ${event.message}")
+}
+
+// cancel handler (don't call the method for new events of the required type anymore)
+handlerReg.dispose()
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 This is the recommended method to register listeners, as you can switch between the different EventHandlers by chaning a single line of code.
 
@@ -62,6 +103,8 @@ The default event handler can register `handlers` with annotations or provide la
 
 ###### Lambda / Consumer Example
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // register handler
 IDisposable handlerReg = twitchClient.getEventManager().getEventHandler(SimpleEventHandler.class).onEvent(ChannelMessageEvent.class, event -> {
@@ -71,9 +114,35 @@ IDisposable handlerReg = twitchClient.getEventManager().getEventHandler(SimpleEv
 // cancel handler (don't call the method for new events of the required type anymore)
 handlerReg.dispose();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+// register handler
+def handlerReg = twitchClient.eventManager.getEventHandler(SimpleEventHandler).onEvent ChannelMessageEvent, { event -> 
+	System.out.println "[${event.channel.name}][${event.permissions}] ${event.user.name}: ${event.message} "
+}
+
+// cancel handler (don't call the method for new events of the required type anymore)
+handlerReg.dispose()
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+// register handler
+val handlerReg = twitchClient.eventManager.getEventHandler(SimpleEventHandler::class.java).onEvent(ChannelMessageEvent::class.java) { event -> 
+	println("[${event.channel.name}][${event.permissions}] ${event.user.name}: ${event.message}")
+}
+
+// cancel handler (don't call the method for new events of the required type anymore)
+handlerReg.dispose()
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ###### Annotation Example
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 public class MyEventHandler {
 
@@ -89,6 +158,42 @@ public class MyEventHandler {
 MyEventHandler myEventHandler = new MyEventHandler();
 eventManager.getEventHandler(SimpleEventHandler.class).registerListener(myEventHandler);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+class MyEventHandler {
+
+    // the type of the 1st argument is relevant, you can pick any method name you want
+    @EventSubscriber
+    def printChannelMessage(ChannelMessageEvent event) {
+        System.out.println "[${event.channel.name}][${event.permissions}] ${event.user.name}: ${event.message}"
+    }
+
+}
+
+// register your handler class
+def myEventHandler = new MyEventHandler();
+eventManager.getEventHandler(SimpleEventHandler).registerListener(myEventHandler);
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+class MyEventHandler {
+
+    // the type of the 1st argument is relevant, you can pick any method name you want
+    @EventSubscriber
+    fun printChannelMessage(ChannelMessageEvent event) {
+        println("[${event.channel.name}][${event.permissions}] ${event.user.name}: ${event.message}")
+    }
+
+}
+
+// register your handler class
+val myEventHandler = MyEventHandler();
+eventManager.getEventHandler(SimpleEventHandler::class.java).registerListener(myEventHandler);
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ###### Cheat Sheet
 
@@ -102,10 +207,32 @@ eventManager.getEventHandler(SimpleEventHandler.class).registerListener(myEventH
 If desired you can also use the `ReactorHandler` to use reactive streams to process events (keep in mind that this will not work with android).
 To enable reactor add the `ReactorHandler` dependency, it will be discovered and registered automatically.
 
-```
+{{<builds>}}
+{{<build gradle>}}
+```groovy
 compile group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.7.1'
+// Since Gradle 5+
+implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.7.1'
 ```
+{{</build>}}
+{{<build kotlin>}}
+```kotlin
+implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-reactor", version = "0.7.1")
+```
+{{</build>}}
+{{<build pom>}}
+```xml
+<dependency>
+  <groupId>com.github.philippheuer.events4j</groupId>
+  <artifactId>events4j-handler-reactor</artifactId>
+  <version>0.7.1</version>
+</dependency>
+```
+{{</build>}}
+{{</builds>}}
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // register handler
 Disposable handlerReg = twitchClient.getEventManager().getEventHandler(ReactorEventHandler.class).onEvent(ChannelMessageEvent.class, event -> {
@@ -115,6 +242,30 @@ Disposable handlerReg = twitchClient.getEventManager().getEventHandler(ReactorEv
 // cancel handler (don't call the method for new events of the required type anymore)
 handlerReg.dispose();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+// register handler
+def handlerReg = twitchClient.eventManager.getEventHandler(ReactorEventHandler).onEvent ChannelMessageEvent, { event ->
+	System.out.println "[${event.channel.name}]${event.permissions}] ${event.user.name}: ${event.message}"
+}
+
+// cancel handler (don't call the method for new events of the required type anymore)
+handlerReg.dispose();
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+// register handler
+val handlerReg = twitchClient.eventManager.getEventHandler(ReactorEventHandler::class.java).onEvent(ChannelMessageEvent::class.java) { event ->
+	println("[${event.channel.name}]${event.permissions}] ${event.user.name}: ${event.message}")
+}
+
+// cancel handler (don't call the method for new events of the required type anymore)
+handlerReg.dispose();
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ###### Cheat Sheet
 
@@ -128,9 +279,29 @@ handlerReg.dispose();
 If desired you can also use the `SpringHandler` to handle all events as Spring Application Events.
 To enable reactor add the `SpringHandler` dependency, it will be discovered and registered automatically.
 
-```
+{{<builds>}}
+{{<build gradle>}}
+```groovy
 compile group: 'com.github.philippheuer.events4j', name: 'events4j-handler-spring', version: '0.7.1'
+// Since Gradle 5+
+implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-spring', version: '0.7.1'
 ```
+{{</build>}}
+{{<build kotlin>}}
+```kotlin
+implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-spring", version = "0.7.1")
+```
+{{</build>}}
+{{<build pom>}}
+```xml
+<dependency>
+  <groupId>com.github.philippheuer.events4j</groupId>
+  <artifactId>events4j-handler-spring</artifactId>
+  <version>0.7.1</version>
+</dependency>
+```
+{{</build>}}
+{{</builds>}}
 
 ## Event Catalog
 

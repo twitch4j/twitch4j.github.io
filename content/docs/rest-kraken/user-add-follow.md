@@ -39,6 +39,20 @@ None
 
 ### follow a channel
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getKraken().addFollow(auth, user, targetUserId).execute();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

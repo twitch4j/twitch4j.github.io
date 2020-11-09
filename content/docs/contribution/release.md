@@ -1,7 +1,7 @@
 ---
 title: Releases
-menu: docs
-weight: 50
+layout: docs
+weight: 10
 menu: 
   docs:
     parent: Contribution
@@ -27,13 +27,15 @@ The project contains a GH_TOKEN thats used to create new GitHub Releases using t
 
 To generate a human readable changelog, the commits have to follow the following naming convention:
 
-| Commit Message        | Changelog Category  |
-| ------------- :| -----------------:|
-| feature: `message` | Features |
-| feat: `message` | Features |
-| fix: `message` | Bug Fixes |
-| bugfix: `message` | Bug Fixes |
-| perf: `message` | Performance Improvements |
-| refactor: `message` | Code Refactoring |
-| chore: `message` | Internal |
-| docs: `message` | Documentation |
+{{< col "12" "md-8" "xl-8" >}}
+| Commit Message | Changelog Category |
+|-------------:|:-----------------|
+| `feature:` | Features |
+| `feat:` | Features |
+| `fix:` | Bug Fixes |
+| `bugfix:` | Bug Fixes |
+| `perf:` | Performance Improvements |
+| `refactor:` | Code Refactoring |
+| `chore:` | Internal |
+| `docs:` | Documentation |
+{{</ col >}}

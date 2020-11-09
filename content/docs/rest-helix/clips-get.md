@@ -56,9 +56,23 @@ HystrixCommand<ClipList> getClips(
 
 ### print clip id's
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 ClipList clipList = twitchClient.getHelix().getClips(null, "488552", null, null, null, null, null, null).execute();
 clipList.getData().forEach(clip -> {
     System.out.println("Found Clip: " + clip.getId());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

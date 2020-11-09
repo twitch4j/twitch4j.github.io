@@ -31,12 +31,40 @@ None
 
 ### follow a user (without notifications)
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getGraphQL().followUser(credential, 24943033l, false).execute();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### follow a user (with notifications)
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getGraphQL().followUser(credential, 24943033l, true).execute();
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

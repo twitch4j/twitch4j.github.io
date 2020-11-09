@@ -26,6 +26,8 @@ With all undocumented topics, use at your own risk.
 
 ### Subscribe: Weekly Leaderboard Events
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // One can subscribe to one or both of these:
 twitchClient.getPubSub().listenForChannelBitsLeaderboardEvents(credential, "149223493");
@@ -34,9 +36,23 @@ twitchClient.getPubSub().listenForChannelSubLeaderboardEvents(credential, "14922
 // Alternatively, this helper method can be used to subscribe to the above two topics in one line:
 twitchClient.getPubSub().listenForLeaderboardEvents(credential, "149223493");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Subscribe: Monthly Leaderboard Events
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // One can subscribe to one or both of these:
 twitchClient.getPubSub().listenForChannelBitsLeaderboardMonthlyEvents(credential, "149223493");
@@ -45,15 +61,55 @@ twitchClient.getPubSub().listenForChannelSubLeaderboardMonthlyEvents(credential,
 // Alternatively, this helper method can be used to subscribe to the above two topics in one line:
 twitchClient.getPubSub().listenForLeaderboardMonthlyEvents(credential, "149223493");
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen: Bits Leaderboard Update
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(BitsLeaderboardEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 ### Listen: Sub Gifts Leaderboard Update
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(SubLeaderboardEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

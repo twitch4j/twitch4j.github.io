@@ -22,8 +22,26 @@ Otherwise you will need to enable [PubSub](../pubsub) and subscribe to the whisp
 
 ### Listen for PrivateMessageEvent
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 eventManager.onEvent(PrivateMessageEvent.class).subscribe(event -> {
 	System.out.println("[Whisper] " + event.getUser().getName() + ": " + event.getMessage());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+eventManager.onEvent(PrivateMessageEvent).subscribe { event ->
+	System.out.println "[Whisper] ${event.user.name}: ${event.message}"
+}
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+eventManager.onEvent(PrivateMessageEvent::class.java).subscribe { event ->
+	println("[Whisper] ${event.user.name}: ${event.message}")
+}
+```
+{{</code>}}
+{{</codeblocks>}}

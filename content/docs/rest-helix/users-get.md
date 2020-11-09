@@ -41,19 +41,47 @@ None
 
 ### print user list - search by id
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 UserList resultList = twitchClient.getHelix().getUsers(null, Arrays.asList("149223493"), null).execute();
 resultList.getUsers().forEach(user -> {
 	System.out.println(user);
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}
 
 
 ### print user list - search by name
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 UserList resultList = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j")).execute();
 resultList.getUsers().forEach(user -> {
 	System.out.println(user);
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

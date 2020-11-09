@@ -29,8 +29,22 @@ With all undocumented topics, use at your own risk.
 
 Subscribe to all sub gift events in channel `twitch4j` and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForChannelSubGiftsEvents(credential, "149223493");
 
 twitchClient.getEventManager().onEvent(ChannelSubGiftEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

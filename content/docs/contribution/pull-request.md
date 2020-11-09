@@ -1,7 +1,7 @@
 ---
 title: Pull Request
 layout: docs
-weight : 7
+weight: 7
 menu: 
   docs:
     parent: Contribution

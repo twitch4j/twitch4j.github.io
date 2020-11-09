@@ -30,8 +30,22 @@ None
 
 Subscribe to all bits badge unlocks in the `twitch4j` channel and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 twitchClient.getPubSub().listenForBitsBadgeEvents(credential, "149223493");
 
 twitchClient.getEventManager().getEventHandler(ChannelBitsBadgeUnlockEvent.class).onEvent(ChannelSubscribeEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

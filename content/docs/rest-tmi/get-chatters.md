@@ -38,6 +38,8 @@ None
 
 ### print current viewers (chatters)
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 Chatters chatters = twitchClient.getMessagingInterface().getChatters("lirik").execute();
 
@@ -49,3 +51,15 @@ System.out.println("Staff: " + chatters.getStaff());
 System.out.println("Viewers: " + chatters.getViewers());
 System.out.println("All Viewers (sum of the above): " + chatters.getAllViewers());
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

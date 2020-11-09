@@ -38,9 +38,23 @@ None
 
 ### print display name of all teams
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 KrakenTeamList resultList = twitchClient.getKraken().getAllTeams(null, null).execute();
 resultList.getTeams().forEach(team -> {
     System.out.println(team.getDisplayName());
 });
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

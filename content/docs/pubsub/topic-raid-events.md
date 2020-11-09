@@ -26,6 +26,8 @@ With all undocumented topics, use at your own risk.
 
 Subscribe to all raid events in channel `twitch4j` and register a listener that prints all messages to console
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 // Subscribe to the topic
 twitchClient.getPubSub().listenForRaidEvents(credential, "149223493");
@@ -39,3 +41,15 @@ twitchClient.getEventManager()onEvent(RaidUpdateEvent.class, System.out::println
 // Listen for raid cancellations
 twitchClient.getEventManager().onEvent(RaidCancelEvent.class, System.out::println);
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

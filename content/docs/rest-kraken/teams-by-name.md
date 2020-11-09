@@ -36,7 +36,21 @@ None
 
 ### get team by name
 
+{{<codeblocks>}}
+{{<code Java>}}
 ```java
 KrakenTeam result = twitchClient.getKraken().getTeamByName("staff").execute();
 System.out.println(result.getDisplayName());
 ```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

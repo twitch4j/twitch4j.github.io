@@ -1,7 +1,7 @@
 ---
 title: Code Documentation
 layout: docs
-weight: 70
+weight: 11
 menu: 
   docs:
     parent: Contribution
@@ -37,9 +37,9 @@ When writing javadoc comments please follow this guideline:
  * @author First Person
  * @author Second Person
  * @version %I%, %G%
- * @since 1.0
+ * @since {{<current_version>}}
  */
-public class ...
+public class Example {}
 ```
 
 ### Method
@@ -50,8 +50,10 @@ public class ...
  * <p>
  * Requires Scope: none
  *
- * @param limit     Maximum number of most-recent objects to return (users who started following the channel most recently). Default: 25. Maximum: none.
+ * @param limit Maximum number of most-recent objects to return (users who started following the channel most recently). Default: 25. Maximum: none.
  * @param direction Direction of sorting. Valid values: asc (oldest first), desc (newest first). Default: desc.
  * @return Returns all followers.
+ * @since {{<current_version>}}
  */
+ Observable<Follower> getFollowers(int limit, Direction direction);
 ```
