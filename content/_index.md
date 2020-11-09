@@ -12,22 +12,20 @@ title: Home
 
 {{< codeblocks >}}
 {{< code Java >}}
-
 ```java
 public class Application {
   public static void main(String[] argv) {
-    TwitchClient client;
+    TwitchClient client = TwitchClientBuilder.builder().build();
   }
 }
 ```
-
 {{</ code >}}
 {{< code Groovy >}}
 
 ```groovy
 class Application {
   static void main(String[] argv) {
-    def client
+    TwitchClient client = TwitchClientBuilder.builder().build()
   }
 }
 ```
@@ -37,7 +35,7 @@ class Application {
 
 ```kotlin
 fun main(argv: Array<String>) {
-  val client: TwitchClient
+  val client: TwitchClient = TwitchClientBuilder.builder().build()
 }
 ```
 
@@ -50,21 +48,17 @@ fun main(argv: Array<String>) {
 {{< code Java >}}
 
 ```java
-public class Application {
-  public static void main(String[] argv) {
-    TwitchClient client;
-  }
-}
+client.getEventManager().onEvent(ChannelMessageEvent.class, event -> {
+	System.out.println("[" + event.getChannel().getName() + "]["+event.getPermissions().toString()+"] " + event.getUser().getName() + ": " + event.getMessage());
+});
 ```
 
 {{</ code >}}
 {{< code Groovy >}}
 
 ```groovy
-class Application {
-  static void main(String[] argv) {
-    def client
-  }
+client.eventManager.onEvent ChannelMessageEvent, { event ->
+	System.out.println "[${event.channel.name}]${event.permissions}] ${event.user.name}: ${event.message}"
 }
 ```
 
@@ -72,9 +66,9 @@ class Application {
 {{< code Kotlin >}}
 
 ```kotlin
-fun main(argv: Array<String>) {
-  val client: TwitchClient
-}
+client.eventManager.onEvent(ChannelMessageEvent::class.java) { event ->
+	println("[${event.channel.name}]${event.permissions}] ${event.user.name}: ${event.message}");
+});
 ```
 
 {{</ code >}}
