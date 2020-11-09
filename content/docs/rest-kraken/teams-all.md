@@ -49,12 +49,18 @@ resultList.getTeams().forEach(team -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.kraken.getAllTeams(null, null).execute();
+resultList.teams.each { team ->
+  System.out.println team.displayName
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.kraken.getAllTeams(null, null).execute();
+resultList.teams.forEach { team ->
+  println(team.displayName)
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

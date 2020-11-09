@@ -38,3 +38,21 @@ HystrixCommand<StreamTagList> getStreamTags(
 | authToken     | string    | User Auth Token |
 
 ## Code-Snippets
+
+{{<codeblocks>}}
+{{<code Java>}}
+```java
+
+```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

@@ -59,12 +59,20 @@ resultList.getFollows().forEach(follow -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+def resultList = twitchClient.helix.getFollowers(OAuth2.accessToken, "149223493", null, null, 100).execute()
 
+resultList.follows.each { follow ->
+    System.out.println "${follow.fromName} is following ${follow.toName}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+val resultList = twitchClient.helix.getFollowers(OAuth2.accessToken, "149223493", null, null, 100).execute()
 
+resultList.follows.each { follow ->
+    println("${follow.fromName} is following ${follow.toName}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

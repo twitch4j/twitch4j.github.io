@@ -31,12 +31,20 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def twitchClient = TwitchClientBuilder.builder()
+	...
+	.withEnablePubSub(true)
+	...
+	.build()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val twitchClient = TwitchClientBuilder.builder()
+	...
+	.withEnablePubSub(true)
+	...
+	.build()
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -53,12 +61,12 @@ TwitchPubSub client = TwitchPubSubBuilder.builder().build();
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def client = TwitchPubSubBuilder.builder().build();
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val client = TwitchPubSubBuilder.builder().build();
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -123,12 +131,20 @@ twitchClient.getPubSub().unsubscribeFromTopic(subscription);
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+// Initial subscription
+def subscription = twitchClient.pubSub.listenForWhisperEvents(credential, userId)
 
+// Later unsubscription
+twitchClient.pubSub.unsubscribeFromTopic(subscription)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+// Initial subscription
+val subscription = twitchClient.pubSub.listenForWhisperEvents(credential, userId)
 
+// Later unsubscription
+twitchClient.pubSub.unsubscribeFromTopic(subscription)
 ```
 {{</code>}}
 {{</codeblocks>}}

@@ -43,12 +43,18 @@ resultList.getIngests().forEach(ingest -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.kraken.ingestServers.execute();
+resultList.ingests.each { ingest ->
+	System.out.println ingest.name
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.kraken.ingestServers.execute();
+resultList.ingests.forEach { ingest ->
+	println(ingest.name)
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

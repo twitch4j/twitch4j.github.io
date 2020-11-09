@@ -40,12 +40,16 @@ twitchClient.getEventManager().onEvent(ChannelBitsEvent.class, System.out::print
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForCheerEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(ChannelBitsEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForCheerEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(ChannelBitsEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

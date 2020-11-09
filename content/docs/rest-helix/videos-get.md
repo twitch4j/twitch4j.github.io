@@ -72,12 +72,20 @@ resultList.getVideos().forEach(video -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+def resultList = twitchClient.helix.getVideos(null, null, "488552", null, null, null, null, null, null, 100).execute()
 
+resultList.videos.each { video ->
+	System.out.println "${video.id}: ${video.title} - by: ${video.userName}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+val resultList = twitchClient.helix.getVideos(null, null, "488552", null, null, null, null, null, null, 100).execute()
 
+resultList.videos.forEach { video ->
+	println("${video.id}: ${video.title} - by: ${video.userName}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

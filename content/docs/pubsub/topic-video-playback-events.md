@@ -56,12 +56,12 @@ twitchClient.getPubSub().listenForVideoPlaybackEvents(credential, "149223493");
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.pubSub.listenForVideoPlaybackEvents(credential, "149223493")
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.pubSub.listenForVideoPlaybackEvents(credential, "149223493")
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -78,12 +78,12 @@ twitchClient.getPubSub().listenForVideoPlaybackByNameEvents(credential, "twitch4
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.pubSub.listenForVideoPlaybackByNameEvents(credential, "twitch4j")
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.pubSub.listenForVideoPlaybackByNameEvents(credential, "twitch4j")
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -106,12 +106,28 @@ twitchClient.getEventManager().onEvent(VideoPlaybackEvent.class, e -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+// Handle all subtypes
+twitchClient.eventManager.onEvent(VideoPlaybackEvent, System.out::println)
 
+// Alternatively, only consider a specific subtype
+twitchClient.eventManager.onEvent(VideoPlaybackEvent) { e -> 
+	if (e.data.type == VideoPlaybackData.Type.STREAM_UP) {
+		System.out.println(e); // Handle Go Live
+	}
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+// Handle all subtypes
+twitchClient.eventManager.onEvent(VideoPlaybackEvent::class.java, System.out::println)
 
+// Alternatively, only consider a specific subtype
+twitchClient.eventManager.onEvent(VideoPlaybackEvent::class.java) { e -> 
+	if (e.data.type == VideoPlaybackData.Type.STREAM_UP) {
+		println(e); // Handle Go Live
+	}
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

@@ -76,12 +76,18 @@ resultList.getUsers().forEach(user -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.helix.getUsers(null, null, ["twitch4j"]).execute()
+resultList.users.each { user ->
+	System.out.println user
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.helix.getUsers(null, null, listOf("twitch4j")).execute()
+resultList.users.forEach { user ->
+	println(user)
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

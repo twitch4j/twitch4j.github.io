@@ -44,12 +44,32 @@ twitchClient.getEventManager().onEvent(RaidCancelEvent.class, System.out::printl
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+// Subscribe to the topic
+twitchClient.pubSub.listenForRaidEvents(credential, "149223493")
 
+// Listen for the channel executing a raid
+twitchClient.eventManager.onEvent(RaidGoEvent, System.out::println)
+
+// Listen for raid progress (counting down until the raid can go through)
+twitchClient.eventManageronEvent(RaidUpdateEvent, System.out::println)
+
+// Listen for raid cancellations
+twitchClient.eventManager.onEvent(RaidCancelEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+// Subscribe to the topic
+twitchClient.pubSub.listenForRaidEvents(credential, "149223493")
 
+// Listen for the channel executing a raid
+twitchClient.eventManager.onEvent(RaidGoEvent::class.java, System.out::println)
+
+// Listen for raid progress (counting down until the raid can go through)
+twitchClient.eventManageronEvent(RaidUpdateEvent::class.java, System.out::println)
+
+// Listen for raid cancellations
+twitchClient.eventManager.onEvent(RaidCancelEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

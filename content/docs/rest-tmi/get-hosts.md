@@ -40,7 +40,7 @@ None
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
-HostList hosts = twitchClient.getMessagingInterface().getHosts(List.of("29829912")).execute();
+HostList hosts = twitchClient.getMessagingInterface().getHosts(Arrays.asList("29829912")).execute();
 hosts.getHosts().forEach(host -> {
     System.out.println(host.getHostDisplayName() + " hosting " + host.getTargetDisplayName());
 });
@@ -48,12 +48,18 @@ hosts.getHosts().forEach(host -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def hosts = twitchClient.messagingInterface.getHosts(["29829912"]).execute()
+hosts.hosts.each { host ->
+    System.out.println "${host.hostDisplayName} hosting ${host.targetDisplayName}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+def hosts = twitchClient.messagingInterface.getHosts(["29829912"]).execute()
+hosts.hosts.each { host ->
+    println("${host.hostDisplayName} hosting ${host.targetDisplayName}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

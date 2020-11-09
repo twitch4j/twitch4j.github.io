@@ -55,12 +55,24 @@ cheermoteList.getCheermotes().forEach(cheermote -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def cheermoteList = twitchClient.helix.getCheermotes(authToken, "41245072").execute();
+cheermoteList.cheermotes.each { cheermote ->
+    System.out.println cheermote.prefix
+    cheermote.getTiers().each { tier -> 
+        System.out.println "${tier.id} ${tier.images.light.animatedImages.size40}"
+    }
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val cheermoteList = twitchClient.helix.getCheermotes(authToken, "41245072").execute();
+cheermoteList.cheermotes.forEach { cheermote ->
+    println(cheermote.prefix)
+    cheermote.getTiers().each { tier -> 
+        println("${tier.id} ${tier.images.light.animatedImages.size40}")
+    }
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

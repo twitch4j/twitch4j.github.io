@@ -59,12 +59,18 @@ resultList.getExtensionAnalytics().forEach(analytic -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.helix.getExtensionAnalyticUrl(accessToken, null, 10, null, null, null, null).execute();
+resultList.extensionAnalytics.each { analytic ->
+	System.out.println "URL: ${analytic.uRL}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.helix.getExtensionAnalyticUrl(accessToken, null, 10, null, null, null, null).execute();
+resultList.extensionAnalytics.forEach { analytic ->
+	println("URL: ${analytic.uRL}");
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

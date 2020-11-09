@@ -47,12 +47,12 @@ twitchClient.getHelix().updateUser(accessToken, "Twitch4J IntegrationTest User")
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.helix.updateUser(accessToken, "Twitch4J IntegrationTest User").execute()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.helix.updateUser(accessToken, "Twitch4J IntegrationTest User").execute()
 ```
 {{</code>}}
 {{</codeblocks>}}

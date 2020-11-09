@@ -42,12 +42,16 @@ twitchClient.getEventManager().onEvent(ChatModerationEvent.class, System.out::pr
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForModerationEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(ChatModerationEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForModerationEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(ChatModerationEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -71,12 +75,16 @@ twitchClient.getPubSub().listenForModerationEvents(credential, broadcasterId, us
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def broadcasterId = "149223493" // channel id of twitch4j
+def userId = "142621956" // user id of hexafice
+twitchClient.pubSub.listenForModerationEvents(credential, broadcasterId, userId)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val broadcasterId = "149223493" // channel id of twitch4j
+val userId = "142621956" // user id of hexafice
+twitchClient.pubSub.listenForModerationEvents(credential, broadcasterId, userId)
 ```
 {{</code>}}
 {{</codeblocks>}}

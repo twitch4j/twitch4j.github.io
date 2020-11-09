@@ -43,12 +43,16 @@ twitchClient.getEventManager().onEvent(FriendshipEvent.class, System.out::printl
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForFriendshipEvents(credential, "149223493");
 
+twitchClient.eventManager.onEvent(FriendshipEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForFriendshipEvents(credential, "149223493");
 
+twitchClient.eventManager.onEvent(FriendshipEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

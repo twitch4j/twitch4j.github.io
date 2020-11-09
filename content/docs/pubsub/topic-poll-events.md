@@ -43,12 +43,16 @@ twitchClient.getEventManager().onEvent(PollsEvent.class, System.out::println);
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForPollEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(PollsEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForPollEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(PollsEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

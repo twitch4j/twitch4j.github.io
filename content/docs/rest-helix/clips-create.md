@@ -63,12 +63,20 @@ clipData.getData().forEach(clip -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+def clipData = twitchClient.helix.createClip(accessToken, "149223493", false).execute();
 
+clipData.data.each { clip ->
+	System.out.println "Created Clip with ID: ${clip.id}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+val clipData = twitchClient.helix.createClip(accessToken, "149223493", false).execute();
 
+clipData.`data`.each { clip ->
+	println("Created Clip with ID: ${clip.id}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

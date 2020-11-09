@@ -55,12 +55,18 @@ resultList.getGames().forEach(game -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.helix.getTopGames(null, null, 10).execute()
+resultList.games.each { game ->
+    System.out.println "ID: ${game.id} - ${game.name}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.helix.getTopGames(null, null, 10).execute()
+resultList.games.forEach { game ->
+    println("ID: ${game.id} - ${game.name}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

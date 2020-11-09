@@ -38,12 +38,12 @@ twitchClient.getGraphQL().unfollowUser(credential, 24943033l).execute();
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.graphQL.unfollowUser(credential, 24943033l).execute()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.graphQL.unfollowUser(credential, 24943033l).execute()
 ```
 {{</code>}}
 {{</codeblocks>}}

@@ -54,11 +54,28 @@ System.out.println("All Viewers (sum of the above): " + chatters.getAllViewers()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+def chatters = twitchClient.messagingInterface.getChatters("lirik").execute();
 
+System.out.println("Broadcaster: ${chatters.broadcaster}");
+System.out.println("VIPs: ${chatters.vips}");
+System.out.println("Mods: ${chatters.moderators}");
+System.out.println("Admins: ${chatters.admins}");
+System.out.println("Staff: ${chatters.staff}");
+System.out.println("Viewers: ${chatters.viewers}");
+System.out.println("All Viewers (sum of the above): ${chatters.allViewers}");
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+def chatters = twitchClient.messagingInterface.getChatters("lirik").execute();
+
+println("Broadcaster: ${chatters.broadcaster}");
+println("VIPs: ${chatters.vips}");
+println("Mods: ${chatters.moderators}");
+println("Admins: ${chatters.admins}");
+println("Staff: ${chatters.staff}");
+println("Viewers: ${chatters.viewers}");
+println("All Viewers (sum of the above): ${chatters.allViewers}");
 
 ```
 {{</code>}}

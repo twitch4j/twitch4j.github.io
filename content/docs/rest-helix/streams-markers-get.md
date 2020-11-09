@@ -57,7 +57,7 @@ StreamMarkersList resultList = twitchClient.getHelix().getStreamMarkers(authToke
 resultList.getStreamMarkers().forEach(stream -> {
 	stream.getVideos().forEach(videoMarker -> {
 		videoMarker.getMarkers().forEach(marker -> {
-			System.out.println(marker.getId() + ":" + marker.getDescription())
+			System.out.println(marker.getId() + ":" + marker.getDescription());
 		});
 	});
 });
@@ -65,12 +65,27 @@ resultList.getStreamMarkers().forEach(stream -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+// TestCase
+def resultList = twitchClient.helix.getStreamMarkers(authToken, "", "", null, "217359661l", "137512364l").execute()
+resultList.streamMarkers.each { stream ->
+	stream.videos.each { videoMarker ->
+		videoMarker.markers.each { marker -> {
+			System.out.println "${marker.id}:${marker.description}"
+		}
+	}
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.helix.getStreamMarkers(authToken, "", "", null, "217359661l", "137512364l").execute()
+resultList.streamMarkers.forEach { stream ->
+	stream.videos.forEach { videoMarker ->
+		videoMarker.markers.forEach { marker -> {
+			println("${marker.id}:${marker.description}")
+		}
+	}
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

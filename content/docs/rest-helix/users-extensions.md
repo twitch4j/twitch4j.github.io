@@ -43,18 +43,26 @@ None
 ExtensionList resultList = twitchClient.getHelix().getUserExtensions(accessToken).execute();
 
 resultList.getExtensions().forEach(extension -> {
-    System.out.println(extension.toString());
+    System.out.println(extension);
 });
 ```
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+def resultList = twitchClient.helix.getUserExtensions(accessToken).execute()
 
+resultList.extensions.each { extension ->
+    System.out.println extension
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+val resultList = twitchClient.helix.getUserExtensions(accessToken).execute()
 
+resultList.extensions.forEach { extension ->
+    println(extension)
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

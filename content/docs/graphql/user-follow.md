@@ -39,12 +39,12 @@ twitchClient.getGraphQL().followUser(credential, 24943033l, false).execute();
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.graphQL.followUser(credential, 24943033l, false).execute()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.graphQL.followUser(credential, 24943033l, false).execute()
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -59,12 +59,12 @@ twitchClient.getGraphQL().followUser(credential, 24943033l, true).execute();
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.graphQL.followUser(credential, 24943033l, true).execute()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.graphQL.followUser(credential, 24943033l, true).execute()
 ```
 {{</code>}}
 {{</codeblocks>}}

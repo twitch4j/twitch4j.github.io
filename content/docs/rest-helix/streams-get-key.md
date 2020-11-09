@@ -50,12 +50,18 @@ resultList.getKeys().forEach(key -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.helix.getStreamKey(authToken, broadcasterId).execute()
+resultList.keys.each { key ->
+    System.out.println key
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.helix.getStreamKey(authToken, broadcasterId).execute()
+resultList.keys.forEach { key ->
+    println(key)
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

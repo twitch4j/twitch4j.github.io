@@ -61,12 +61,18 @@ resultList.getSubscriptions().forEach(sub -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.kraken.getChannelSubscribers("accessToken", channelId, null, null, null).execute();
+resultList.subscriptions.each { sub ->
+	System.out.println "$sub"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.kraken.getChannelSubscribers("accessToken", channelId, null, null, null).execute();
+resultList.subscriptions.forEach { sub ->
+	println("$sub")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

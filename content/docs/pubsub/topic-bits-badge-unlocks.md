@@ -40,12 +40,16 @@ twitchClient.getEventManager().getEventHandler(ChannelBitsBadgeUnlockEvent.class
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForBitsBadgeEvents(credential, "149223493")
 
+twitchClient.eventManager.getEventHandler(ChannelBitsBadgeUnlockEvent).onEvent(ChannelSubscribeEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForBitsBadgeEvents(credential, "149223493")
 
+twitchClient.eventManager.getEventHandler(ChannelBitsBadgeUnlockEvent::class.java).onEvent(ChannelSubscribeEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

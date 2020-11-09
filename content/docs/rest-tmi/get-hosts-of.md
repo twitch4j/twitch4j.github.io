@@ -49,12 +49,18 @@ hosts.getHosts().forEach(host -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def hosts = twitchClient.messagingInterface.getHostsOf("29829912").execute()
+hosts.hosts.each { host ->
+    System.out.println(host.hostDisplayName);
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val hosts = twitchClient.messagingInterface.getHostsOf("29829912").execute()
+hosts.hosts.each { host ->
+    println(host.hostDisplayName);
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

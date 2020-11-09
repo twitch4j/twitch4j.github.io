@@ -36,12 +36,16 @@ twitchClient.getEventManager().onEvent(CheerbombEvent.class, System.out::println
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForPublicCheerEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(CheerbombEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForPublicCheerEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(CheerbombEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

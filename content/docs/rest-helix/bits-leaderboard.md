@@ -57,12 +57,18 @@ resultList.getEntries().forEach(entry -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.helix.getBitsLeaderboard(accessToken, "10", "all", null, null).execute();
+resultList.entries.each { entry ->
+	System.out.println "${entry.rank}: ${entry.userId}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.helix.getBitsLeaderboard(accessToken, "10", "all", null, null).execute();
+resultList.entries.forEach { entry ->
+	println("${entry.rank}: ${entry.userId}");
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

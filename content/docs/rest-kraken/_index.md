@@ -36,12 +36,20 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableKraken(true)
+    ...
+    .build();
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableKraken(true)
+    ...
+    .build();
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -61,12 +69,18 @@ TwitchKraken client = TwitchKrakenBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def client = TwitchKrakenBuilder.builder()
+    .withClientId("clientId")
+    .withClientSecret("clientSecret")
+    .build();
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val client = TwitchKrakenBuilder.builder()
+    .withClientId("clientId")
+    .withClientSecret("clientSecret")
+    .build();
 ```
 {{</code>}}
 {{</codeblocks>}}

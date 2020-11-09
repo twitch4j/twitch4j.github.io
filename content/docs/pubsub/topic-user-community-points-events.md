@@ -44,12 +44,28 @@ twitchClient.getEventManager().onEvent(RewardRedeemedEvent.class, System.out::pr
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+// Subscribe to topic
+twitchClient.pubSub.listenForUserChannelPointsEvents(credential, "149223493");
 
+// Register event listeners
+twitchClient.eventManager.onEvent(PointsEarnedEvent, System.out::println);
+twitchClient.eventManager.onEvent(ClaimAvailableEvent, System.out::println);
+twitchClient.eventManager.onEvent(ClaimClaimedEvent, System.out::println);
+twitchClient.eventManager.onEvent(PointsSpentEvent, System.out::println);
+twitchClient.eventManager.onEvent(RewardRedeemedEvent, System.out::println);
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+// Subscribe to topic
+twitchClient.pubSub.listenForUserChannelPointsEvents(credential, "149223493");
 
+// Register event listeners
+twitchClient.eventManager.onEvent(PointsEarnedEvent::class.java, System.out::println);
+twitchClient.eventManager.onEvent(ClaimAvailableEvent::class.java, System.out::println);
+twitchClient.eventManager.onEvent(ClaimClaimedEvent::class.java, System.out::println);
+twitchClient.eventManager.onEvent(PointsSpentEvent::class.java, System.out::println);
+twitchClient.eventManager.onEvent(RewardRedeemedEvent::class.java, System.out::println);
 ```
 {{</code>}}
 {{</codeblocks>}}

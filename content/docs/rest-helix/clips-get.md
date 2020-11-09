@@ -67,12 +67,18 @@ clipList.getData().forEach(clip -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def clipList = twitchClient.helix.getClips(null, "488552", null, null, null, null, null, null).execute();
+clipList.data.each { clip ->
+    System.out.println "Found Clip: ${clip.id}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val clipList = twitchClient.helix.getClips(null, "488552", null, null, null, null, null, null).execute();
+clipList.`data`.forEach { clip ->
+    println("Found Clip: ${clip.id}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

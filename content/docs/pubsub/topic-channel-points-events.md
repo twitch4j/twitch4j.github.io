@@ -39,12 +39,12 @@ twitchClient.getPubSub().listenForChannelPointsRedemptionEvents(credential, "149
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.pubSub.listenForChannelPointsRedemptionEvents(credential, "149223493")
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.pubSub.listenForChannelPointsRedemptionEvents(credential, "149223493")
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -61,12 +61,12 @@ twitchClient.getEventManager().onEvent(RewardRedeemedEvent.class, System.out::pr
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(RewardRedeemedEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(RewardRedeemedEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -87,12 +87,12 @@ twitchClient.getEventManager().onEvent(RedemptionStatusUpdateEvent.class, System
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(RedemptionStatusUpdateEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(RedemptionStatusUpdateEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -111,12 +111,12 @@ twitchClient.getEventManager().onEvent(CustomRewardCreatedEvent.class, System.ou
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(CustomRewardCreatedEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(CustomRewardCreatedEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -135,12 +135,12 @@ twitchClient.getEventManager().onEvent(CustomRewardUpdatedEvent.class, System.ou
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(CustomRewardUpdatedEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(CustomRewardUpdatedEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -159,12 +159,12 @@ twitchClient.getEventManager().onEvent(CustomRewardDeletedEvent.class, System.ou
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(CustomRewardDeletedEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(CustomRewardDeletedEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -183,12 +183,12 @@ twitchClient.getEventManager().onEvent(UpdateRedemptionProgressEvent.class, Syst
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(UpdateRedemptionProgressEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(UpdateRedemptionProgressEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -207,12 +207,12 @@ twitchClient.getEventManager().onEvent(UpdateRedemptionFinishedEvent.class, Syst
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(UpdateRedemptionFinishedEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(UpdateRedemptionFinishedEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

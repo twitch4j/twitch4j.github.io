@@ -39,12 +39,16 @@ twitchClient.getEventManager().onEvent(ChannelSubGiftEvent.class, System.out::pr
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForChannelSubGiftsEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(ChannelSubGiftEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForChannelSubGiftsEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(ChannelSubGiftEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

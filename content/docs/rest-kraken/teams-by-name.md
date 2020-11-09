@@ -45,12 +45,14 @@ System.out.println(result.getDisplayName());
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def result = twitchClient.kraken.getTeamByName("staff").execute();
+System.out.println result.displayName
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val result = twitchClient.kraken.getTeamByName("staff").execute();
+println(result.displayName)
 ```
 {{</code>}}
 {{</codeblocks>}}

@@ -36,12 +36,16 @@ twitchClient.getEventManager().onEvent(HypeTrainRewardsEvent.class, System.out::
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForHypeTrainRewardEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(HypeTrainRewardsEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForHypeTrainRewardEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(HypeTrainRewardsEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

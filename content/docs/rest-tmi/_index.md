@@ -27,12 +27,20 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableTMI(true)
+    ...
+    .build()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableTMI(true)
+    ...
+    .build()
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -52,12 +60,18 @@ TwitchHelix client = TwitchMessagingInterfaceBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def client = TwitchMessagingInterfaceBuilder.builder()
+    .withClientId("clientId")
+    .withClientSecret("clientSecret")
+    .build()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val client = TwitchMessagingInterfaceBuilder.builder()
+    .withClientId("clientId")
+    .withClientSecret("clientSecret")
+    .build()
 ```
 {{</code>}}
 {{</codeblocks>}}

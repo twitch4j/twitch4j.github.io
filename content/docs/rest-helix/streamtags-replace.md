@@ -46,3 +46,21 @@ HystrixCommand<Object> replaceStreamTags(
 | tag_ids | string | IDs of tags to be applied to the stream. Maximum of 100 supported. |
 
 ## Code-Snippets
+
+{{<codeblocks>}}
+{{<code Java>}}
+```java
+
+```
+{{</code>}}
+{{<code Groovy>}}
+```groovy
+
+```
+{{</code>}}
+{{<code Kotlin>}}
+```kotlin
+
+```
+{{</code>}}
+{{</codeblocks>}}

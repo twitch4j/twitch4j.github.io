@@ -26,12 +26,20 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withProxyConfig(ProxyConfig.builder().hostname("my-proxy-host").port(8080).build())
+    ...
+    .build()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withProxyConfig(ProxyConfig.builder().hostname("my-proxy-host").port(8080).build())
+    ...
+    .build()
 ```
 {{</code>}}
 {{</codeblocks>}}

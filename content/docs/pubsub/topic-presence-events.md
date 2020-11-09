@@ -53,12 +53,24 @@ twitchClient.getEventManager().onEvent(PresenceSettingsEvent.class, System.out::
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForPresenceEvents(credential, "149223493")
 
+// Listen for presence updates
+twitchClient.eventManager.onEvent(UserPresenceEvent, System.out::println)
+
+// Listen for updates to the user's presence settings
+twitchClient.eventManager.onEvent(PresenceSettingsEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForPresenceEvents(credential, "149223493")
 
+// Listen for presence updates
+twitchClient.eventManager.onEvent(UserPresenceEvent::class.java, System.out::println)
+
+// Listen for updates to the user's presence settings
+twitchClient.eventManager.onEvent(PresenceSettingsEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -75,7 +87,7 @@ Disclaimer: do not solely rely upon this code; fallback mechanisms should be emp
 {{<code Java>}}
 ```java
 twitchClient.getEventManager().onEvent(UserPresenceEvent.class, e -> {
-	boolean wentLive = e.getData().getActivities().stream().anyMatch(a -> "broadcasting".equalsIgnoreCase(a.getType()));
+	boolean wentLive = e.getData().getActivities().stream().anyMatch(a -> a.getType().equalsIgnoreCase("broadcasting"));
 	if (wentLive) {
 		System.out.println(e); // Handle Go Live
 	}
@@ -84,12 +96,22 @@ twitchClient.getEventManager().onEvent(UserPresenceEvent.class, e -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(UserPresenceEvent) { e ->
+	boolean wentLive = e.data.activities.any { it.type.equalsIgnoreCase("broadcasting") }
+	if (wentLive) {
+		System.out.println(e); // Handle Go Live
+	}
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(UserPresenceEvent::class.java) { e ->
+	boolean wentLive = e.`data`.activities.any { it.type.equalsIgnoreCase("broadcasting") }
+	if (wentLive) {
+		println(e); // Handle Go Live
+	}
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

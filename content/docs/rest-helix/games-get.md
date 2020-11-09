@@ -56,12 +56,20 @@ resultList.getGames().forEach(game -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+def resultList = twitchClient.helix.getGames([overwatchGameId], null).execute()
 
+resultList.games.each { game ->
+    System.out.println "Game ID: ${game.id} is ${game.name}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+val resultList = twitchClient.helix.getGames(listOf(overwatchGameId), null).execute()
 
+resultList.games.forEach { game ->
+    println("Game ID: ${game.id} is ${game.name}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

@@ -42,12 +42,16 @@ twitchClient.getEventManager().onEvent(PrivateMessageEvent.class, System.out::pr
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForWhisperEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(PrivateMessageEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForWhisperEvents(credential, "149223493")
 
+twitchClient.eventManager.onEvent(PrivateMessageEvent, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

@@ -39,12 +39,16 @@ twitchClient.getEventManager().onEvent(FollowingEvent.class, System.out::println
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForFollowingEvents(credential, "149223493");
 
+twitchClient.eventManager.onEvent(FollowingEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForFollowingEvents(credential, "149223493");
 
+twitchClient.eventManager.onEvent(FollowingEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

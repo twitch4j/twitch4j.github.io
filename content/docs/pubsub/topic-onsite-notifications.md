@@ -43,12 +43,26 @@ twitchClient.getEventManager().onEvent(UpdateOnsiteNotificationSummaryEvent.clas
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+// Subscribe to the topic
+twitchClient.pubSub.listenForOnsiteNotificationEvents(credential, "149223493");
 
+// Listen to notification creations
+twitchClient.eventManager.onEvent(OnsiteNotificationCreationEvent, System.out::println);
+
+// Listen for notification summary updates
+twitchClient.eventManager.onEvent(UpdateOnsiteNotificationSummaryEvent, System.out::println);
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+// Subscribe to the topic
+twitchClient.pubSub.listenForOnsiteNotificationEvents(credential, "149223493");
 
+// Listen to notification creations
+twitchClient.eventManager.onEvent(OnsiteNotificationCreationEvent::class.java, System.out::println);
+
+// Listen for notification summary updates
+twitchClient.eventManager.onEvent(UpdateOnsiteNotificationSummaryEvent::class.java, System.out::println);
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -78,7 +92,7 @@ twitchClient.getPubSub().listenForOnsiteNotificationEvents(credential, userId);
 // Listen to notification creations
 twitchClient.getEventManager().onEvent(OnsiteNotificationCreationEvent.class, e -> {
 	OnsiteNotification notification = e.getData().getNotification();
-	if ("streamup".equalsIgnoreCase(notification.getType())) {
+	if (notification.getType().equalsIgnoreCase("streamup")) {
 		List<OnsiteNotification.Creator> creators = notification.getCreators();
 		if (creators != null && creators.size() == 1 && interestedChannelIds.contains(creators.get(0).getUserId())) {
 			System.out.println(e); // Handle Go Live
@@ -89,12 +103,47 @@ twitchClient.getEventManager().onEvent(OnsiteNotificationCreationEvent.class, e 
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+// Establish which channels' live state is relevant
+def interestedChannelIds = new HashSet<>()
+interestedChannelIds.add("12826")
+interestedChannelIds.add("53888434")
+interestedChannelIds.add("141981764")
+interestedChannelIds.add("142621956")
 
+// Subscribe to the topic
+twitchClient.pubSub.listenForOnsiteNotificationEvents(credential, userId)
+
+// Listen to notification creations
+twitchClient.eventManager.onEvent(OnsiteNotificationCreationEvent) { e ->
+	def notification = e.data.notification
+	if (notification.type.equalsIgnoreCase("streamup")) {
+		def creators = notification.creators
+		if (creators != null && creators.size() == 1 && interestedChannelIds.contains(creators[0].userId)) {
+			System.out.println(e) // Handle Go Live
+		}
+	}
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+// Establish which channels' live state is relevant
+val interestedChannelIds = setOf("12826", "53888434", "141981764", "142621956")
 
+// Subscribe to the topic
+twitchClient.pubSub.listenForOnsiteNotificationEvents(credential, userId);
+
+// Listen to notification creations
+twitchClient.eventManager.onEvent(OnsiteNotificationCreationEvent::class.java) { e ->
+	val notification = e.`data`.notification;
+	if (notification.type.equals("streamup", true)) {
+		notification.creators?.apply {
+			if (size == 1 && interestedChannelIds.contains(get(0).userId) {
+				println(e); // Handle Go Live
+			}
+		}
+	}
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

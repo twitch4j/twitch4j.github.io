@@ -48,12 +48,12 @@ twitchClient.getKraken().updateTitle("authToken", "44322889", "Hello World!").ex
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.kraken.updateTitle("authToken", "44322889", "Hello World!").execute();
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.kraken.updateTitle("authToken", "44322889", "Hello World!").execute();
 ```
 {{</code>}}
 {{</codeblocks>}}

@@ -31,12 +31,16 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def twitchClient = TwitchClientBuilder.builder()
+    .withDefaultAuthToken(new OAuth2Credential("twitch", "oauthtokenhere"))
+    .build();
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val twitchClient = TwitchClientBuilder.builder()
+    .withDefaultAuthToken(OAuth2Credential("twitch", "oauthtokenhere"))
+    .build();
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -51,12 +55,12 @@ twitchClient.getClientHelper().enableStreamEventListener("twitch4j");
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.clientHelper.enableStreamEventListener("twitch4j");
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.clientHelper.enableStreamEventListener("twitch4j");
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -71,12 +75,12 @@ twitchClient.getClientHelper().enableFollowEventListener("twitch4j");
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.clientHelper.enableFollowEventListener("twitch4j");
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.clientHelper.enableFollowEventListener("twitch4j");
 ```
 {{</code>}}
 {{</codeblocks>}}

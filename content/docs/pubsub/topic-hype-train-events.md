@@ -34,12 +34,12 @@ twitchClient.getPubSub().listenForHypeTrainEvents(credential, "149223493");
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.pubSub.listenForHypeTrainEvents(credential, "149223493")
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.pubSub.listenForHypeTrainEvents(credential, "149223493")
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -54,12 +54,12 @@ twitchClient.getEventManager().onEvent(HypeTrainStartEvent.class, System.out::pr
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(HypeTrainStartEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(HypeTrainStartEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -74,12 +74,12 @@ twitchClient.getEventManager().onEvent(HypeTrainProgressionEvent.class, System.o
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(HypeTrainProgressionEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(HypeTrainProgressionEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -94,12 +94,12 @@ twitchClient.getEventManager().onEvent(HypeTrainLevelUpEvent.class, System.out::
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(HypeTrainLevelUpEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(HypeTrainLevelUpEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -114,12 +114,12 @@ twitchClient.getEventManager().onEvent(HypeTrainEndEvent.class, System.out::prin
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(HypeTrainEndEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(HypeTrainEndEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -134,12 +134,12 @@ twitchClient.getEventManager().onEvent(HypeTrainConductorUpdateEvent.class, Syst
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(HypeTrainConductorUpdateEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(HypeTrainConductorUpdateEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -154,12 +154,12 @@ twitchClient.getEventManager().onEvent(HypeTrainCooldownExpirationEvent.class, S
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.eventManager.onEvent(HypeTrainCooldownExpirationEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.eventManager.onEvent(HypeTrainCooldownExpirationEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

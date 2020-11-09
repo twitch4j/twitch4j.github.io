@@ -29,12 +29,20 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableGraphQL(true)
+    ...
+    .build()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableGraphQL(true)
+    ...
+    .build()
 ```
 {{</code>}}
 {{</codeblocks>}}
@@ -51,12 +59,12 @@ TwitchGraphQL client = TwitchGraphQLBuilder.builder().build();
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def client = TwitchGraphQLBuilder.builder().build()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val client = TwitchGraphQLBuilder.builder().build()
 ```
 {{</code>}}
 {{</codeblocks>}}

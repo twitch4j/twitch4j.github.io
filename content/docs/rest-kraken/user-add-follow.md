@@ -47,12 +47,12 @@ twitchClient.getKraken().addFollow(auth, user, targetUserId).execute();
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+twitchClient.kraken.addFollow(auth, user, targetUserId).execute()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+twitchClient.kraken.addFollow(auth, user, targetUserId).execute()
 ```
 {{</code>}}
 {{</codeblocks>}}

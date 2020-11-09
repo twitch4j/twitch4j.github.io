@@ -68,12 +68,18 @@ resultList.getStreams().forEach(stream -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.helix.getStreams(null, null, null, 5, null, null, null, null).execute()
+resultList.streams.each { stream ->
+    System.out.println "ID: ${stream.id} - Title: ${stream.title}"
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.helix.getStreams(null, null, null, 5, null, null, null, null).execute()
+resultList.streams.forEach { stream ->
+    println("ID: ${stream.id} - Title: ${stream.title}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

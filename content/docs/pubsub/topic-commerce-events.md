@@ -40,12 +40,16 @@ twitchClient.getEventManager().onEvent(ChannelCommerceEvent.class, System.out::p
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+twitchClient.pubSub.listenForCommerceEvents(credential, "149223493");
 
+twitchClient.eventManager.onEvent(ChannelCommerceEvent, System.out::println)
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+twitchClient.pubSub.listenForCommerceEvents(credential, "149223493");
 
+twitchClient.eventManager.onEvent(ChannelCommerceEvent::class.java, System.out::println)
 ```
 {{</code>}}
 {{</codeblocks>}}

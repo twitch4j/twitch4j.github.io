@@ -41,7 +41,7 @@ HystrixCommand<CodeStatusList> redeemCode(
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
-CodeStatusList codeStatusList = twitchClient.getHelix().redeemCode(authToken, List.of("KUHXV-4GXYP-AKAKK"), 156900877).execute();
+CodeStatusList codeStatusList = twitchClient.getHelix().redeemCode(authToken, Arrays.asList("KUHXV-4GXYP-AKAKK"), 156900877).execute();
 codeStatusList.getStatuses().forEach(codeStatus -> {
     System.out.println(codeStatus.getCode() + " " + codeStatus.getStatus());
 });
@@ -49,12 +49,18 @@ codeStatusList.getStatuses().forEach(codeStatus -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def codeStatusList = twitchClient.helix.redeemCode(authToken, ["KUHXV-4GXYP-AKAKK"], 156900877).execute()
+codeStatusList.statuses.each { codeStatus ->
+    System.out.println("${codeStatus.code} ${codeStatus.status}")
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val codeStatusList = twitchClient.helix.redeemCode(authToken, listOf("KUHXV-4GXYP-AKAKK"), 156900877).execute()
+codeStatusList.statuses.forEach { codeStatus ->
+    println("${codeStatus.code} ${codeStatus.status}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

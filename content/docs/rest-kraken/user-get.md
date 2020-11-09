@@ -46,17 +46,17 @@ None
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
-KrakenUserList resultList = getTwitchKrakenClient().getUsersByLogin(Arrays.asList("twitch4j")).execute();
+KrakenUserList resultList = twitchClient.getKraken().getUsersByLogin(Arrays.asList("twitch4j")).execute();
 ```
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.kraken.getUsersByLogin(["twitch4j"]).execute()
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.kraken.getUsersByLogin(listOf("twitch4j")).execute()
 ```
 {{</code>}}
 {{</codeblocks>}}

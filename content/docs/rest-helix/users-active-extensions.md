@@ -49,12 +49,16 @@ System.out.println(resultList.getData());
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+def resultList = twitchClient.helix.getUserActiveExtensions(testUtils.credential.accessToken, twitchUserId).execute()
 
+System.out.println resultList.data
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+val resultList = twitchClient.helix.getUserActiveExtensions(testUtils.credential.accessToken, twitchUserId).execute()
 
+println(resultList.`data`)
 ```
 {{</code>}}
 {{</codeblocks>}}

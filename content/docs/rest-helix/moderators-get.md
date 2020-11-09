@@ -55,12 +55,18 @@ resultList.getModerators().forEach(moderator -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = twitchClient.helix.getModerators(authToken, broadcasterId, null, null).execute()
+resultList.moderators.each { moderator ->
+    System.out.println moderator
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient.helix.getModerators(authToken, broadcasterId, null, null).execute()
+resultList.moderators.forEach { moderator ->
+    println(moderator)
+}
 ```
 {{</code>}}
 {{</codeblocks>}}
