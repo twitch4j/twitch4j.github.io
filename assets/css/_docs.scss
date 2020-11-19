@@ -41,7 +41,7 @@
         }
       }
       
-      li > :first-child:hover, li > :first-child.active, li.active-parent > :first-child {
+      li > :first-child:hover:not(ul), li > :first-child.active, li.active-parent > :first-child {
         color: $ice;
         background-color: darken($twitch-purple, 10%);
 
@@ -155,49 +155,6 @@
       }
     }
   
-    // .doc-nav {
-    //   padding: 24px 0 0;
-    //   .fas {
-    //     margin-right: 8px;
-  
-    //     &:hover {
-    //       cursor: pointer;
-    //     }
-    //   }
-  
-    //   li {
-    //     padding: 0;
-    //     font-size: 14px;
-  
-    //     &.active-parent {
-    //       ul {
-    //         display: block;
-    //       }
-    //     }
-  
-    //     .active {
-    //       color: $ice !important;
-    //       background-color: $twitch-purple !important;
-  
-    //       a, a:hover {
-    //         color: $ice !important;
-    //       }
-    //     }
-  
-    //     ul {
-    //       display: none;
-  
-    //       li {
-    //         a {
-    //           padding-left: 24px;
-    //           margin: 0 10px;
-    //           font-size: 12px;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-  
     #TableOfContents, .doc-nav {
       margin: 10px 0;
   
@@ -219,10 +176,6 @@
           }
         }
       }
-    }
-  
-    #TableOfContents {
-  
     }
   }
 }
