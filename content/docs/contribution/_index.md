@@ -11,5 +11,5 @@ This section contains information about the relase process / documentation / and
 - [IDE Setup](./ide)
 - [Pull Requests](./pull-request)
 - [Release Process](./release)
-- [Web Documentation](./docs)
+- [Web Documentation](./documentation)
 - [Code Documentation](./code-documentation)

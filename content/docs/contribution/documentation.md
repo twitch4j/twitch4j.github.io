@@ -9,11 +9,11 @@ menu:
 
 ## Documentation
 
-Documentation content is builded via [Hugo](https://gohugo.io), using own styling colors combined with [Brand Assets](https://brand.twitch.tv/) guidelines colors and [Bootstrap 4](https://getbootstrap.com/) assets (delivered from [`package.json`](package.json)). For search engine we are using [Fuse.js](https://fusejs.io/). All content are be cloneable from [this page](https://github.com/twitch4j/twitch4j.github.io).
+Documentation content is builded via [Hugo](https://gohugo.io), using own styling colors combined with [Brand Assets](https://brand.twitch.tv/) guidelines colors and [Bootstrap 4](https://getbootstrap.com/) assets (delivered from [`package.json`](https://github.com/twitch4j/twitch4j.github.io/blob/master/package.json)). For search engine we are using [Fuse.js](https://fusejs.io/). All content are be cloneable from [this page](https://github.com/twitch4j/twitch4j.github.io).
 
 ## Configuration 
 
-Using [`config.yml`](config.yml) we define a custom menu content... and the other stuff.
+Using [`config.yml`](https://github.com/twitch4j/twitch4j.github.io/blob/master/config.yml) we define a custom menu content... and the other stuff.
 
 ## Write your documentation
 
@@ -320,7 +320,7 @@ To generate ready to deploy project just type in project console `npm run genera
 ## GitHub Actions
 
 Project will automatically generate files and push them into `gh-pages` branch.
-To define own configuration please go to [`.github/workflows/gh-pages.yml`](.github/workflows/gh-pages.yml) and follow those useful documentation:
+To define own configuration please go to [`.github/workflows/gh-pages.yml`](https://github.com/twitch4j/twitch4j.github.io/blob/master/.github/workflows/gh-pages.yml) and follow those useful documentation:
 
 - [Github Actions Documentation](https://docs.github.com/en/actions)
 - [GitHub Actions for GitHub Pages](https://github.com/peaceiris/actions-gh-pages)

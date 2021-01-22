@@ -17,6 +17,8 @@ Therefore you need to install Lombok for you IDE:
 
 ### IntelliJ - Plugin Installation
 
+In `2020.3+` Lombok plugin has been embeded to IDE. There is no need to installing proper version. But in older version is required if you wanna contribute to our repository.
+
 - Using IDE built-in plugin system on Windows:
   ```txt
   File > Settings > Plugins > Browse repositories... > Search for "lombok" > Install Plugin
