@@ -22,9 +22,14 @@ function resolveAlerts() {
 function codeTabs() {
   $('.tab-content').find('.tab-pane').each(function (idx, item) {
     var navTabs = $(this).closest('.code-tabs').find('.nav-tabs'),
-      title = $(this).attr('title');
+      title = $(this).attr('title'),      
+      icon = {
+        java: "{{ "/assets/images/java.svg" | relURL }}",
+        groovy: "{{ "/assets/images/groovy.svg" | relURL }}",
+        kotlin: "{{ "/assets/images/kotlin.svg" | relURL }}"
+      };
 
-    navTabs.append('<li class="nav-item" title="'+ title +'"><a class="nav-link" href="#">' + title + '</a></li>');
+    navTabs.append('<li class="nav-item" title="'+ title +'"><a class="nav-link" href="#"><img class="nav-icon" src="' + icon[title.toLowerCase()] + '" />' + title + '</a></li>');
   });
 
   updateCodeTab();
