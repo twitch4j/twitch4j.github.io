@@ -1,6 +1,6 @@
 .vscode/
 public/
-resources/
+/resources/
 node_modules/
 .idea/
 *.iml
