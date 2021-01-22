@@ -4,5 +4,3 @@ resources/
 node_modules/
 .idea/
 *.iml
-# comment that, if you publishing javadoc
-static/javadoc/ 
