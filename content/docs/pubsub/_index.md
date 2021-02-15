@@ -231,6 +231,6 @@ val resp3: PubSubSubscription = pool.subscribe(req3)
 pool.unsubscribe(resp2);
 ```
 {{</code>}}
-{{<codeblocks>}}
+{{</codeblocks>}}
 
 A more concrete example of this can be found [here](https://github.com/twitch4j/twitch4j/blob/master/pubsub/src/test/java/com/github/twitch4j/pubsub/PooledTwitchPubSubTest.java).
