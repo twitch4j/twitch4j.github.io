@@ -8,7 +8,7 @@ title: Home
 
 {{< index/features >}}
 
-### TwitchClient initialize
+### TwitchClient Initialization
 
 {{< codeblocks >}}
 {{< code Java >}}
@@ -42,7 +42,7 @@ fun main(argv: Array<String>) {
 {{</ code >}}
 {{</ codeblocks >}}
 
-### Listen Event
+### Event Listeners
 
 {{< codeblocks >}}
 {{< code Java >}}
