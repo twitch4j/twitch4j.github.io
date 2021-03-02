@@ -28,6 +28,8 @@ Rate-Limiting
 * [LeaveChannel](./leave-channel)
 * [SendMessage](./send-message)
 * [SendPrivateMessage](./send-private-message)
+* [Handle ChannelMessage](../events/channel-message-event)
+* [Handle PrivateMessage](../events/private-message-event)
 
 ## Use as part of Twitch4J
 
@@ -82,8 +84,11 @@ val twitchClient = TwitchClientBuilder.builder().apply {
 
 {{</ code >}}
 {{</ codeblocks >}}
-The first value of new OAuth2Credential is the identity provider, and in the case of twitch4j always `twitch`.
-You can pass in your oauth token as 2nd value, if you don't have one you can generate one [here](https://twitchtokengenerator.com/).
+
+A OAuth2Credential is a generic oauth credentials so the first parameter is always `twitch`. The 2nd value is your oauth token, you can generate a chat-bot token [here](https://twitchtokengenerator.com/).
+
+When you build a TwitchClient Twitch4J will automatically connect you to chat (via WebSocket).
+So you can start joining channels and listening to messages after this - refer to the methods documented above.
 
 ## Use Standalone
 
