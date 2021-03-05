@@ -9,14 +9,10 @@ menu:
 
 # Installation
 
-We recommend using a dependency management tool to manage twitch4j and sub dependencies. ~~As a fallback method you can also download a fatJar.~~
+We recommend using a dependency management tool to manage twitch4j and sub dependencies. As a fallback method you can also download a fatJar adding `shaded` scope to your configuration build.
 {{< builds >}}
 {{< build gradle >}}
 ```groovy
-repositories {
-    jcenter()
-}
-
 dependencies {
     implementation group: 'com.github.twitch4j', name: 'twitch4j', version: '{{< current_version >}}'
     // or using it into compile
@@ -26,10 +22,6 @@ dependencies {
 {{</ build >}}
 {{< build kotlin >}}
 ```kotlin
-repositories {
-    jcenter()
-}
-
 dependencies {
     implementation(group = "com.github.twitch4j", name = "twitch4j", version = "{{< current_version >}}")
     // or using it into compile
@@ -39,18 +31,15 @@ dependencies {
 {{</ build >}}
 {{< build pom >}}
 ```xml
-<repositories>
-    <repository>
-      <id>jcenter</id>
-      <url>https://jcenter.bintray.com/</url>
-    </repository>
-</repositories>
-...
-<dependency>
-    <groupId>com.github.twitch4j</groupId>
-    <artifactId>twitch4j</artifactId>
-    <version>{{< current_version >}}</version>
-</dependency>
+<dependencies>
+    ...
+    <dependency>
+        <groupId>com.github.twitch4j</groupId>
+        <artifactId>twitch4j</artifactId>
+        <version>{{< current_version >}}</version>
+    </dependency>
+    ...
+</dependencies>
 ```
 {{</ build >}}
 {{</ builds >}}
