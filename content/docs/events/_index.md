@@ -210,14 +210,14 @@ To enable reactor add the `ReactorHandler` dependency, it will be discovered and
 {{<builds>}}
 {{<build gradle>}}
 ```groovy
-compile group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.7.1'
+compile group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.9.5'
 // Since Gradle 5+
-implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.7.1'
+implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.9.5'
 ```
 {{</build>}}
 {{<build kotlin>}}
 ```kotlin
-implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-reactor", version = "0.7.1")
+implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-reactor", version = "0.9.5")
 ```
 {{</build>}}
 {{<build pom>}}
@@ -225,7 +225,7 @@ implementation(group = "com.github.philippheuer.events4j", name = "events4j-hand
 <dependency>
   <groupId>com.github.philippheuer.events4j</groupId>
   <artifactId>events4j-handler-reactor</artifactId>
-  <version>0.7.1</version>
+  <version>0.9.5</version>
 </dependency>
 ```
 {{</build>}}
@@ -282,14 +282,14 @@ To enable reactor add the `SpringHandler` dependency, it will be discovered and 
 {{<builds>}}
 {{<build gradle>}}
 ```groovy
-compile group: 'com.github.philippheuer.events4j', name: 'events4j-handler-spring', version: '0.7.1'
+compile group: 'com.github.philippheuer.events4j', name: 'events4j-handler-spring', version: '0.9.5'
 // Since Gradle 5+
-implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-spring', version: '0.7.1'
+implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-spring', version: '0.9.5'
 ```
 {{</build>}}
 {{<build kotlin>}}
 ```kotlin
-implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-spring", version = "0.7.1")
+implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-spring", version = "0.9.5")
 ```
 {{</build>}}
 {{<build pom>}}
@@ -297,7 +297,7 @@ implementation(group = "com.github.philippheuer.events4j", name = "events4j-hand
 <dependency>
   <groupId>com.github.philippheuer.events4j</groupId>
   <artifactId>events4j-handler-spring</artifactId>
-  <version>0.7.1</version>
+  <version>0.9.5</version>
 </dependency>
 ```
 {{</build>}}
