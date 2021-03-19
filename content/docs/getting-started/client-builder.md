@@ -38,7 +38,7 @@ val twitchClient = TwitchClientBuilder.builder()
 
 ## Overwrite the EventManager for Cross-Library Usage
 
-You can overwrite the native EventManager with a commonly used one to share events between Twitch4J and other 3rd party libraries.
+You can overwrite the native EventManager with a globally used one to share events between Twitch4J and other 3rd party libraries.
 
 {{<codeblocks>}}
 {{<code Java>}}
