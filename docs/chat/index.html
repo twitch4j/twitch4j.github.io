@@ -39,43 +39,31 @@
                 <span style=color:#f92672>..</span>.
             }.build()
 </code></pre></div></div></div></div></p><p>A OAuth2Credential is a generic oauth credentials so the first parameter is always <code>twitch</code>. The 2nd value is your oauth token, you can generate a chat-bot token <a href=https://twitchtokengenerator.com/>here</a>.</p><p>When you build a TwitchClient Twitch4J will automatically connect you to chat (via WebSocket).
-So you can start joining channels and listening to messages after this - refer to the methods documented above.</p><h2 id=use-standalone>Use Standalone</h2><p>Initialize the Chat Feature as Standalone Module, also requires setting up the EventManager and the CredentialManger yourself:</p><div class=code-tabs><ul class="nav nav-tabs" role=tablist></ul><div class=tab-content><div class=tab-pane title=Java><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=color:#75715e>// event manager
-</span><span style=color:#75715e></span>EventManager eventManager <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> EventManager<span style=color:#f92672>();</span>
-
-<span style=color:#75715e>// credential manager
+So you can start joining channels and listening to messages after this - refer to the methods documented above.</p><h2 id=use-standalone>Use Standalone</h2><p>Initialize the Chat Feature as Standalone Module, also requires setting up the EventManager and the CredentialManger yourself:</p><div class=code-tabs><ul class="nav nav-tabs" role=tablist></ul><div class=tab-content><div class=tab-pane title=Java><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=color:#75715e>// credential manager
 </span><span style=color:#75715e></span>CredentialManager credentialManager <span style=color:#f92672>=</span> CredentialManagerBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>builder</span><span style=color:#f92672>().</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
 credentialManager<span style=color:#f92672>.</span><span style=color:#a6e22e>registerIdentityProvider</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> TwitchIdentityProvider<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;jzkbprff40iqj646a697cyrvl0zt2m6&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;**SECRET**&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>));</span>
 
 <span style=color:#75715e>// twitch4j - chat
 </span><span style=color:#75715e></span>TwitchChat client <span style=color:#f92672>=</span> TwitchChatBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>builder</span><span style=color:#f92672>()</span>
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>withEventManager</span><span style=color:#f92672>(</span>eventManager<span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>withCredentialManager</span><span style=color:#f92672>(</span>credentialManager<span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>withChatAccount</span><span style=color:#f92672>(</span>oAuth2CredentialHere<span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>build</span><span style=color:#f92672>();</span>
-</code></pre></div></div><div class=tab-pane title=Groovy><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-groovy data-lang=groovy><span style=color:#75715e>// event manager
-</span><span style=color:#75715e></span><span style=color:#66d9ef>def</span> eventManager <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> EventManager<span style=color:#f92672>();</span>
-
-<span style=color:#75715e>// credential manager
+</code></pre></div></div><div class=tab-pane title=Groovy><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-groovy data-lang=groovy><span style=color:#75715e>// credential manager
 </span><span style=color:#75715e></span><span style=color:#66d9ef>def</span> credentialManager <span style=color:#f92672>=</span> CredentialManagerBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>builder</span><span style=color:#f92672>().</span><span style=color:#a6e22e>build</span><span style=color:#f92672>()</span>
 credentialManager<span style=color:#f92672>.</span><span style=color:#a6e22e>registerIdentityProvider</span><span style=color:#f92672>(</span><span style=color:#66d9ef>new</span> TwitchIdentityProvider<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;jzkbprff40iqj646a697cyrvl0zt2m6&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;**SECRET**&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;&#34;</span><span style=color:#f92672>))</span>
 
 <span style=color:#75715e>// twitch4j - chat
 </span><span style=color:#75715e></span><span style=color:#66d9ef>def</span> client <span style=color:#f92672>=</span> TwitchChatBuilder<span style=color:#f92672>.</span><span style=color:#a6e22e>builder</span><span style=color:#f92672>()</span>
-        <span style=color:#f92672>.</span><span style=color:#a6e22e>withEventManager</span><span style=color:#f92672>(</span>eventManager<span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>withCredentialManager</span><span style=color:#f92672>(</span>credentialManager<span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>withChatAccount</span><span style=color:#f92672>(</span>oAuth2CredentialHere<span style=color:#f92672>)</span>
         <span style=color:#f92672>.</span><span style=color:#a6e22e>build</span><span style=color:#f92672>()</span>
-</code></pre></div></div><div class=tab-pane title=Kotlin><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-kotlin data-lang=kotlin><span style=color:#75715e>// event manager
-</span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> eventManager = EventManager();
-
-<span style=color:#75715e>// credential manager
+</code></pre></div></div><div class=tab-pane title=Kotlin><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-kotlin data-lang=kotlin><span style=color:#75715e>// credential manager
 </span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> credentialManager = CredentialManagerBuilder.builder().build().also {
     <span style=color:#66d9ef>it</span>.registerIdentityProvider(TwitchIdentityProvider(<span style=color:#e6db74>&#34;jzkbprff40iqj646a697cyrvl0zt2m6&#34;</span>, <span style=color:#e6db74>&#34;**SECRET**&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>))
 }
 
 <span style=color:#75715e>// twitch4j - chat
 </span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> client = TwitchChatBuilder.builder().apply {
-            withEventManager(eventManager)
             withCredentialManager(credentialManager)
             withChatAccount(oAuth2CredentialHere)
         }.build()
