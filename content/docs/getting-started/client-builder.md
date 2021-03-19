@@ -43,6 +43,9 @@ You can overwrite the native EventManager with a globally used one to share even
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
+EventManager eventManager = new EventManager();
+eventManager.autoDiscovery();
+
 TwitchClient twitchClient = TwitchClientBuilder.builder()
             .withEventManager(eventManager)
             .build();
@@ -50,6 +53,9 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
+def eventManager = new EventManager()
+eventManager.autoDiscovery()
+
 def twitchClient = TwitchClientBuilder.builder()
             .withEventManager(eventManager)
             .build()
@@ -57,6 +63,9 @@ def twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
+val eventManager = EventManager()
+eventManager.autoDiscovery()
+
 val twitchClient = TwitchClientBuilder.builder()
             .withEventManager(eventManager)
             .build()

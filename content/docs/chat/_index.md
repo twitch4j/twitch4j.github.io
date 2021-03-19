@@ -98,16 +98,12 @@ Initialize the Chat Feature as Standalone Module, also requires setting up the E
 {{< code Java >}}
 
 ```java
-// event manager
-EventManager eventManager = new EventManager();
-
 // credential manager
 CredentialManager credentialManager = CredentialManagerBuilder.builder().build();
 credentialManager.registerIdentityProvider(new TwitchIdentityProvider("jzkbprff40iqj646a697cyrvl0zt2m6", "**SECRET**", ""));
 
 // twitch4j - chat
 TwitchChat client = TwitchChatBuilder.builder()
-        .withEventManager(eventManager)
         .withCredentialManager(credentialManager)
         .withChatAccount(oAuth2CredentialHere)
         .build();
@@ -117,16 +113,12 @@ TwitchChat client = TwitchChatBuilder.builder()
 {{< code Groovy >}}
 
 ```groovy
-// event manager
-def eventManager = new EventManager();
-
 // credential manager
 def credentialManager = CredentialManagerBuilder.builder().build()
 credentialManager.registerIdentityProvider(new TwitchIdentityProvider("jzkbprff40iqj646a697cyrvl0zt2m6", "**SECRET**", ""))
 
 // twitch4j - chat
 def client = TwitchChatBuilder.builder()
-        .withEventManager(eventManager)
         .withCredentialManager(credentialManager)
         .withChatAccount(oAuth2CredentialHere)
         .build()
@@ -136,9 +128,6 @@ def client = TwitchChatBuilder.builder()
 {{< code Kotlin >}}
 
 ```kotlin
-// event manager
-val eventManager = EventManager();
-
 // credential manager
 val credentialManager = CredentialManagerBuilder.builder().build().also {
     it.registerIdentityProvider(TwitchIdentityProvider("jzkbprff40iqj646a697cyrvl0zt2m6", "**SECRET**", ""))
@@ -146,7 +135,6 @@ val credentialManager = CredentialManagerBuilder.builder().build().also {
 
 // twitch4j - chat
 val client = TwitchChatBuilder.builder().apply {
-            withEventManager(eventManager)
             withCredentialManager(credentialManager)
             withChatAccount(oAuth2CredentialHere)
         }.build()
