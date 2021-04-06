@@ -9,9 +9,9 @@ menu: docs
 
 Welcome and thanks for using Twitch4J!
 
-Please check out the [Installation](../installation) page to install the Twitch4J dependency.
+Please check out the [Installation](./installation) page to install the Twitch4J dependency.
 
-After that the [Client-Builder](../client-builder) will show you how to create a Twitch4J Instance.
+After that the [Client-Builder](./client-builder) will show you how to create a Twitch4J Instance.
 
 Now you'r ready to check out a few example projects:
 
@@ -21,7 +21,7 @@ Now you'r ready to check out a few example projects:
 
 Many modules can generate events which you can handle in some way, like PubSub, Chat, ...
 
-For a list of available events / information on how to listen to events please check out: [Events](./events)
+For a list of available events / information on how to listen to events please check out: [Events](../events)
 
 ## Results of API Calls
 
