@@ -31,14 +31,14 @@ eventManager.onEvent(ChannelMessageEvent.class, event -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(ChannelMessageEvent, { event ->
+eventManager.onEvent(ChannelMessageEvent) { event ->
 	System.out.println "[${event.channel.name}] ${event.user.name}: ${event.message}"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(ChannelMessageEvent::class.java, { event ->
+eventManager.onEvent(ChannelMessageEvent::class.java) { event ->
 	println("[${event.channel.name}] ${event.user.name}: ${event.message}")
 });
 ```

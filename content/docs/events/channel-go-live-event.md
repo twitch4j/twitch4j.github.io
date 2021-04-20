@@ -31,14 +31,14 @@ eventManager.onEvent(ChannelGoLiveEvent.class, event -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(ChannelGoLiveEvent, { event ->
+eventManager.onEvent(ChannelGoLiveEvent) { event ->
 	System.out.println "[${event.channel.name}] went live with title ${event.title} on game ${event.gameId}!"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(ChannelGoLiveEvent::class.java, { event ->
+eventManager.onEvent(ChannelGoLiveEvent::class.java) { event ->
 	println("[${event.channel.name}] went live with title ${event.title} on game ${event.gameId}!");
 }
 ```

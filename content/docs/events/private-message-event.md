@@ -32,14 +32,14 @@ eventManager.onEvent(PrivateMessageEvent.class, event -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(PrivateMessageEvent, { event ->
+eventManager.onEvent(PrivateMessageEvent) { event ->
 	System.out.println "[Whisper] ${event.user.name}: ${event.message}"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(PrivateMessageEvent::class.java, { event ->
+eventManager.onEvent(PrivateMessageEvent::class.java) { event ->
 	println("[Whisper] ${event.user.name}: ${event.message}")
 }
 ```

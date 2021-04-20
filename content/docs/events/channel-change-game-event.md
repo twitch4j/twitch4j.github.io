@@ -31,14 +31,14 @@ eventManager.onEvent(ChannelChangeGameEvent.class, event -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(ChannelChangeGameEvent, { event ->
+eventManager.onEvent(ChannelChangeGameEvent) { event ->
 	System.out.println "[${event.channel.name}] is now playing ${event.gameId}!"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(ChannelChangeGameEvent::class.java, { event ->
+eventManager.onEvent(ChannelChangeGameEvent::class.java) { event ->
 	println("[${event.channel.name}] is now playing ${event.gameId}!")
 }
 ```

@@ -31,14 +31,14 @@ eventManager.onEvent(ChannelGoOfflineEvent.class, event -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(ChannelGoOfflineEvent, { event ->
+eventManager.onEvent(ChannelGoOfflineEvent) { event ->
 	System.out.println "[${event.channel.name}] just went offline!"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(ChannelGoOfflineEvent::class.java, { event -> 
+eventManager.onEvent(ChannelGoOfflineEvent::class.java) { event -> 
 	println("[${event.channel.name}] just went offline!")
 }
 ```

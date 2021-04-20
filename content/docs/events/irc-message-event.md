@@ -31,14 +31,14 @@ eventManager.onEvent(IRCMessageEvent.class, event -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(IRCMessageEvent, { event ->
+eventManager.onEvent(IRCMessageEvent) { event ->
 	System.out.println event.rawMessage
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(IRCMessageEvent::class.java, { event ->
+eventManager.onEvent(IRCMessageEvent::class.java) { event ->
 	println(event.rawMessage);
 }
 ```

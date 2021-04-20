@@ -31,14 +31,14 @@ eventManager.onEvent(ChannelChangeTitleEvent.class, event -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(ChannelChangeTitleEvent, { event ->
+eventManager.onEvent(ChannelChangeTitleEvent) { event ->
 	System.out.println "[${event.channel.name}] changed his stream title to ${event.title}!"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(ChannelChangeTitleEvent::class.java, { event ->
+eventManager.onEvent(ChannelChangeTitleEvent::class.java) { event ->
 	println("[${event.channel.name}] changed his stream title to ${event.title}!")
 }
 ```
