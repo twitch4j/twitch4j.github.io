@@ -24,21 +24,21 @@ Requires the specific channels to be registered with the TwitchClient Helper. Se
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
-eventManager.onEvent(ChannelChangeTitleEvent.class).subscribe(event -> {
+eventManager.onEvent(ChannelChangeTitleEvent.class, event -> {
 	System.out.println("[" + event.getChannel().getName() + "] changed his stream title to " + event.getTitle() + "!");
 });
 ```
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(ChannelChangeTitleEvent).subscribe { event ->
+eventManager.onEvent(ChannelChangeTitleEvent) { event ->
 	System.out.println "[${event.channel.name}] changed his stream title to ${event.title}!"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(ChannelChangeTitleEvent::class.java).subscribe { event ->
+eventManager.onEvent(ChannelChangeTitleEvent::class.java) { event ->
 	println("[${event.channel.name}] changed his stream title to ${event.title}!")
 }
 ```
