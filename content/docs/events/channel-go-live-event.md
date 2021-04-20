@@ -24,21 +24,21 @@ Requires the specific channels to be registered with the TwitchClient Helper. Se
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
-eventManager.getEventHandler(SimpleEventHandler.class).onEvent(ChannelGoLiveEvent.class, event -> {
+eventManager.onEvent(ChannelGoLiveEvent.class, event -> {
 	System.out.println("[" + event.getChannel().getName() + "] went live with title " + event.getTitle() + " on game " + event.getGameId() + "!");
 });
 ```
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.getEventHandler(SimpleEventHandler.class).onEvent(ChannelGoLiveEvent, { event ->
+eventManager.onEvent(ChannelGoLiveEvent, { event ->
 	System.out.println "[${event.channel.name}] went live with title ${event.title} on game ${event.gameId}!"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.getEventHandler(SimpleEventHandler.class).onEvent(ChannelGoLiveEvent::class.java, { event ->
+eventManager.onEvent(ChannelGoLiveEvent::class.java, { event ->
 	println("[${event.channel.name}] went live with title ${event.title} on game ${event.gameId}!");
 }
 ```

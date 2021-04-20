@@ -24,21 +24,21 @@ Requires the TwitchChat Module to be enabled and active for the source channel. 
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
-eventManager.getEventHandler(SimpleEventHandler.class).onEvent(ChannelMessageEvent.class, event -> {
+eventManager.onEvent(ChannelMessageEvent.class, event -> {
 	System.out.println("[" + event.getChannel().getName() + "] " + event.getUser().getName() + ": " + event.getMessage());
 });
 ```
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.getEventHandler(SimpleEventHandler.class).onEvent(ChannelMessageEvent, { event ->
+eventManager.onEvent(ChannelMessageEvent, { event ->
 	System.out.println "[${event.channel.name}] ${event.user.name}: ${event.message}"
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.getEventHandler(SimpleEventHandler.class).onEvent(ChannelMessageEvent::class.java, { event ->
+eventManager.onEvent(ChannelMessageEvent::class.java, { event ->
 	println("[${event.channel.name}] ${event.user.name}: ${event.message}")
 });
 ```
