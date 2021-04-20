@@ -24,21 +24,21 @@ Requires the TwitchChat Module to be enabled and active for the source channel. 
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
-eventManager.onEvent(IRCMessageEvent.class).subscribe(event -> {
+eventManager.getEventHandler(SimpleEventHandler.class).onEvent(IRCMessageEvent.class, event -> {
 	System.out.println(event.getRawMessage());
 });
 ```
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-eventManager.onEvent(IRCMessageEvent).subscribe { event ->
+eventManager.getEventHandler(SimpleEventHandler.class).onEvent(IRCMessageEvent, { event ->
 	System.out.println event.rawMessage
 }
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-eventManager.onEvent(IRCMessageEvent::class.java).subscribe { event ->
+eventManager.getEventHandler(SimpleEventHandler.class).onEvent(IRCMessageEvent::class.java, { event ->
 	println(event.rawMessage);
 }
 ```
