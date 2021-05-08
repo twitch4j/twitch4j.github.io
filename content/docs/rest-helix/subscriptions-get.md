@@ -49,17 +49,26 @@ HystrixCommand<SubscriptionList> getSubscriptions(
 {{<codeblocks>}}
 {{<code Java>}}
 ```java
-
+SubscriptionList resultList = client.getHelix().getSubscriptions(ACCESS_TOKEN, CHANNEL_ID, null, null,null).execute();
+resultList.getSubscriptions().forEach(subscription -> {
+	System.out.println("Subscriber: "+subscription.getUserName());
+});
 ```
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = client.helix.getSubscriptions(ACCESS_TOKEN, CHANNEL_ID, null, null,null).execute()
+resultList.subscriptions.forEach {
+	System.out.println("Subscriber: ${it.userName}")
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = client.helix.getSubscriptions(ACCESS_TOKEN, CHANNEL_ID, null, null,null).execute()
+resultList.subscriptions.forEach {
+	println("Subscriber: ${it.userName}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}
