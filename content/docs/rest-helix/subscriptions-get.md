@@ -57,12 +57,18 @@ resultList.getSubscriptions().forEach(subscription -> {
 {{</code>}}
 {{<code Groovy>}}
 ```groovy
-
+def resultList = client.helix.getSubscriptions(ACCESS_TOKEN, CHANNEL_ID, null, null,null).execute()
+resultList.subscriptions.forEach {
+	System.out.println("Subscriber: ${it.userName}")
+}
 ```
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = client.helix.getSubscriptions(ACCESS_TOKEN, CHANNEL_ID, null, null,null).execute()
+resultList.subscriptions.forEach {
+	println("Subscriber: ${it.userName}")
+}
 ```
 {{</code>}}
 {{</codeblocks>}}
