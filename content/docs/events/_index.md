@@ -51,7 +51,7 @@ You can register listeners directly on the eventManager, the call is forwarded a
 
 If you want all your events to be processed by a specific eventHandler, then check out the following pages on all available eventHandlers:
 
-* [SimpleEventHandler (Default)](./ceventhandler-simple)
+* [SimpleEventHandler (Default)](./eventhandler-simple)
 * [ReactorEventHandler](./ceventhandler-reactor)
 
 ##### Register your event listeners in a generic way
