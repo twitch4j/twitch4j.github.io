@@ -15,7 +15,7 @@ The ChannelGoLiveEvent is triggered when a monitored channel goes live.
 
 ## Dependencies
 
-Requires the specific channels to be registered with the TwitchClient Helper. See [TwitchClientHelper](../twitch4j/client-helper)
+Requires the specific channels to be registered with the TwitchClient Helper. See [TwitchClientHelper](../../twitch4j/client-helper)
 
 ## Examples
 
