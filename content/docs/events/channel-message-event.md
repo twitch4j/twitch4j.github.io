@@ -15,7 +15,7 @@ The ChannelMessageEvent is triggered for every normal message in irc.
 
 ## Dependencies
 
-Requires the TwitchChat Module to be enabled and active for the source channel. See [TwitchChat](../chat).
+Requires the TwitchChat Module to be enabled and active for the source channel. See [TwitchChat](../../chat).
 
 ## Examples
 
