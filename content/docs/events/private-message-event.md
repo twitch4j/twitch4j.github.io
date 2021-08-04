@@ -15,8 +15,8 @@ The PrivateMessageEvent is triggered for private messages / whispers and can be 
 
 ## Dependencies
 
-Requires the TwitchChat Module to be enabled and active for the source channel. See [TwitchChat](../chat).
-Otherwise you will need to enable [PubSub](../pubsub) and subscribe to the whispers topic the receive PrivateMessageEvents.
+Requires the TwitchChat Module to be enabled and active for the source channel. See [TwitchChat](../../chat).
+Otherwise you will need to enable [PubSub](../../pubsub) and subscribe to the whispers topic the receive PrivateMessageEvents.
 
 ## Examples
 
