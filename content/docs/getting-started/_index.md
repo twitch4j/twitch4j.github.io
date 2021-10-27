@@ -59,17 +59,17 @@ You can execute any api call asynchronously with the queue() method, as shown in
 {{< code Java >}}
 ```java
 UserList users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j"))
-        .execute();
+        .queue();
 ```
 {{</ code >}}
 {{< code Groovy >}}
 ```groovy
-UserList users = twitchClient.helix.getUsers(null, null, ["twitch4j"]).execute()
+UserList users = twitchClient.helix.getUsers(null, null, ["twitch4j"]).queue()
 ```
 {{</ code >}}
 {{< code Kotlin >}}
 ```kotlin
-var users: UserList = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).execute()
+var users: UserList = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).queue()
 ```
 {{</ code >}}
 {{</ codeblocks >}}
