@@ -76,17 +76,17 @@ You can retrieve the result of the command by using the Future:
 {{< codeblocks >}}
 {{< code Java >}}
 ```java
-Future<UserList> users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j")).queue();
+UserList users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j")).queue().get();
 ```
 {{</ code >}}
 {{< code Groovy >}}
 ```groovy
-Future<UserList> users = twitchClient.helix.getUsers(null, null, Arrays.asList("twitch4j")).queue()
+UserList users = twitchClient.helix.getUsers(null, null, Arrays.asList("twitch4j")).queue().get()
 ```
 {{</ code >}}
 {{< code Kotlin >}}
 ```kotlin
-var users: Future<UserList> = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).queue()
+var users: UserList = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).queue().get()
 ```
 {{</ code >}}
 {{</ codeblocks >}}
