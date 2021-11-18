@@ -53,23 +53,20 @@ var userList: users = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j"
 
 You can execute any api call asynchronously with the queue() method, as shown in the following example:
 
-
-
 {{< codeblocks >}}
 {{< code Java >}}
 ```java
-UserList users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j"))
-        .queue();
+Future<UserList> users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j")).queue();
 ```
 {{</ code >}}
 {{< code Groovy >}}
 ```groovy
-UserList users = twitchClient.helix.getUsers(null, null, ["twitch4j"]).queue()
+Future<UserList> users = twitchClient.helix.getUsers(null, null, ["twitch4j"]).queue()
 ```
 {{</ code >}}
 {{< code Kotlin >}}
 ```kotlin
-var users: UserList = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).queue()
+var users: Future<UserList> = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).queue()
 ```
 {{</ code >}}
 {{</ codeblocks >}}
@@ -104,8 +101,7 @@ You can also observe the results of any api call as an Observable by using one o
 {{< codeblocks >}}
 {{< code Java >}}
 ```java
-Observable<UserList> users = twitchClient.getKraken().getUsers(null, null, Arrays.asList("twitch4j"))
-        .observe();
+Observable<UserList> users = twitchClient.getKraken().getUsers(null, null, Arrays.asList("twitch4j")).observe();
 ```
 {{</ code >}}
 {{< code Groovy >}}
