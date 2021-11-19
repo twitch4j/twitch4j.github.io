@@ -1,7 +1,7 @@
 <!doctype html><html lang=en>
 <head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.87.0"><link rel=stylesheet href=/assets/css/style.min.118543e01df1a202c9e8a80de30c557c8cfd75bc7d9462363a433c9b6a3b0654.css integrity="sha256-EYVD4B3xogLJ6KgN4wxVfIz9dbx9lGI2OkM8m2o7BlQ=" crossorigin=anonymous>
+<meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Hugo 0.89.4"><link rel=stylesheet href=/assets/css/style.min.e20d49506ade137188c4e1f734904e43901c8c707532d1e8be580f2af18bf3a9.css integrity="sha256-4g1JUGreE3GIxOH3NJBOQ5AcjHB1MtHovlgPKvGL86k=" crossorigin=anonymous>
 <link rel=stylesheet href=/assets/css/fontawesome-all.min.af1e6edc875a382b338bb25bd7c5c3f474a7f1b36212002a5896dd06f2186325.css integrity="sha256-rx5u3IdaOCszi7Jb18XD9HSn8bNiEgAqWJbdBvIYYyU=" crossorigin=anonymous>
 <title>Clips - Create - Twitch4J</title></head>
 <body><header>
@@ -361,7 +361,7 @@
 <p>Creates a clip programmatically. This returns both an ID and an edit URL for the new clip.</p>
 <p>Clip creation takes time. We recommend that you query Get Clips, with the clip ID that is returned here. If Get Clips returns a valid clip, your clip creation was successful. If, after 15 seconds, you still have not gotten back a valid clip from Get Clips, assume that the clip was not created and retry Create Clip.</p>
 <p>This endpoint has a global rate limit, across all callers. The limit may change over time, but the response includes informative headers:</p>
-<pre><code>Ratelimit-Helixclipscreation-Limit: &lt;int value&gt;
+<pre tabindex=0><code>Ratelimit-Helixclipscreation-Limit: &lt;int value&gt;
 Ratelimit-Helixclipscreation-Remaining: &lt;int value&gt;
 </code></pre><h2 id=method-definition>Method Definition</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=color:#a6e22e>@RequestLine</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;POST /clips?broadcaster_id={broadcaster_id}&amp;has_delay={has_delay}&#34;</span><span style=color:#f92672>)</span>
@@ -434,7 +434,7 @@ clipData<span style=color:#f92672>.</span><span style=color:#a6e22e>data</span><
 <div class=tab-pane title=Kotlin>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-kotlin data-lang=kotlin><span style=color:#66d9ef>val</span> clipData = twitchClient.helix.createClip(accessToken, <span style=color:#e6db74>&#34;149223493&#34;</span>, <span style=color:#66d9ef>false</span>).execute();
 
-clipData.<span style=color:#a6e22e>`data</span><span style=color:#960050;background-color:#1e0010>`</span>.each { clip <span style=color:#f92672>-&gt;</span>
+clipData.`data<span style=color:#960050;background-color:#1e0010>`</span>.each { clip <span style=color:#f92672>-&gt;</span>
 	println(<span style=color:#e6db74>&#34;Created Clip with ID: </span><span style=color:#e6db74>${clip.id}</span><span style=color:#e6db74>&#34;</span>)
 }
 </code></pre></div>
