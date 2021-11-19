@@ -71,25 +71,9 @@ var users: Future<UserList> = twitchClient.helix.getUsers(null, null, arrayOf("t
 {{</ code >}}
 {{</ codeblocks >}}
 
-You can retrieve the result of the command by using the Future:
+You can retrieve the result of the async method at any time by calling `.get()` on the future, for example: `users.get()`.
 
-{{< codeblocks >}}
-{{< code Java >}}
-```java
-UserList users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j")).queue().get();
-```
-{{</ code >}}
-{{< code Groovy >}}
-```groovy
-UserList users = twitchClient.helix.getUsers(null, null, Arrays.asList("twitch4j")).queue().get()
-```
-{{</ code >}}
-{{< code Kotlin >}}
-```kotlin
-var users: UserList = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).queue().get()
-```
-{{</ code >}}
-{{</ codeblocks >}}
+For more informatioon on how you can work with `Future` please check out this guide: https://www.baeldung.com/java-future
 
 ### Reactive Execution
 
