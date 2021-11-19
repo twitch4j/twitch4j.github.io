@@ -53,29 +53,6 @@ var userList: users = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j"
 
 You can execute any api call asynchronously with the queue() method, as shown in the following example:
 
-
-
-{{< codeblocks >}}
-{{< code Java >}}
-```java
-UserList users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j"))
-        .execute();
-```
-{{</ code >}}
-{{< code Groovy >}}
-```groovy
-UserList users = twitchClient.helix.getUsers(null, null, ["twitch4j"]).execute()
-```
-{{</ code >}}
-{{< code Kotlin >}}
-```kotlin
-var users: UserList = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).execute()
-```
-{{</ code >}}
-{{</ codeblocks >}}
-
-You can retrieve the result of the command by using the Future:
-
 {{< codeblocks >}}
 {{< code Java >}}
 ```java
@@ -84,7 +61,7 @@ Future<UserList> users = twitchClient.getHelix().getUsers(null, null, Arrays.asL
 {{</ code >}}
 {{< code Groovy >}}
 ```groovy
-Future<UserList> users = twitchClient.helix.getUsers(null, null, Arrays.asList("twitch4j")).queue()
+Future<UserList> users = twitchClient.helix.getUsers(null, null, ["twitch4j"]).queue()
 ```
 {{</ code >}}
 {{< code Kotlin >}}
@@ -93,6 +70,10 @@ var users: Future<UserList> = twitchClient.helix.getUsers(null, null, arrayOf("t
 ```
 {{</ code >}}
 {{</ codeblocks >}}
+
+You can retrieve the result of the async method at any time by calling `.get()` on the future, for example: `users.get()`.
+
+For more information on how you can work with `Future` please check out this guide: https://www.baeldung.com/java-future
 
 ### Reactive Execution
 
@@ -104,8 +85,7 @@ You can also observe the results of any api call as an Observable by using one o
 {{< codeblocks >}}
 {{< code Java >}}
 ```java
-Observable<UserList> users = twitchClient.getKraken().getUsers(null, null, Arrays.asList("twitch4j"))
-        .observe();
+Observable<UserList> users = twitchClient.getKraken().getUsers(null, null, Arrays.asList("twitch4j")).observe();
 ```
 {{</ code >}}
 {{< code Groovy >}}
