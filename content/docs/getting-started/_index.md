@@ -73,7 +73,7 @@ var users: Future<UserList> = twitchClient.helix.getUsers(null, null, arrayOf("t
 
 You can retrieve the result of the async method at any time by calling `.get()` on the future, for example: `users.get()`.
 
-For more informatioon on how you can work with `Future` please check out this guide: https://www.baeldung.com/java-future
+For more information on how you can work with `Future` please check out this guide: https://www.baeldung.com/java-future
 
 ### Reactive Execution
 
