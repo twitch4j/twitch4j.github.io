@@ -28,6 +28,7 @@ com.github.twitch4j.eventsub
 com.github.twitch4j.eventsub.condition
 com.github.twitch4j.eventsub.domain
 com.github.twitch4j.eventsub.events
+com.github.twitch4j.eventsub.events.batched
 com.github.twitch4j.eventsub.subscriptions
 com.github.twitch4j.eventsub.util
 com.github.twitch4j.extensions
