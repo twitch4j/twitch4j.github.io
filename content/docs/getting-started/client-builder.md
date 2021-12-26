@@ -36,43 +36,6 @@ val twitchClient = TwitchClientBuilder.builder()
 {{</code>}}
 {{</codeblocks>}}
 
-## Overwrite the EventManager for Cross-Library Usage
-
-You can overwrite the native EventManager with a globally used one to share events between Twitch4J and other 3rd party libraries.
-
-{{<codeblocks>}}
-{{<code Java>}}
-```java
-EventManager eventManager = new EventManager();
-eventManager.autoDiscovery();
-
-TwitchClient twitchClient = TwitchClientBuilder.builder()
-            .withEventManager(eventManager)
-            .build();
-```
-{{</code>}}
-{{<code Groovy>}}
-```groovy
-def eventManager = new EventManager()
-eventManager.autoDiscovery()
-
-def twitchClient = TwitchClientBuilder.builder()
-            .withEventManager(eventManager)
-            .build()
-```
-{{</code>}}
-{{<code Kotlin>}}
-```kotlin
-val eventManager = EventManager()
-eventManager.autoDiscovery()
-
-val twitchClient = TwitchClientBuilder.builder()
-            .withEventManager(eventManager)
-            .build()
-```
-{{</code>}}
-{{</codeblocks>}}
-
 ## Logging
 
 Please check out [Logging](../logging) on how to set up logging.
