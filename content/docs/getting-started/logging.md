@@ -33,7 +33,7 @@ Here are a few examples on how to add a logging library of your choice:
 
 ```groovy
 dependencies {
-    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.8'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.10'
 }
 ```
 
@@ -42,7 +42,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation(group = "ch.qos.logback", name = "logback-classic", version = "1.2.8")
+    implementation(group = "ch.qos.logback", name = "logback-classic", version = "1.2.10")
 }
 ```
 
@@ -53,7 +53,7 @@ dependencies {
 <dependency>
     <groupId>ch.qos.logback</groupId>
     <artifactId>logback-classic</artifactId>
-    <version>1.2.8</version>
+    <version>1.2.10</version>
 </dependency>
 ```
 
