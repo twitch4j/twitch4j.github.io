@@ -56,7 +56,7 @@ hosts.hosts.each { host ->
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-def hosts = twitchClient.messagingInterface.getHosts(["29829912"]).execute()
+val hosts = twitchClient.messagingInterface.getHosts(["29829912"]).execute()
 hosts.hosts.each { host ->
     println("${host.hostDisplayName} hosting ${host.targetDisplayName}")
 }

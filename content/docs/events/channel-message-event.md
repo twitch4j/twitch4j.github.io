@@ -40,7 +40,7 @@ eventManager.onEvent(ChannelMessageEvent) { event ->
 ```kotlin
 eventManager.onEvent(ChannelMessageEvent::class.java) { event ->
 	println("[${event.channel.name}] ${event.user.name}: ${event.message}")
-});
+}
 ```
 {{</code>}}
 {{</codeblocks>}}

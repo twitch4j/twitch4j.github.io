@@ -57,7 +57,7 @@ codeStatusList.statuses.each { codeStatus ->
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-def codeStatusList = twitchClient.helix.getCodeStatus(authToken, listOf("KUHXV-4GXYP-AKAKK"), 156900877).execute();
+val codeStatusList = twitchClient.helix.getCodeStatus(authToken, listOf("KUHXV-4GXYP-AKAKK"), 156900877).execute();
 codeStatusList.statuses.forEach { codeStatus -> 
     println("${codeStatus.code} ${codeStatus.status}")
 }

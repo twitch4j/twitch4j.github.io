@@ -69,8 +69,8 @@ resultList.gameAnalytics.each { (analytic ->
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-def resultList = twitchClient.helix.getGameAnalyticUrl(accessToken, null, 10, null, null, null, null).execute();
-resultList.gameAnalytics.forEach { (analytic ->
+val resultList = twitchClient.helix.getGameAnalyticUrl(accessToken, null, 10, null, null, null, null).execute();
+resultList.gameAnalytics.forEach { analytic ->
 	println("URL: ${analytic.uRL}")
 }
 ```
