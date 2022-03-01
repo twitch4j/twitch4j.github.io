@@ -69,7 +69,7 @@ resultList.getStreamMarkers().forEach(stream -> {
 def resultList = twitchClient.helix.getStreamMarkers(authToken, "", "", null, "217359661l", "137512364l").execute()
 resultList.streamMarkers.each { stream ->
 	stream.videos.each { videoMarker ->
-		videoMarker.markers.each { marker -> {
+		videoMarker.markers.each { marker ->
 			System.out.println "${marker.id}:${marker.description}"
 		}
 	}
@@ -81,7 +81,7 @@ resultList.streamMarkers.each { stream ->
 val resultList = twitchClient.helix.getStreamMarkers(authToken, "", "", null, "217359661l", "137512364l").execute()
 resultList.streamMarkers.forEach { stream ->
 	stream.videos.forEach { videoMarker ->
-		videoMarker.markers.forEach { marker -> {
+		videoMarker.markers.forEach { marker ->
 			println("${marker.id}:${marker.description}")
 		}
 	}

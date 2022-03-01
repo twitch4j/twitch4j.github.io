@@ -67,8 +67,8 @@ client.eventManager.onEvent ChannelMessageEvent, { event ->
 
 ```kotlin
 client.eventManager.onEvent(ChannelMessageEvent::class.java) { event ->
-	println("[${event.channel.name}]${event.permissions}] ${event.user.name}: ${event.message}");
-});
+	println("[${event.channel.name}]${event.permissions}] ${event.user.name}: ${event.message}")
+}
 ```
 
 {{</ code >}}

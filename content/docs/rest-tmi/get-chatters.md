@@ -67,7 +67,7 @@ System.out.println("All Viewers (sum of the above): ${chatters.allViewers}");
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-def chatters = twitchClient.messagingInterface.getChatters("lirik").execute();
+val chatters = twitchClient.messagingInterface.getChatters("lirik").execute();
 
 println("Broadcaster: ${chatters.broadcaster}");
 println("VIPs: ${chatters.vips}");

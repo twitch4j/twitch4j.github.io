@@ -56,8 +56,8 @@ twitchClient.eventManager.onEvent(ChatModerationEvent, System.out::println)
 {{<code Kotlin>}}
 ```kotlin
 // Listen to topic
-String userId = "142621956" // user id of hexafice
-String broadcasterId = "149223493" // channel id of twitch4j
+val userId = "142621956" // user id of hexafice
+val broadcasterId = "149223493" // channel id of twitch4j
 twitchClient.pubSub.listenForModerationEvents(credential, broadcasterId, userId)
 
 // Handle events

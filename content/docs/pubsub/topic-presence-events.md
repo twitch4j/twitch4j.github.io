@@ -107,7 +107,7 @@ twitchClient.eventManager.onEvent(UserPresenceEvent) { e ->
 {{<code Kotlin>}}
 ```kotlin
 twitchClient.eventManager.onEvent(UserPresenceEvent::class.java) { e ->
-	boolean wentLive = e.`data`.activities.any { it.type.equalsIgnoreCase("broadcasting") }
+	val wentLive = e.`data`.activities.any { it.type.equalsIgnoreCase("broadcasting") }
 	if (wentLive) {
 		println(e); // Handle Go Live
 	}
