@@ -57,7 +57,10 @@ resultList.getUsers().forEach(user -> {
 {{</code>}}
 {{<code Kotlin>}}
 ```kotlin
-
+val resultList = twitchClient!!.helix.getUsers(null, listOf("149223493"), null).execute()
+resultList.users.forEach(Consumer { user: User? ->
+	println(user)
+})
 ```
 {{</code>}}
 {{</codeblocks>}}
