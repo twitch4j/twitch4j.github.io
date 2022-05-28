@@ -48,9 +48,9 @@ HystrixCommand<ClipList> getClips(
 | authToken     | string    | User Auth Token |
 | after | string | Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response. This applies only to queries specifying broadcaster_id or game_id. The cursor value specified here is from the pagination response field of a prior query. |
 | before  | string | Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. This applies only to queries specifying broadcaster_id or game_id. The cursor value specified here is from the pagination response field of a prior query. |
-| first | string | Ending date/time for returned clips, in RFC3339 format. (Note that the seconds value is ignored.) If this is specified, started_at also must be specified; otherwise, the time period is ignored. |
-| started_at | string | Maximum number of objects to return. Maximum: 100. Default: 20. |
-| ended_at | string | Starting date/time for returned clips, in RFC3339 format. (Note that the seconds value is ignored.) If this is specified, ended_at also should be specified; otherwise, the ended_at date/time will be 1 week after the started_at value. |
+| first | string | Maximum number of objects to return. Maximum: 100. Default: 20. |
+| started_at | string | Starting date/time for returned clips, in RFC3339 format. (Note that the seconds value is ignored.) If this is specified, ended_at also should be specified; otherwise, the ended_at date/time will be 1 week after the started_at value. |
+| ended_at | string | Ending date/time for returned clips, in RFC3339 format. (Note that the seconds value is ignored.) If this is specified, started_at also must be specified; otherwise, the time period is ignored. |
 
 ## Code-Snippets
 
