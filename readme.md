@@ -15,7 +15,7 @@ Using [`config.yml`](config.yml) we define a custom menu content... and the othe
 
 ## Write your documentation
 
-Ckecout [how to](how_to.md) utilize this custom template.
+Checkout [how to](https://twitch4j.github.io/docs/contribution/documentation/) utilize this custom template.
 
 ## Additional Notes
 
