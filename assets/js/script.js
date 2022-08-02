@@ -180,8 +180,8 @@ $(function() {
     $(".version_release").text(body.tag_name.substring(1));
   });
 
-  $("#Navigation .parent .fas").on("click", function() {
-    $(this).toggleClass("fa-caret-right fa-caret-down");
+  $("#Navigation .parent .dropdown").on("click", function() {
+    $(this).find("i").toggleClass("fa-caret-right fa-caret-down");
     $(this).closest(".parent").children("ul").toggle(250, "linear");
   });
 
