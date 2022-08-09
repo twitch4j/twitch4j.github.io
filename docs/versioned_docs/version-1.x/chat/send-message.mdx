@@ -1,0 +1,42 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Send Channel Message
+
+## Description
+
+Sends a message to a twitch channel.
+
+* The messages will go into a queue internally so we won't hit the rate-limit.
+* This could cause some minor deleays when sending a lot of messages.
+* The queue will only be processed when we're connected to twitch.
+
+## Example
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getChat().sendMessage("twitch4j", "Hey!");
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.chat.sendMessage("twitch4j", "Hey!")
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.chat.sendMessage("twitch4j", "Hey!")
+```
+
+</TabItem>
+</Tabs>

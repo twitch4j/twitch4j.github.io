@@ -1,0 +1,38 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Leave Channel
+
+## Description
+
+Leaves a channel, will not receive any futher events (Messages, Subscriptions, Bits, ...)
+
+## Example
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getChat().leaveChannel("PlayOverwatch");
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.chat.leaveChannel("PlayOverwatch")
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.chat.leaveChannel("PlayOverwatch")
+```
+
+</TabItem>
+</Tabs>

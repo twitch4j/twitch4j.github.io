@@ -1,0 +1,102 @@
+---
+sidebar_position: 100
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Client Helper
+
+The Twitch4J Client Helper aims to bundle some common code used by library users to prevent everyone from reinventing the wheel ;)
+
+Current Features:
+- Event: StreamGoLiveEvent / StreamGoOffflineEvent / StreamChangeGameEvent / StreamChangeTitleEvent
+- Event: FollowEvent
+
+Those methods require the `Helix Module`, so enable it in the `TwitchClientBuilder`.
+
+## Default Credential
+
+When using the client helper, you will need to specify a default credential (any) that gets used for all requests for increased ratelimits, this is mandatory!
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+TwitchClient twitchClient = TwitchClientBuilder.builder()
+    .withDefaultAuthToken(new OAuth2Credential("twitch", "oauthtokenhere"))
+    .build();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val twitchClient = TwitchClientBuilder.builder()
+    .withDefaultAuthToken(OAuth2Credential("twitch", "oauthtokenhere"))
+    .build();
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def twitchClient = TwitchClientBuilder.builder()
+    .withDefaultAuthToken(new OAuth2Credential("twitch", "oauthtokenhere"))
+    .build();
+```
+
+</TabItem>
+</Tabs>
+
+## Register for Stream GoLive / GoOffline / GameChange / TitleChange Events
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getClientHelper().enableStreamEventListener("twitch4j");
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.clientHelper.enableStreamEventListener("twitch4j");
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.clientHelper.enableStreamEventListener("twitch4j");
+```
+
+</TabItem>
+</Tabs>
+
+## Register for Follow Event
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getClientHelper().enableFollowEventListener("twitch4j");
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.clientHelper.enableFollowEventListener("twitch4j");
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.clientHelper.enableFollowEventListener("twitch4j");
+```
+
+</TabItem>
+</Tabs>

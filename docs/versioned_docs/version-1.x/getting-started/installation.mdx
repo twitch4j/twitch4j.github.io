@@ -1,0 +1,83 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Installation
+
+We recommend using a dependency management tool to manage twitch4j and sub dependencies. As a fallback method you can also download a fatJar adding `shaded` scope to your configuration build.
+
+## Usage in a Application
+
+<Tabs groupId="dependency">
+<TabItem value="gradle-groovy" label="Gradle - Groovy">
+
+```groovy
+dependencies {
+    implementation group: 'com.github.twitch4j', name: 'twitch4j', version: '1.11.0'
+}
+```
+
+</TabItem>
+<TabItem value="gradle-kotlin" label="Gradle - Kotlin DSL">
+
+```kotlin
+dependencies {
+    implementation(group = "com.github.twitch4j", name = "twitch4j", version = "1.11.0")
+}
+```
+
+</TabItem>
+<TabItem value="maven" label="Maven">
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.twitch4j</groupId>
+        <artifactId>twitch4j</artifactId>
+        <version>1.11.0</version>
+    </dependency>
+</dependencies>
+```
+
+</TabItem>
+</Tabs>
+
+
+## Usage in a Library
+
+<Tabs groupId="dependency">
+<TabItem value="gradle-groovy" label="Gradle - Groovy">
+
+```groovy
+dependencies {
+    api group: 'com.github.twitch4j', name: 'twitch4j', version: '1.11.0'
+}
+```
+
+</TabItem>
+<TabItem value="gradle-kotlin" label="Gradle - Kotlin DSL">
+
+```kotlin
+dependencies {
+    api(group = "com.github.twitch4j", name = "twitch4j", version = "1.11.0")
+}
+```
+
+</TabItem>
+<TabItem value="maven" label="Maven">
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.twitch4j</groupId>
+        <artifactId>twitch4j</artifactId>
+        <version>1.11.0</version>
+    </dependency>
+</dependencies>
+```
+
+</TabItem>
+</Tabs>

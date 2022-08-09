@@ -1,4 +1,0 @@
-{{- $builds := dict "gradle" "build.gradle" "kotlin" "build.gradle.kts" "pom" "pom.xml" -}}
-<div class="tab-pane" name="{{ .Get 0 }}" title="{{ index $builds (.Get 0) }}">
-  {{ .Inner | markdownify }}
-</div>

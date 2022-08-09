@@ -1,0 +1,69 @@
+---
+sidebar_position: 11
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get Hosts
+
+## Description
+
+This endpoint returns a "host" record for each channel ID provided. If the channel is not hosting anyone, the target_id 
+and target_login fields will not be present.
+
+## Method Definition
+
+```java
+@RequestLine("GET /hosts?include_logins=1&host={id}")
+HystrixCommand<HostList> getHosts(
+    @Param("id") List<String> channelIds
+);
+```
+
+*Required Parameters*
+
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| channelIds | text | A list containing a user ID for each channel to check. |
+
+*Optional Parameters*
+
+None
+
+## Code-Snippets
+
+### print who a channel is hosting
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+HostList hosts = twitchClient.getMessagingInterface().getHosts(Arrays.asList("29829912")).execute();
+hosts.getHosts().forEach(host -> {
+    System.out.println(host.getHostDisplayName() + " hosting " + host.getTargetDisplayName());
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val hosts = twitchClient.messagingInterface.getHosts(["29829912"]).execute()
+hosts.hosts.each { host ->
+    println("${host.hostDisplayName} hosting ${host.targetDisplayName}")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def hosts = twitchClient.messagingInterface.getHosts(["29829912"]).execute()
+hosts.hosts.each { host ->
+    System.out.println "${host.hostDisplayName} hosting ${host.targetDisplayName}"
+}
+```
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,42 @@
+---
+sidebar_position: 3
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Send Private Message
+
+## Description
+
+Sends a private message to a user.
+
+* The messages will go into a queue internally so we won't hit the rate-limit.
+* This could cause some minor deleays when sending a lot of messages.
+* The queue will only be processed when we're connected to twitch.
+
+## Example
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getChat().sendPrivateMessage("twitch4j", "Hey! This is a direct message.");
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.chat.sendPrivateMessage("twitch4j", "Hey! This is a direct message.")
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.chat.sendPrivateMessage("twitch4j", "Hey! This is a direct message.")
+```
+
+</TabItem>
+</Tabs>

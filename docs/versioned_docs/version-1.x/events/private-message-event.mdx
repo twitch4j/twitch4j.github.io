@@ -1,0 +1,51 @@
+---
+sidebar_position: 210
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# PrivateMessageEvent
+
+## Description
+
+The PrivateMessageEvent is triggered for private messages / whispers and can be triggered from PubSub or Chat.
+
+## Dependencies
+
+Requires the TwitchChat Module to be enabled and active for the source channel. See [TwitchChat](../chat).
+Otherwise you will need to enable [PubSub](../pubsub) and subscribe to the whispers topic the receive PrivateMessageEvents.
+
+## Examples
+
+### Listen for PrivateMessageEvent
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+eventManager.onEvent(PrivateMessageEvent.class, event -> {
+	System.out.println("[Whisper] " + event.getUser().getName() + ": " + event.getMessage());
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+eventManager.onEvent(PrivateMessageEvent::class.java) { event ->
+	println("[Whisper] ${event.user.name}: ${event.message}")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+eventManager.onEvent(PrivateMessageEvent) { event ->
+	System.out.println "[Whisper] ${event.user.name}: ${event.message}"
+}
+```
+
+</TabItem>
+</Tabs>

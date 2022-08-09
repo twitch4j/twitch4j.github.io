@@ -1,9 +1,0 @@
-{{- $s := resources.Get "css/style.scss" | resources.ExecuteAsTemplate "assets/css/style.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
-{{- $fa := resources.Get "css/fontawesome/all.min.css" | resources.ExecuteAsTemplate "assets/css/fontawesome-all.min.css" . | resources.Fingerprint -}}
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-{{- hugo.Generator -}}
-<link rel="stylesheet" href="{{ $s.RelPermalink }}" integrity="{{ $s.Data.Integrity }}" crossorigin="anonymous"/>
-<link rel="stylesheet" href="{{ $fa.RelPermalink }}" integrity="{{ $fa.Data.Integrity }}" crossorigin="anonymous"/>
-<title>{{ if .Page.Title }}{{ .Page.Title }} - {{ end }}{{ .Site.Title }}</title>

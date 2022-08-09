@@ -1,0 +1,85 @@
+---
+sidebar_position: 10
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get Chatters
+
+## Description
+
+Gets vip's, moderators, staff, admins and normal viewers that are currently present in the chat. (Viewers that use a embedded viewer without chat can't be tracked using this)
+
+There is no other way to request information about current viewers, as such this is currently the only way to get a list of people watching a stream.
+
+## Method Definition
+
+```java
+@RequestLine("GET /group/user/{channel}/chatters")
+HystrixCommand<Chatters> getChatters(
+	@Param("channel") String channelName
+);
+```
+
+*Required Parameters*
+
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| channelName | text | Target Channel Name |
+
+*Optional Parameters*
+
+None
+
+## Code-Snippets
+
+### print current viewers (chatters)
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+Chatters chatters = twitchClient.getMessagingInterface().getChatters("lirik").execute();
+
+System.out.println("Broadcaster: " + chatters.getBroadcaster());
+System.out.println("VIPs: " + chatters.getVips());
+System.out.println("Mods: " + chatters.getModerators());
+System.out.println("Admins: " + chatters.getAdmins());
+System.out.println("Staff: " + chatters.getStaff());
+System.out.println("Viewers: " + chatters.getViewers());
+System.out.println("All Viewers (sum of the above): " + chatters.getAllViewers());
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val chatters = twitchClient.messagingInterface.getChatters("lirik").execute();
+
+println("Broadcaster: ${chatters.broadcaster}");
+println("VIPs: ${chatters.vips}");
+println("Mods: ${chatters.moderators}");
+println("Admins: ${chatters.admins}");
+println("Staff: ${chatters.staff}");
+println("Viewers: ${chatters.viewers}");
+println("All Viewers (sum of the above): ${chatters.allViewers}");
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def chatters = twitchClient.messagingInterface.getChatters("lirik").execute();
+
+System.out.println("Broadcaster: ${chatters.broadcaster}");
+System.out.println("VIPs: ${chatters.vips}");
+System.out.println("Mods: ${chatters.moderators}");
+System.out.println("Admins: ${chatters.admins}");
+System.out.println("Staff: ${chatters.staff}");
+System.out.println("Viewers: ${chatters.viewers}");
+System.out.println("All Viewers (sum of the above): ${chatters.allViewers}");
+```
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,50 @@
+---
+sidebar_position: 210
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Channel - Change Game Event
+
+## Description
+
+The ChannelChangeGameEvent is triggered when a monitored channel changes the game.
+
+## Dependencies
+
+Requires the specific channels to be registered with the TwitchClient Helper. See [TwitchClientHelper](../getting-started/client-helper)
+
+## Examples
+
+### Example 1
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+eventManager.onEvent(ChannelChangeGameEvent.class, event -> {
+	System.out.println("[" + event.getChannel().getName() + "] is now playing " + event.getGameId() + "!");
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+eventManager.onEvent(ChannelChangeGameEvent::class.java) { event ->
+	println("[${event.channel.name}] is now playing ${event.gameId}!")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+eventManager.onEvent(ChannelChangeGameEvent) { event ->
+	System.out.println "[${event.channel.name}] is now playing ${event.gameId}!"
+}
+```
+
+</TabItem>
+</Tabs>

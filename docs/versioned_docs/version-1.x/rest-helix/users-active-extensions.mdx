@@ -1,0 +1,68 @@
+---
+sidebar_position: 64
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Users - Get Active Extensions
+
+## Description
+
+Gets information about active extensions installed by a specified user, identified by a user ID or Bearer token.
+
+## Method Definition
+
+```java
+@RequestLine("GET /users/extensions?user_id={user_id}")
+@Headers("Authorization: Bearer {token}")
+HystrixCommand<ExtensionActiveList> getUserActiveExtensions(
+	@Param("token") String authToken,
+	@Param("user_id") Long userId
+);
+```
+
+*Required Parameters*
+
+None
+
+*Optional Parameters*
+
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| authToken | string | User Auth Token -> `user:read:broadcast` or `user:edit:broadcast` |
+| user_id | string | ID of the user whose installed extensions will be returned. Limit: 1. |
+
+## Code-Snippets
+
+### print active extensions
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+ExtensionActiveList resultList = twitchClient.getHelix().getUserActiveExtensions(testUtils.getCredential().getAccessToken(), twitchUserId).execute();
+
+System.out.println(resultList.getData());
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val resultList = twitchClient.helix.getUserActiveExtensions(testUtils.credential.accessToken, twitchUserId).execute()
+
+println(resultList.`data`)
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def resultList = twitchClient.helix.getUserActiveExtensions(testUtils.credential.accessToken, twitchUserId).execute()
+
+System.out.println resultList.data
+```
+
+</TabItem>
+</Tabs>

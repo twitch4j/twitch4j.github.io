@@ -1,0 +1,84 @@
+---
+sidebar_position: 202
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# EventHandler - Reactor
+
+## Description
+
+The ReactorEventHandler will process all events asynchronous in a threadpool with at least 4 threads.
+
+Check out the following class if you want to customize the parameters used when building a ReactorEventHandler instance:
+
+- [ReactorEventHandler.java](https://github.com/PhilippHeuer/events4j/blob/master/handler-reactor/src/main/java/com/github/philippheuer/events4j/reactor/ReactorEventHandler.java)
+
+## Dependencies
+
+<Tabs groupId="dependency">
+<TabItem value="gradle-groovy" label="Gradle - Groovy">
+
+```groovy
+dependencies {
+    implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-reactor', version: '0.9.8'
+}
+```
+
+</TabItem>
+<TabItem value="gradle-kotlin" label="Gradle - Kotlin DSL">
+
+```kotlin
+dependencies {
+    implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-reactor", version = "0.9.8")
+}
+```
+
+</TabItem>
+<TabItem value="maven" label="Maven">
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.philippheuer.events4j</groupId>
+        <artifactId>events4j-handler-reactor</artifactId>
+        <version>0.9.8</version>
+    </dependency>
+</dependencies>
+```
+
+</TabItem>
+</Tabs>
+
+## Set as default in Twitch4J and for eventManager.onEvent
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+TwitchClient twitchClient = TwitchClientBuilder.builder()
+    .withDefaultEventHandler(ReactorEventHandler.class)
+    .build();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val twitchClient = TwitchClientBuilder.builder()
+    .withDefaultEventHandler(ReactorEventHandler::class.java)
+    .build();
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def twitchClient = TwitchClientBuilder.builder()
+    .withDefaultEventHandler(ReactorEventHandler)
+    .build();
+```
+
+</TabItem>
+</Tabs>

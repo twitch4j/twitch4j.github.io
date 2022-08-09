@@ -1,0 +1,50 @@
+---
+sidebar_position: 210
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Channel - Change Title Event
+
+## Description
+
+The ChannelChangeTitleEvent is triggered when a monitored channel changes it's title.
+
+## Dependencies
+
+Requires the specific channels to be registered with the TwitchClient Helper. See [TwitchClientHelper](../getting-started/client-helper)
+
+## Examples
+
+### Example 1
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+eventManager.onEvent(ChannelChangeTitleEvent.class, event -> {
+	System.out.println("[" + event.getChannel().getName() + "] changed his stream title to " + event.getTitle() + "!");
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+eventManager.onEvent(ChannelChangeTitleEvent::class.java) { event ->
+	println("[${event.channel.name}] changed his stream title to ${event.title}!")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+eventManager.onEvent(ChannelChangeTitleEvent) { event ->
+	System.out.println "[${event.channel.name}] changed his stream title to ${event.title}!"
+}
+```
+
+</TabItem>
+</Tabs>
