@@ -1,0 +1,156 @@
+---
+sidebar_position: 1
+sidebar_label: Home
+slug: /
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# 
+
+<img src={useBaseUrl('/img/wordmark.svg')} width="100%" fill="white" />
+
+Welcome and thanks for using Twitch4J!
+
+Please check out the [Installation](./getting-started/installation) page to install the Twitch4J dependency.
+
+After that the [Client-Builder](./getting-started/client-builder) will show you how to create a Twitch4J Instance.
+
+Now you'r ready to check out a few example projects:
+
+* [Twitch4J Chatbot](https://github.com/twitch4j/twitch4j-chatbot)
+
+## Events
+
+Many modules can generate events which you can handle in some way, like PubSub, Chat, ...
+
+For a list of available events / information on how to listen to events please check out: [Events](../events)
+
+## API Calls
+
+This API Client provides you 3 methods to handle / process the results of api calls.
+
+### Synchronous Execution
+
+You can execute any api call synchronously with the execute() method, as shown in the following example:
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+UserList users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j")).execute();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+var userList: users = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).execute();
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+UserList users = twitchClient.helix.getUsers(null, null, ["twitch4j"]).execute();
+```
+
+</TabItem>
+</Tabs>
+
+### Asynchronous Execution
+
+You can execute any api call asynchronously with the queue() method, as shown in the following example:
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+Future<UserList> users = twitchClient.getHelix().getUsers(null, null, Arrays.asList("twitch4j")).queue();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+var users: Future<UserList> = twitchClient.helix.getUsers(null, null, arrayOf("twitch4j")).queue()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+Future<UserList> users = twitchClient.helix.getUsers(null, null, ["twitch4j"]).queue()
+```
+
+</TabItem>
+</Tabs>
+
+You can retrieve the result of the async method at any time by calling `.get()` on the future, for example: `users.get()`.
+
+For more information on how you can work with `Future` please check out this guide: https://www.baeldung.com/java-future
+
+### Reactive Execution
+
+You can also observe the results of any api call as an Observable by using one of the following methods:
+
+* observe() — returns a “hot” Observable that executes the command immediately, though because the Observable is filtered through a ReplaySubject you are not in danger of losing any items that it emits before you have a chance to subscribe
+* toObservable() — returns a “cold” Observable that won’t execute the command and begin emitting its results until you subscribe to the Observable
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+Observable<UserList> users = twitchClient.getKraken().getUsers(null, null, Arrays.asList("twitch4j")).observe();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+var users: Observable<UserList> = twitchClient.kraken.getUsers(null, null, arrayOf("twitch4j")).observe()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+Observable<UserList> users = twitchClient.kraken.getUsers(null, null, ["twitch4j"]).observe()
+```
+
+</TabItem>
+</Tabs>
+
+You then retrieve the value of the command by subscribing to the Observable:
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+users.subscribe(data -> {
+  // your code to work with the result data
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+users.subscribe { data ->
+  // your code to work with the result data
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+users.subscribe { data ->
+  // your code to work with the result data
+}
+```
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,71 @@
+---
+sidebar_position: 51
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Streams - Get Key
+
+## Description
+
+Gets the channel stream key for a user.
+
+## Method Definition
+
+```java
+@RequestLine("GET /streams/key?broadcaster_id={broadcaster_id}")
+@Headers("Authorization: Bearer {token}")
+HystrixCommand<StreamKeyList> getStreamKey(
+    @Param("token") String authToken,
+    @Param("broadcaster_id") String broadcasterId
+);
+```
+
+*Required Parameters*
+
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| authToken     | string    | User Access Token (scope: channel:read:stream_key) |
+| broadcasterId | string    | User ID of the broadcaster |
+
+*Optional Parameters*
+
+None
+
+## Code-Snippets
+
+### print stream key
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+StreamKeyList resultList = twitchClient.getHelix().getStreamKey(authToken, broadcasterId).execute();
+resultList.getKeys().forEach(key -> {
+    System.out.println(key);
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val resultList = twitchClient.helix.getStreamKey(authToken, broadcasterId).execute()
+resultList.keys.forEach { key ->
+    println(key)
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def resultList = twitchClient.helix.getStreamKey(authToken, broadcasterId).execute()
+resultList.keys.each { key ->
+    System.out.println key
+}
+```
+
+</TabItem>
+</Tabs>

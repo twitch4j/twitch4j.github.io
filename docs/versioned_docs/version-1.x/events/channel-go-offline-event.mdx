@@ -1,0 +1,50 @@
+---
+sidebar_position: 210
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Channel - Go Offline Event
+
+## Description
+
+The ChannelGoOfflineEvent is triggered when a monitored channel goes offline.
+
+## Dependencies
+
+Requires the specific channels to be registered with the TwitchClient Helper. See [TwitchClientHelper](../getting-started/client-helper)
+
+## Examples
+
+### Example 1
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+eventManager.onEvent(ChannelGoOfflineEvent.class, event -> {
+	System.out.println("[" + event.getChannel().getName() + "] just went offline!");
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+eventManager.onEvent(ChannelGoOfflineEvent::class.java) { event -> 
+	println("[${event.channel.name}] just went offline!")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+eventManager.onEvent(ChannelGoOfflineEvent) { event ->
+	System.out.println "[${event.channel.name}] just went offline!"
+}
+```
+
+</TabItem>
+</Tabs>

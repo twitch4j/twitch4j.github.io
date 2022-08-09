@@ -1,0 +1,62 @@
+---
+sidebar_position: 62
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Users - Update
+
+## Description
+
+Updates the description of a user specified by a Bearer token.
+
+## Method Definition
+
+```java
+@RequestLine("PUT /users?description={description}")
+@Headers("Authorization: Bearer {token}")
+HystrixCommand<UserList> updateUser(
+	@Param("token") String authToken,
+	@Param("description") String description
+);
+```
+
+*Required Parameters*
+
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| authToken | string | User Auth Token -> `user:edit` |
+| description | string | The new description |
+
+*Optional Parameters*
+
+None
+
+## Code-Snippets
+
+### update the description of a user
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getHelix().updateUser(accessToken, "Twitch4J IntegrationTest User").execute();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.helix.updateUser(accessToken, "Twitch4J IntegrationTest User").execute()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.helix.updateUser(accessToken, "Twitch4J IntegrationTest User").execute()
+```
+
+</TabItem>
+</Tabs>

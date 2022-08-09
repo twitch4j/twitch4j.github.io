@@ -1,0 +1,40 @@
+---
+sidebar_position: 0
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Join Channel
+
+## Description
+
+Joins a channel on irc, and as such will receive any kind of events for that channel (Messages, Subscriptions, Bits, ...)
+
+A join is stored, as such you will automatically rejoin channels in case there was a disconnect or similar.
+
+## Example
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getChat().joinChannel("PlayOverwatch");
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.chat.joinChannel("PlayOverwatch")
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.chat.joinChannel("PlayOverwatch")
+```
+
+</TabItem>
+</Tabs>

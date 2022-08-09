@@ -8,28 +8,20 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          fetch-depth: 0    # full history for contributor information
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 12
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:          
-          extended: true    # important: required for generates css file from scss files
-      - name: Prepare to build
+          node-version: lts/*
+      - name: Build Docs
         run: |
-          npm install -g npm@latest
-          npm install
-      - name: Build Page
-        run: hugo --minify
+          cd docs
+          yarn install
+          yarn build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}   # or your own token to deploy pages
-          publish_dir: ./public
-
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/build

@@ -1,7 +1,17 @@
-.vscode/
-public/
-/resources/
+# docusaurus
+.docusaurus
+.cache-loader
+
+# node
 node_modules/
-.idea/
-*.iml
-dist
+
+# yarn
+.yarn
+
+# build
+build/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

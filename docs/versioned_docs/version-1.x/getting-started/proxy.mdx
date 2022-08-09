@@ -1,0 +1,50 @@
+---
+sidebar_position: 60
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Proxy Support
+
+All components support the usage of a proxy server, it can be set globally like this:
+
+*TwitchClientBuilder*
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+TwitchClient twitchClient = TwitchClientBuilder.builder()
+    // highlight-start
+    .withProxyConfig(ProxyConfig.builder().hostname("my-proxy-host").port(8080).build())
+    // highlight-end
+    .build();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val twitchClient = TwitchClientBuilder.builder()
+    // highlight-start
+    .withProxyConfig(ProxyConfig.builder().hostname("my-proxy-host").port(8080).build())
+    // highlight-end
+    .build()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def twitchClient = TwitchClientBuilder.builder()
+    // highlight-start
+    .withProxyConfig(ProxyConfig.builder().hostname("my-proxy-host").port(8080).build())
+    // highlight-end
+    .build()
+```
+
+</TabItem>
+</Tabs>
+
+You can also call `.withProxyConfig()` on any module builder if you'r using some modules standalone.

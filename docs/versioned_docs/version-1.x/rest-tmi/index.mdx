@@ -1,0 +1,93 @@
+---
+sidebar_position: 10
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# API - Messaging Interface
+
+The Twitch Chat System has a few unofficial endpoints which get exposed from `https://tmi.twitch.tv`.
+
+## As Module: Twitch4J
+
+To use TMI you need to enable the TMI API when building the Twitch4J Instance, as shown below:
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+TwitchClient twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableTMI(true)
+    ...
+    .build();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableTMI(true)
+    ...
+    .build()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def twitchClient = TwitchClientBuilder.builder()
+    ...
+    .withEnableTMI(true)
+    ...
+    .build()
+```
+
+</TabItem>
+</Tabs>
+
+## Standalone
+
+Initialize the Helix API as Standalone Module:
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+TwitchHelix client = TwitchMessagingInterfaceBuilder.builder()
+    .withClientId("clientId")
+    .withClientSecret("clientSecret")
+    .build();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val client = TwitchMessagingInterfaceBuilder.builder()
+    .withClientId("clientId")
+    .withClientSecret("clientSecret")
+    .build()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def client = TwitchMessagingInterfaceBuilder.builder()
+    .withClientId("clientId")
+    .withClientSecret("clientSecret")
+    .build()
+```
+
+</TabItem>
+</Tabs>
+
+## API Methods
+
+- [TMI -> Get Chatters](./get-chatters)
+- [TMI -> Get Hosts](./get-hosts)
+- [TMI -> Get Hosts Of](./get-hosts-of)

@@ -1,0 +1,70 @@
+---
+sidebar_position: 12
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Get Hosts of target channel
+
+## Description
+
+This endpoint returns a "host" record for each channel hosting the channel with the provided targetId. It does not 
+return the login of the target, only of the hosts. Therefore getTargetLogin will return null for each Host in 
+HostList.getHosts().
+
+## Method Definition
+
+```java
+@RequestLine("GET /hosts?include_logins=1&target={id}")
+HystrixCommand<HostList> getHostsOf(
+    @Param("id") String targetId
+);
+```
+
+*Required Parameters*
+
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| targetId | text | The user ID of the channel for which to get host information. |
+
+*Optional Parameters*
+
+None
+
+## Code-Snippets
+
+### print who is hosting a channel
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+HostList hosts = twitchClient.getMessagingInterface().getHostsOf("29829912").execute();
+hosts.getHosts().forEach(host -> {
+    System.out.println(host.getHostDisplayName());
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val hosts = twitchClient.messagingInterface.getHostsOf("29829912").execute()
+hosts.hosts.each { host ->
+    println(host.hostDisplayName);
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def hosts = twitchClient.messagingInterface.getHostsOf("29829912").execute()
+hosts.hosts.each { host ->
+    System.out.println(host.hostDisplayName);
+}
+```
+
+</TabItem>
+</Tabs>

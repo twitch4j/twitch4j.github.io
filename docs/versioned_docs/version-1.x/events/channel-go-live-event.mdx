@@ -1,0 +1,50 @@
+---
+sidebar_position: 210
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Channel - Go Live Event
+
+## Description
+
+The ChannelGoLiveEvent is triggered when a monitored channel goes live.
+
+## Dependencies
+
+Requires the specific channels to be registered with the TwitchClient Helper. See [TwitchClientHelper](../getting-started/client-helper)
+
+## Examples
+
+### Example 1
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+eventManager.onEvent(ChannelGoLiveEvent.class, event -> {
+	System.out.println("[" + event.getChannel().getName() + "] went live with title " + event.getTitle() + " on game " + event.getGameId() + "!");
+});
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+eventManager.onEvent(ChannelGoLiveEvent::class.java) { event ->
+	println("[${event.channel.name}] went live with title ${event.title} on game ${event.gameId}!");
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+eventManager.onEvent(ChannelGoLiveEvent) { event ->
+	System.out.println "[${event.channel.name}] went live with title ${event.title} on game ${event.gameId}!"
+}
+```
+
+</TabItem>
+</Tabs>

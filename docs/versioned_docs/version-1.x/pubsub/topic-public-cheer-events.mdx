@@ -1,0 +1,55 @@
+---
+sidebar_position: 50
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Topic - Public Cheer Events
+
+## Description
+
+This topic can be used to monitor public cheer events for a specified channel. Currently, this only represents Cheerbombs (i.e. a cheer with shared rewards associated).
+
+With all undocumented topics, use at your own risk.
+
+## Method Definition
+
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| credential | OAuth2Credential | Auth Token (may not necessarily be required) |
+| channelId | String | Target Channel Id |
+
+## Code-Snippets
+
+Subscribe to all cheerbombs in channel `twitch4j` and register a listener that prints all messages to console
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getPubSub().listenForPublicCheerEvents(credential, "149223493");
+
+twitchClient.getEventManager().onEvent(CheerbombEvent.class, System.out::println);
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.pubSub.listenForPublicCheerEvents(credential, "149223493")
+
+twitchClient.eventManager.onEvent(CheerbombEvent::class.java, System.out::println)
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.pubSub.listenForPublicCheerEvents(credential, "149223493")
+
+twitchClient.eventManager.onEvent(CheerbombEvent, System.out::println)
+```
+
+</TabItem>
+</Tabs>
