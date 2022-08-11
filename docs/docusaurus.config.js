@@ -20,6 +20,11 @@ const config = {
     locales: ['en'],
   },
 
+  // stylesheets
+  stylesheets: [
+    "https://fonts.googleapis.com/icon?family=Material+Icons",
+  ],
+
   presets: [
     [
       'classic',
