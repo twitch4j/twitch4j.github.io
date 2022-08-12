@@ -2,8 +2,7 @@
 sidebar_position: 1
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import JavaDependency from '/src/components/JavaDependency';
 
 # Installation
 
@@ -11,73 +10,8 @@ We recommend using a dependency management tool to manage twitch4j and sub depen
 
 ## Usage in a Application
 
-<Tabs groupId="dependency">
-<TabItem value="gradle-groovy" label="Gradle - Groovy">
-
-```groovy
-dependencies {
-    implementation group: 'com.github.twitch4j', name: 'twitch4j', version: '1.11.0'
-}
-```
-
-</TabItem>
-<TabItem value="gradle-kotlin" label="Gradle - Kotlin DSL">
-
-```kotlin
-dependencies {
-    implementation(group = "com.github.twitch4j", name = "twitch4j", version = "1.11.0")
-}
-```
-
-</TabItem>
-<TabItem value="maven" label="Maven">
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>com.github.twitch4j</groupId>
-        <artifactId>twitch4j</artifactId>
-        <version>1.11.0</version>
-    </dependency>
-</dependencies>
-```
-
-</TabItem>
-</Tabs>
-
+<JavaDependency group="com.github.twitch4j" name="twitch4j" version="1.11.0" scope="implementation" />
 
 ## Usage in a Library
 
-<Tabs groupId="dependency">
-<TabItem value="gradle-groovy" label="Gradle - Groovy">
-
-```groovy
-dependencies {
-    api group: 'com.github.twitch4j', name: 'twitch4j', version: '1.11.0'
-}
-```
-
-</TabItem>
-<TabItem value="gradle-kotlin" label="Gradle - Kotlin DSL">
-
-```kotlin
-dependencies {
-    api(group = "com.github.twitch4j", name = "twitch4j", version = "1.11.0")
-}
-```
-
-</TabItem>
-<TabItem value="maven" label="Maven">
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>com.github.twitch4j</groupId>
-        <artifactId>twitch4j</artifactId>
-        <version>1.11.0</version>
-    </dependency>
-</dependencies>
-```
-
-</TabItem>
-</Tabs>
+<JavaDependency group="com.github.twitch4j" name="twitch4j" version="1.11.0" scope="api" />
