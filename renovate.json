@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>twitch4j/renovate-config:twitch4j"
+  ],
+  "baseBranches": ["master"],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        ".*\\.mdx$"
+      ],
+      "datasourceTemplate": "maven",
+      "depNameTemplate": "{{{group}}}:{{{name}}}",
+      "matchStrings": [
+        "<JavaDependency group=\"(?<group>.*?)\" name=\"(?<name>.*?)\" version=\"(?<currentValue>.*?)\".*/>"
+      ]
+    }
+  ]
+}
