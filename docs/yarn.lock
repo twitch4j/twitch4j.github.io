@@ -1640,7 +1640,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.0.tgz#f580f9beb67176fa57aae70b08ed510e1b18980f"
   integrity sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==
 
-"@emotion/react@^11.10.0":
+"@emotion/react@11.10.0":
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.10.0.tgz#53c577f063f26493f68a05188fb87528d912ff2e"
   integrity sha512-K6z9zlHxxBXwN8TcpwBKcEsBsOw4JWCCmR+BeeOWgqp8GIU1yA2Odd41bwdAAr0ssbQrbJbVnndvv7oiv1bZeQ==
@@ -1669,7 +1669,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-1.2.0.tgz#771b1987855839e214fc1741bde43089397f7be5"
   integrity sha512-OiTkRgpxescko+M51tZsMq7Puu/KP55wMT8BgpcXVG2hqXc0Vo0mfymJ/Uj24Hp0i083ji/o0aLddh08UEjq8w==
 
-"@emotion/styled@^11.10.0":
+"@emotion/styled@11.10.0":
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-11.10.0.tgz#c19484dab4206ae46727c07efb4316423dd21312"
   integrity sha512-V9oaEH6V4KePeQpgUE83i8ht+4Ri3E8Djp/ZPJ4DQlqWhSKITvgzlR3/YQE2hdfP4Jw3qVRkANJz01LLqK9/TA==
@@ -1809,14 +1809,14 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@mui/icons-material@^5.8.4":
+"@mui/icons-material@5.8.4":
   version "5.8.4"
   resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.8.4.tgz#3f2907c9f8f5ce4d754cb8fb4b68b5a1abf4d095"
   integrity sha512-9Z/vyj2szvEhGWDvb+gG875bOGm8b8rlHBKOD1+nA3PcgC3fV6W1AU6pfOorPeBfH2X4mb9Boe97vHvaSndQvA==
   dependencies:
     "@babel/runtime" "^7.17.2"
 
-"@mui/material@^5.10.0":
+"@mui/material@5.10.0":
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.10.0.tgz#35f6484b7dec40a38874fa948a44a073f4d3a4c7"
   integrity sha512-MSEzkE2vhpM37m8Gh3+TcZCWL70p+MxzNvS8FHugBB6YZpafhBFmFKX7/pYJ2kVD87PpUhNR4szWub7/ohE02Q==
@@ -1902,6 +1902,13 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
+
+"@philippheuer/docusaurus-components@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@philippheuer/docusaurus-components/-/docusaurus-components-0.2.0.tgz#4940e7901c1bb8dc1cfb059f842aa6c3392603b4"
+  integrity sha512-fX5Be4x4qU/aGLM0/rhiu7RBeRngV/aU2TPbzKRLTvkY9Xko+bpxnH95qu/kHyWTUzm5Ai/9yQQLa80NXCnE9Q==
+  dependencies:
+    "@docusaurus/theme-classic" "2.0.1"
 
 "@polka/url@^1.0.0-next.20":
   version "1.0.0-next.21"
