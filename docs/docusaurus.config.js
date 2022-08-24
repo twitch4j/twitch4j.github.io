@@ -114,6 +114,18 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      // search
+      algolia: {
+        appId: 'E6S5VU7XKG',
+        apiKey: 'ddddcfa16f18101b14f2f0fc4f6150b5',
+        indexName: 'twitch4j',
+
+        // search results for the selected version + language
+        contextualSearch: true,
+  
+        // search page
+        searchPagePath: 'search',
+      },
     }),
 };
 
