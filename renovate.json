@@ -15,5 +15,16 @@
         "<JavaDependency group=\"(?<group>.*?)\" name=\"(?<name>.*?)\" version=\"(?<currentValue>.*?)\".*/>"
       ]
     }
-  ]
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "datasourceTemplate": "npm",
+      "automerge": true,
+      "automergeType": "pr",
+      "automergeStrategy": "squash",
+      "assignAutomerge": false
+    }
+  ],
+  "platformAutomerge": true
 }
