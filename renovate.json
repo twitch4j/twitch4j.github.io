@@ -19,7 +19,7 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "datasourceTemplate": "npm",
+      "matchDatasources": ["npm"],
       "automerge": true,
       "automergeType": "pr",
       "automergeStrategy": "squash",
