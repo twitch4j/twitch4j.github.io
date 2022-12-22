@@ -11,9 +11,9 @@ import TabItem from '@theme/TabItem';
 
 Gets an organization's list of entitlements that have been granted to a game, a user, or both.
 
-The *client ID* in the access token must own the game. App access tokens can pass any combination of request parameters (below) while requests using user access tokens must *not* specify any userId,
+The *client ID* in the access token must own the game. App access tokens can pass any combination of request parameters (below) while requests using user access tokens must *not* specify any userId.
 
-Valid combinations of request parameters are
+Valid combinations of request parameters are (given appropriate oauth access):
 - no fields
 - only userId
 - only gameId
