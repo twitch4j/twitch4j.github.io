@@ -1,15 +1,15 @@
 ---
-Sidebar_Position: 20
+sidebar_position: 20
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Drops Entitlements - Gets a list of entitlements for a given organization, that have been granted to a game, user or both.
+# Drops - Get Entitlements
 
 ## Description
 
-Get entitlements for an organization 
+Get entitlements for an organization (granted to a game, user, or both)
 using **app access token** or **user access token**.
 The *client ID* in the access token must own
 the game.
@@ -22,7 +22,7 @@ Valid combinations of request parameters are
 
 ## Method Definition
 ```java
-@requestLine("GET /entitlements/drops?id={id}&user_id={user_id}&game_id={game_id}&fulfillment_status={fulfillment_status}&after={after}&first={first}")
+@RequestLine("GET /entitlements/drops?id={id}&user_id={user_id}&game_id={game_id}&fulfillment_status={fulfillment_status}&after={after}&first={first}")
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<DropsEntitlementList> getDropsEntitlements(
         @Param("token") String authToken,
@@ -34,6 +34,7 @@ HystrixCommand<DropsEntitlementList> getDropsEntitlements(
         @Param("first") Integer limit
     );
 ```
+
 *Required Parameters*
 
 | Name      | Type        | Description      |
@@ -44,12 +45,12 @@ HystrixCommand<DropsEntitlementList> getDropsEntitlements(
 
 | Name   |  Type     | Description    |
 | ------ | ----------| ---------------|
-| id     | string    | Unique identifier of the entitlements
-| user_id| string    |  User ID, that was granted entitlements
-| game_id| string    | Game ID, that offered entitlements
-|fulfillment_status | string | Status used to filter entitlements. Example- 'claimed' or 'fulfilled'
-|after   | string    | The cursor used to get the next page of results.
-|first   | integer   | The maximum number of entitlements to return per page in the response.
+| id     | string    | Unique identifier of the entitlements |
+| user_id | string    |  User ID, that was granted entitlements |
+| game_id | string    | Game ID, that offered entitlements |
+| fulfillment_status | string | Status used to filter entitlements. Example- 'claimed' or 'fulfilled' |
+| after   | string    | The cursor used to get the next page of results. |
+| first   | integer   | The maximum number of entitlements to return per page in the response. |
 
 
 ## Code Snippets
@@ -86,7 +87,7 @@ resultList.getData().forEach(drop -> System.out.printf("User ID: %s - Timestamp:
 </TabItem>
 <TabItem value="kotlin" label="Kotlin">
 // Get entitlement by ID
-``` kotlin
+```kotlin
 val resultlist = twitchClient.helix.getDropsEntitlements("appAccessToken","entitlementId",null,null,null,null,1000).execute();
 resultList.data.foreach{drop -> printf("User ID: ${drop.userid} - Status: ${drop.fulfillmentstatus}")}
 ```
@@ -112,7 +113,7 @@ resultList.data.forEach {  drop -> printf("User ID: ${drop.userid} - Timestamp:$
 <TabItem value="groovy" label="Groovy">
 
 // Get entitlement by ID
-``` groovy
+```groovy
 def resultlist = twitchClient.helix.getDropsEntitlements("appAccessToken","entitlementId",null,null,null,null,1000).execute();
 resultList.data.each {
     drop -> System.out.printf "User ID: ${drop.userid} - Status: ${drop.fulfillmentstatus}" 
