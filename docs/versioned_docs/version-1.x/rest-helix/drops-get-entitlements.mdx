@@ -70,7 +70,9 @@ resultList.getData().forEach(drop -> System.out.println("User ID: %s - Status: %
 
 ```kotlin
 val resultlist = twitchClient.helix.getDropsEntitlements("appAccessToken","entitlementId",null,null,null,null,1000).execute()
-resultList.data.forEach { println("User ID: ${it.userId} - Status: ${it.fulfillmentStatus}") }
+resultList.data.forEach {
+    println("User ID: ${it.userId} - Status: ${it.fulfillmentStatus}")
+}
 ```
 
 </TabItem>
@@ -101,7 +103,9 @@ resultList.getData().forEach(drop -> System.out.println("User ID: %s - Status: %
 
 ```kotlin
 val resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", null, null, "gameId", null, null, 1000).execute()
-resultList.data.forEach { println("User ID: ${it.userId} - Status: ${it.fulfillmentStatus}") }
+resultList.data.forEach {
+    println("User ID: ${it.userId} - Status: ${it.fulfillmentStatus}")
+}
 ```
 
 </TabItem>
@@ -132,7 +136,9 @@ resultList.getData().forEach(drop -> System.out.println("Game ID: %s - Status: %
 
 ```kotlin
 val resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", null, "userId", null, null, null, 1000).execute()
-resultList.data.forEach { println("Game ID: ${it.gameId} - Status: ${it.fulfillmentStatus}") }
+resultList.data.forEach {
+    println("Game ID: ${it.gameId} - Status: ${it.fulfillmentStatus}")
+}
 ```
 
 </TabItem>
@@ -163,7 +169,9 @@ resultList.getData().forEach(drop -> System.out.println("User ID: %s - Timestamp
 
 ```kotlin
 val resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", null, null, null, DropFulfillmentStatus.CLAIMED, null, 1000).execute()
-resultList.data.forEach { println("User ID: ${it.userId} - Timestamp: ${it.updatedAt}") }
+resultList.data.forEach {
+    println("User ID: ${it.userId} - Timestamp: ${it.updatedAt}")
+}
 ```
 
 </TabItem>
