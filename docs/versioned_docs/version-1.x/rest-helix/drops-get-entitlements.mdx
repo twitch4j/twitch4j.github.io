@@ -61,7 +61,7 @@ HystrixCommand<DropsEntitlementList> getDropsEntitlements(
 
 ```java
 DropsEntitlementList resultList = twitchClient.getHelix().getDropsEntitlements("appAccessToken", "entitlementId", null, null, null, null, 1000).execute();
-resultList.getData().forEach(drop -> System.out.println("User ID: %s - Status: %s", drop.getUserId(), drop.getFulfillmentStatus()));
+resultList.getData().forEach(drop -> System.out.printf("User ID: %s - Status: %s\n", drop.getUserId(), drop.getFulfillmentStatus()));
 ```
 
 </TabItem>
@@ -94,7 +94,7 @@ resultList.data.each { drop ->
 
 ```java
 DropsEntitlementList resultList = twitchClient.getHelix().getDropsEntitlements("appAccessToken", null, null, "gameId", null, null, 1000).execute();
-resultList.getData().forEach(drop -> System.out.println("User ID: %s - Status: %s", drop.getUserId(), drop.getFulfillmentStatus()));
+resultList.getData().forEach(drop -> System.out.printf("User ID: %s - Status: %s\n", drop.getUserId(), drop.getFulfillmentStatus()));
 ```
 
 </TabItem>
@@ -127,7 +127,7 @@ resultList.data.each { drop ->
 
 ```java
 DropsEntitlementList resultList = twitchClient.getHelix().getDropsEntitlements("appAccessToken", null, "userId", null, null, null, 1000).execute();
-resultList.getData().forEach(drop -> System.out.println("Game ID: %s - Status: %s", drop.getGameId(), drop.getFulfillmentStatus()));
+resultList.getData().forEach(drop -> System.out.printf("Game ID: %s - Status: %s\n", drop.getGameId(), drop.getFulfillmentStatus()));
 ```
 
 </TabItem>
@@ -160,7 +160,7 @@ resultList.data.each { drop ->
 
 ```java
 DropsEntitlementList resultList = twitchClient.getHelix().getDropsEntitlements("appAccessToken", null, null, null, DropFulfillmentStatus.CLAIMED, null, 1000).execute();
-resultList.getData().forEach(drop -> System.out.println("User ID: %s - Timestamp: %s", drop.getUserId(), drop.getUpdatedAt()));
+resultList.getData().forEach(drop -> System.out.printf("User ID: %s - Timestamp: %s\n", drop.getUserId(), drop.getUpdatedAt()));
 ```
 
 </TabItem>
