@@ -1,0 +1,187 @@
+---
+sidebar_position: 20
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Drops - Get Entitlements
+
+## Description
+
+Gets an organization's list of entitlements that have been granted to a game, a user, or both.
+
+The *client ID* in the access token must own the game. App access tokens can pass any combination of request parameters (below) while requests using user access tokens must *not* specify any userId.
+
+Valid combinations of request parameters are (given appropriate oauth access):
+- no fields
+- only userId
+- only gameId
+- both userId and gameId
+
+## Method Definition
+```java
+@RequestLine("GET /entitlements/drops?id={id}&user_id={user_id}&game_id={game_id}&fulfillment_status={fulfillment_status}&after={after}&first={first}")
+@Headers("Authorization: Bearer {token}")
+HystrixCommand<DropsEntitlementList> getDropsEntitlements(
+        @Param("token") String authToken,
+        @Param("id") String id,
+        @Param("user_id") String userId,
+        @Param("game_id") String gameId,
+        @Param("fulfillment_status") DropFulfillmentStatus status,
+        @Param("after") String after,
+        @Param("first") Integer limit
+    );
+```
+
+*Required Parameters*
+
+| Name      | Type   | Description                           |
+|-----------|--------|---------------------------------------|
+| authToken | string | App access token or user access token |
+
+*Optional Parameters*
+
+| Name               | Type    | Description                                                            |
+|--------------------|---------|------------------------------------------------------------------------|
+| id                 | string  | Unique identifier of the entitlements                                  |
+| user_id            | string  | User ID, that was granted entitlements                                 |
+| game_id            | string  | Game ID, that offered entitlements                                     |
+| fulfillment_status | string  | Status used to filter entitlements. Example- 'claimed' or 'fulfilled'  |
+| after              | string  | The cursor used to get the next page of results.                       |
+| first              | integer | The maximum number of entitlements to return per page in the response. |
+
+
+## Code Snippets
+
+### Print entitlements with a specific ID
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+DropsEntitlementList resultList = twitchClient.getHelix().getDropsEntitlements("appAccessToken", "entitlementId", null, null, null, null, 1000).execute();
+resultList.getData().forEach(drop -> System.out.printf("User ID: %s - Status: %s\n", drop.getUserId(), drop.getFulfillmentStatus()));
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val resultlist = twitchClient.helix.getDropsEntitlements("appAccessToken","entitlementId",null,null,null,null,1000).execute()
+resultList.data.forEach {
+    println("User ID: ${it.userId} - Status: ${it.fulfillmentStatus}")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", "entitlementId", null, null, null, null, 1000).execute()
+resultList.data.each { drop ->
+    System.out.println "User ID: ${drop.userId} - Status: ${drop.fulfillmentStatus}"
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Print entitlements for a specific Game
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+DropsEntitlementList resultList = twitchClient.getHelix().getDropsEntitlements("appAccessToken", null, null, "gameId", null, null, 1000).execute();
+resultList.getData().forEach(drop -> System.out.printf("User ID: %s - Status: %s\n", drop.getUserId(), drop.getFulfillmentStatus()));
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", null, null, "gameId", null, null, 1000).execute()
+resultList.data.forEach {
+    println("User ID: ${it.userId} - Status: ${it.fulfillmentStatus}")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", null, null, "gameId", null, null, 1000).execute();
+resultList.data.each { drop ->
+    System.out.println "User ID: ${drop.userId} - Status: ${drop.fulfillmentStatus}"
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Print the entitlements associated with a specific user
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+DropsEntitlementList resultList = twitchClient.getHelix().getDropsEntitlements("appAccessToken", null, "userId", null, null, null, 1000).execute();
+resultList.getData().forEach(drop -> System.out.printf("Game ID: %s - Status: %s\n", drop.getGameId(), drop.getFulfillmentStatus()));
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", null, "userId", null, null, null, 1000).execute()
+resultList.data.forEach {
+    println("Game ID: ${it.gameId} - Status: ${it.fulfillmentStatus}")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", null, "userId", null, null, null, 1000).execute();
+resultList.data.each { drop ->
+    System.out.println "Game ID: ${drop.gameId} - Status: ${drop.fulfillmentStatus}"
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Print claimed but not fulfilled entitlements across games owned by the organization
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+DropsEntitlementList resultList = twitchClient.getHelix().getDropsEntitlements("appAccessToken", null, null, null, DropFulfillmentStatus.CLAIMED, null, 1000).execute();
+resultList.getData().forEach(drop -> System.out.printf("User ID: %s - Timestamp: %s\n", drop.getUserId(), drop.getUpdatedAt()));
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val resultList = twitchClient.helix.getDropsEntitlements("appAccessToken", null, null, null, DropFulfillmentStatus.CLAIMED, null, 1000).execute()
+resultList.data.forEach {
+    println("User ID: ${it.userId} - Timestamp: ${it.updatedAt}")
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def resultList = twitchClient.helix().getDropsEntitlements("appAccessToken", null, null, null, DropFulfillmentStatus.CLAIMED, null, 1000).execute();
+resultList.data.each { drop ->
+    System.out.println "User ID: ${drop.userId} - Timestamp: ${drop.updatedAt}"
+}
+```
+
+</TabItem>
+</Tabs>
