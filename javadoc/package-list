@@ -32,6 +32,10 @@ com.github.twitch4j.eventsub.condition
 com.github.twitch4j.eventsub.domain
 com.github.twitch4j.eventsub.events
 com.github.twitch4j.eventsub.events.batched
+com.github.twitch4j.eventsub.socket
+com.github.twitch4j.eventsub.socket.domain
+com.github.twitch4j.eventsub.socket.enums
+com.github.twitch4j.eventsub.socket.events
 com.github.twitch4j.eventsub.subscriptions
 com.github.twitch4j.eventsub.util
 com.github.twitch4j.extensions
@@ -45,6 +49,7 @@ com.github.twitch4j.helix.domain
 com.github.twitch4j.helix.interceptor
 com.github.twitch4j.helix.webhooks.domain
 com.github.twitch4j.helix.webhooks.topics
+com.github.twitch4j.internal
 com.github.twitch4j.kraken
 com.github.twitch4j.kraken.domain
 com.github.twitch4j.kraken.util
