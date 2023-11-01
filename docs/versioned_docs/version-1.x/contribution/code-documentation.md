@@ -15,7 +15,7 @@ When writing javadoc comments please follow this guideline:
  - Include all relevant tags (@param, @return, etc) for each method; without them, the method Javadoc is incomplete.
  - Start a method description with Returns, if the method returns a value.
  - Don’t explicitly refer to collections in descriptions (e.g., list of articles). Use, instead, the plural (e.g., the articles) or “all the” (e.g., all the articles).
- - When referring to another class, create a link by using {@link entity} (e.g., {@link TwitchClient}) 
+ - When referring to another class, create a link by using `{@link entity}` (e.g., `{@link TwitchClient}`) 
  - Begin boolean parameter descriptions with whether.
  - Describe exceptions (e.g., @throws) in past tense.
 
