@@ -30,6 +30,7 @@ com.github.twitch4j.events
 com.github.twitch4j.eventsub
 com.github.twitch4j.eventsub.condition
 com.github.twitch4j.eventsub.domain
+com.github.twitch4j.eventsub.domain.chat
 com.github.twitch4j.eventsub.events
 com.github.twitch4j.eventsub.events.batched
 com.github.twitch4j.eventsub.socket
@@ -59,6 +60,7 @@ com.github.twitch4j.pubsub
 com.github.twitch4j.pubsub.domain
 com.github.twitch4j.pubsub.enums
 com.github.twitch4j.pubsub.events
+com.github.twitch4j.pubsub.handlers
 com.github.twitch4j.tmi
 com.github.twitch4j.tmi.domain
 com.github.twitch4j.util
