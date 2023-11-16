@@ -1,6 +1,6 @@
 # Twitch4J Page
 
-The documentation is generated from markdown files using [Docusaurus 2](https://docusaurus.io/).
+The documentation is generated from markdown files using [Docusaurus 3](https://docusaurus.io/).
 
 ## Contest
 
