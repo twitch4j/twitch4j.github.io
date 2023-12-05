@@ -20,7 +20,7 @@
     "@emotion/styled": "11.11.0",
     "@mdx-js/react": "3.0.0",
     "@mui/icons-material": "5.14.19",
-    "@mui/material": "5.14.19",
+    "@mui/material": "5.14.20",
     "@philippheuer/docusaurus-components": "0.3.2",
     "clsx": "2.0.0",
     "prism-react-renderer": "2.3.0",
