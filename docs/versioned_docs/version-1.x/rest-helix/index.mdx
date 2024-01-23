@@ -20,6 +20,17 @@ Warning: Client IDs should be unique for each application: do not re-use client 
 
 You can create new application on the [Twitch Developer Console](https://glass.twitch.tv/console/apps/create)
 
+To obtain user access tokens, you will need need to undergo an OAuth2 flow (excluding the client credentials flow): https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/
+Alternatively, it can be easier to utilize a generator website like https://twitchtokengenerator.com (if you use their client id, the token will not expire).
+User access tokens can be passed as the first argument to any `TwitchHelix` method,
+or you can specify `withDefaultAuthToken(OAuth2Credential)` on a module builder.
+
+:::info
+
+We recommend you utilize our [JavaDocs](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html) for more updated documentation regarding the Helix API module.
+
+:::
+
 ## As Module: Twitch4J
 
 To use Helix you need to enable the Helix API when building the Twitch4J Instance, as shown below:
@@ -98,6 +109,12 @@ def client = TwitchHelixBuilder.builder()
 </Tabs>
 
 ## API Methods
+
+:::note
+
+The following list is incomplete; Twitch4J implements all Helix endpoints, which is reflected in our [javadocs](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html).
+
+:::
 
 Analytics:
 
