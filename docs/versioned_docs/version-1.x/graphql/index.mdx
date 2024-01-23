@@ -13,6 +13,20 @@ The GraphQL API is as unofficial as it can be. It only works by emulating the tw
 
 Therefore you need to use the client id of the twitch site and a auth token of the twitch site - a self generated token will not work.
 
+:::warning
+
+Twitch's GraphQL API is not intended for third-party use, is not officially documented, and is not officially supported.
+Use at your own risk.
+
+:::
+
+:::info
+
+Twitch deployed additional restrictions to GraphQL in September 2022 that has broken most mutations.
+Some queries that don't require authentication may continue to function.
+
+:::
+
 ## As Module: Twitch4J
 
 To use GraphQL you need to enable the GraphQL Module when building the Twitch4J Instance, as shown below:
@@ -85,5 +99,5 @@ def client = TwitchGraphQLBuilder.builder().build()
 
 User:
 
-- [User -> Follow User](./user-follow)
-- [User -> Unfollow User](./user-unfollow)
+- [User -> Follow User (Deprecated)](./user-follow)
+- [User -> Unfollow User (Deprecated)](./user-unfollow)
