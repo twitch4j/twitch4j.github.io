@@ -9,11 +9,14 @@ import TabItem from '@theme/TabItem';
 
 ## Description
 
-Sends a private message to a user.
+Sends a private message to a user via IRC.
 
-* The messages will go into a queue internally so we won't hit the rate-limit.
-* This could cause some minor deleays when sending a lot of messages.
-* The queue will only be processed when we're connected to twitch.
+:::caution
+
+Twitch [decommissioned](https://discuss.dev.twitch.com/t/deprecation-of-chat-commands-through-irc/40486) chat commands over IRC on February 24, 2023 for third-parties.
+Please migrate to [`TwitchHelix#sendWhisper`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#sendWhisper(java.lang.String,java.lang.String,java.lang.String,java.lang.String)).
+
+:::
 
 ## Example
 
