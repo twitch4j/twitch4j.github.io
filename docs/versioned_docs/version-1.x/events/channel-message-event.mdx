@@ -11,6 +11,9 @@ import TabItem from '@theme/TabItem';
 
 The ChannelMessageEvent is triggered for every normal message in irc.
 
+Note: `/me ` messages fire a separate event, `ChannelMessageActionEvent`.
+You can listen to `AbstractChannelMessageEvent` if you want a single event handler that receives both types of messages.
+
 ## Dependencies
 
 Requires the TwitchChat Module to be enabled and active for the source channel. See [TwitchChat](../../chat).
