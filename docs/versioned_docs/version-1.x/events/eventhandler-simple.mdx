@@ -2,6 +2,7 @@
 sidebar_position: 201
 ---
 
+import { JavaDependency } from '@philippheuer/docusaurus-components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -13,39 +14,7 @@ The SimpleEventHandler will process all events synchronously in the current thre
 
 ## Dependencies
 
-<Tabs groupId="dependency">
-<TabItem value="gradle-groovy" label="Gradle - Groovy">
-
-```groovy
-dependencies {
-    implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-simple', version: '0.9.8'
-}
-```
-
-</TabItem>
-<TabItem value="gradle-kotlin" label="Gradle - Kotlin DSL">
-
-```kotlin
-dependencies {
-    implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-simple", version = "0.9.8")
-}
-```
-
-</TabItem>
-<TabItem value="maven" label="Maven">
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>com.github.philippheuer.events4j</groupId>
-        <artifactId>events4j-handler-simple</artifactId>
-        <version>0.9.8</version>
-    </dependency>
-</dependencies>
-```
-
-</TabItem>
-</Tabs>
+<JavaDependency group="com.github.philippheuer.events4j" name="events4j-handler-simple" version="0.12.1" scope="implementation" />
 
 ## Set as default in Twitch4J and for eventManager.onEvent
 
