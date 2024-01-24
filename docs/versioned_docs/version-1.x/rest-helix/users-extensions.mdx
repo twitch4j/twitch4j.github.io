@@ -11,13 +11,16 @@ import TabItem from '@theme/TabItem';
 
 Gets a list of all extensions (both active and inactive) for a specified user, identified by a Bearer token.
 
+Requires a user access token that includes the `user:read:broadcast` or `user:edit:broadcast` scope.
+To include inactive extensions, you must include the `user:edit:broadcast` scope.
+
 ## Method Definition
 
 ```java
 @RequestLine("GET /users/extensions/list")
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<ExtensionList> getUserExtensions(
-	@Param("token") String authToken
+    @Param("token") String authToken
 );
 ```
 
@@ -25,7 +28,7 @@ HystrixCommand<ExtensionList> getUserExtensions(
 
 | Name          | Type      | Description  |
 | ------------- |:---------:| -----------------:|
-| authToken | string | User Auth Token -> `user:read:broadcast` |
+| authToken | string | User Access Token with the `user:read:broadcast` scope. |
 
 *Optional Parameters*
 

@@ -19,9 +19,9 @@ Required OAuth Scope: `channel:read:subscriptions`
 @RequestLine("GET /subscriptions?broadcaster_id={broadcaster_id}&user_id={user_id}")
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<SubscriptionList> getSubscriptionsByUser(
-	@Param("token") String authToken,
-	@Param("broadcaster_id") Long broadcasterId,
-	@Param("user_id") List<Long> userIds
+    @Param("token") String authToken,
+    @Param("broadcaster_id") String broadcasterId,
+    @Param("user_id") List<String> userIds
 );
 ```
 
@@ -29,12 +29,10 @@ HystrixCommand<SubscriptionList> getSubscriptionsByUser(
 
 | Name          | Type      | Description  |
 | ------------- |:---------:| -----------------:|
-| token | string | bearer token |
-| broadcaster_id | number | ID of the broadcaster. Must match the User ID in the Bearer token |
+| token | string | User access token from the broadcaster with the `channel:read:subscriptions` scope. |
+| broadcaster_id | string | ID of the broadcaster. Must match the User ID in the Bearer token. |
 | user_id | string | Returns streams broadcast by one or more specified user IDs. You can specify up to 100 IDs. |
 
 *Optional Parameters*
 
 *None*
-
-## Code-Snippets

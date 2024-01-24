@@ -47,7 +47,7 @@ HystrixCommand<DropsEntitlementList> getDropsEntitlements(
 | id                 | string  | Unique identifier of the entitlements                                  |
 | user_id            | string  | User ID, that was granted entitlements                                 |
 | game_id            | string  | Game ID, that offered entitlements                                     |
-| fulfillment_status | string  | Status used to filter entitlements. Example- 'claimed' or 'fulfilled'  |
+| fulfillment_status | enum  | Status used to filter entitlements. Example- 'claimed' or 'fulfilled'  |
 | after              | string  | The cursor used to get the next page of results.                       |
 | first              | integer | The maximum number of entitlements to return per page in the response. |
 

@@ -13,17 +13,25 @@ Gets information on follow relationships between two Twitch users. Information r
 
 The response has a JSON payload with a data field containing an array of follow relationship elements and a pagination field containing information required to query for more follow information.
 
+:::warning
+
+Twitch decommissioned this endpoint on 2023-09-12.
+If you have a moderator token, migrate to [`TwitchHelix#getChannelFollowers`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#getChannelFollowers(java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String)). If you have a token from the target user, migrate to [`TwitchHelix#getFollowedChannels`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#getFollowedChannels(java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String)).
+
+:::
+
 ## Method Definition
 
 ```java
+@Deprecated
 @RequestLine("GET /users/follows?from_id={from_id}&to_id={to_id}&after={after}&first={first}")
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<FollowList> getFollowers(
-    	@Param("token") String authToken,
-	@Param("from_id") String fromId,
-	@Param("to_id") String toId,
-	@Param("after") String after,
-	@Param("first") Integer limit
+    @Param("token") String authToken,
+    @Param("from_id") String fromId,
+    @Param("to_id") String toId,
+    @Param("after") String after,
+    @Param("first") Integer limit
 );
 ```
 

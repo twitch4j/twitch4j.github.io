@@ -11,14 +11,16 @@ import TabItem from '@theme/TabItem';
 
 Gets information about active extensions installed by a specified user, identified by a user ID or Bearer token.
 
+To include extensions that you have under development, you must specify a user access token that includes the `user:read:broadcast` or `user:edit:broadcast` scope.
+
 ## Method Definition
 
 ```java
 @RequestLine("GET /users/extensions?user_id={user_id}")
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<ExtensionActiveList> getUserActiveExtensions(
-	@Param("token") String authToken,
-	@Param("user_id") Long userId
+    @Param("token") String authToken,
+    @Param("user_id") String userId
 );
 ```
 
@@ -30,8 +32,8 @@ None
 
 | Name          | Type      | Description  |
 | ------------- |:---------:| -----------------:|
-| authToken | string | User Auth Token -> `user:read:broadcast` or `user:edit:broadcast` |
-| user_id | string | ID of the user whose installed extensions will be returned. Limit: 1. |
+| token | string | User Auth Token with the `user:read:broadcast` or `user:edit:broadcast` scope. |
+| user_id | string | ID of the user whose installed extensions will be returned. |
 
 ## Code-Snippets
 

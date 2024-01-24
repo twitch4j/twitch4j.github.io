@@ -19,21 +19,22 @@ The response has a JSON payload with a data field containing an array of games i
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<GameTopList> getTopGames(
     @Param("token") String authToken,
-	@Param("after") String after,
-	@Param("before") String before,
-	@Param("first") String first
+    @Param("after") String after,
+    @Param("before") String before,
+    @Param("first") String first
 );
 ```
 
 *Required Parameters*
 
-None
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| authToken     | string    | User or App Access Token |
 
 *Optional Parameters*
 
 | Name          | Type      | Description  |
 | ------------- |:---------:| -----------------:|
-| authToken     | string    | User Auth Token |
 | after | string | Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query. |
 | before | string | Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query. |
 | first | string | Maximum number of objects to return. Maximum: 100. Default: 20. |
@@ -46,7 +47,7 @@ None
 <TabItem value="java" label="Java">
 
 ```java
-GameTopList resultList = twitchClient.getHelix().getTopGames(null, null, 10).execute();
+GameTopList resultList = twitchClient.getHelix().getTopGames(null, null, null, "10").execute();
 resultList.getGames().forEach(game -> {
     System.out.println("ID: " + game.getId() + " - " + game.getName());
 });
@@ -56,7 +57,7 @@ resultList.getGames().forEach(game -> {
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-val resultList = twitchClient.helix.getTopGames(null, null, 10).execute()
+val resultList = twitchClient.helix.getTopGames(null, null, null, "10").execute()
 resultList.games.forEach { game ->
     println("ID: ${game.id} - ${game.name}")
 }
@@ -66,7 +67,7 @@ resultList.games.forEach { game ->
 <TabItem value="groovy" label="Groovy">
 
 ```groovy
-def resultList = twitchClient.helix.getTopGames(null, null, 10).execute()
+def resultList = twitchClient.helix.getTopGames(null, null, null, "10").execute()
 resultList.games.each { game ->
     System.out.println "ID: ${game.id} - ${game.name}"
 }
