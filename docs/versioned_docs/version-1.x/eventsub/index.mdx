@@ -1,0 +1,33 @@
+---
+sidebar_position: 5
+---
+
+# EventSub
+
+EventSub is a transport-agnostic solution to receive real-time events from Twitch.
+
+Twitch4J [implements](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html) all the EventSub [subscription types](https://dev.twitch.tv/docs/eventsub/eventsub-subscription-types/)
+and corresponding [events](https://dev.twitch.tv/docs/eventsub/eventsub-reference/#events).
+
+:::note
+
+Twitch plans to deprecate third-party PubSub in favor of EventSub.
+Similarly, IRC will face additional restrictions (e.g., concurrent join limits) in favor of chat over EventSub.
+Thus, you should try to use EventSub when possible.
+
+:::
+
+## Transports
+
+EventSub supports the following transport types:
+
+* [Webhook](./webhook)
+* [WebSocket](./websocket)
+* [Conduits (upcoming)](https://discuss.dev.twitch.com/t/rfc-0017-introducing-a-new-eventsub-transport-type-conduit/46972)
+
+:::tip
+
+The library handles websockets for you, so this transport tends to be easier to use.<br/>
+Webhooks, on the other hand, require more code on your end to establish an HTTPS webserver and keep the EventSub subscription healthy.
+
+:::
