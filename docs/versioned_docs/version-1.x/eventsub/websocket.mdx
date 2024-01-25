@@ -7,7 +7,7 @@ EventSub notifications can also be received over websockets, aka EventSockets.
 
 When using websockets, you create eventsub subscriptions with a **user** access token.
 
-For each user ID, you can create up to 900 enabled subscriptions (but `max_total_cost` is only 10 across all subscriptions).
+For each user ID, you can create up to 900 enabled subscriptions (but `max_total_cost` is only 10 across all subscriptions for that `client_id`-`user_id` tuple).
 
 Twitch4J automatically creates additional websockets to comply with Twitch's limits (each websocket can have up to 300 enabled subscriptions, and each user ID can create up to 3 websocket connections for a given client ID).
 
@@ -175,7 +175,7 @@ In addition to firing the corresponding events for each subscription type, the w
 * [`EventSocketClosedByTwitchEvent`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/events/EventSocketClosedByTwitchEvent.html): Called when Twitch decides to close our EventSocket.
 
 
-## Example
+## Code Example
 
 
 <Tabs groupId="code">
