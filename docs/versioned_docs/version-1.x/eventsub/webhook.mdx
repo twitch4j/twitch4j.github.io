@@ -1,0 +1,117 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Webhook
+
+Twitch can `POST` notifications to your server via EventSub.
+
+Your server must accept public traffic on port 443, and have a valid SSL certificate
+(consider using [ZeroSSL](https://zerossl.com/) or [Let's Encrypt](https://letsencrypt.org/getting-started/) to obtain a free SSL certificate).
+
+:::tip
+
+For development purposes, you can utilize [ngrok](https://ngrok.com/) or a [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) (among [other](https://github.com/anderspitman/awesome-tunneling#recommendations) options) to generate a HTTPS URL that serves as a reverse proxy to your localhost webhook server.
+
+:::
+
+## EventSub Subscription Management
+
+With webhooks, you utilize an app access token to create and delete EventSub subscriptions.
+
+Since certain subscription types require user authorization, these users must authenticate with your Client ID
+to generate a user access token (but you do not need to maintain this user token to utilize webhooks).
+
+If the subscription does not have a scope requirement, you do not need user authorization, but the subscription will have a `cost` of 1.
+When your Client ID has user authorization, the subscription has a `cost` of 0.
+By default, every Client ID has a `max_total_cost` of 10,000 for webhooks.
+
+When your webhooks server start, you should call [`TwitchHelix#getEventSubSubscriptions`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#getEventSubSubscriptions(java.lang.String,com.github.twitch4j.eventsub.EventSubSubscriptionStatus,com.github.twitch4j.eventsub.subscriptions.SubscriptionType,java.lang.String,java.lang.String,java.lang.Integer))
+to check whether your EventSub subscriptions are already healthy (so you don't create duplicate subscriptions).
+Twitch imposes a limit of three (3) subscriptions with the same `type` and `condition` values.
+
+To create EventSub subscriptions, you would call [`TwitchHelix#createEventSubSubscription`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#createEventSubSubscription(java.lang.String,com.github.twitch4j.eventsub.EventSubSubscription)).
+The first argument must be an app access token (or `null` if `withDefaultAuthToken` is an app access token OR `withClientId`/`withClientSecret` is specified while `withDefaultAuthToken` is not specified).
+The second argument is an `EventSubSubscription` that includes `type`, `version`, `condition`, and `transport` (with `callback` and `secret` specified, while `method` is set to `"webhook"`).
+
+It is easiest to create `EventSubSubscription` instances through our [`SubscriptionTypes`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html) utility class:
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+EventSubSubscription sub = SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+    builder -> builder.broadcasterUserId("channel-id-goes-here").build(),
+    EventSubTransport.builder()
+        .callback("your-webhook-url")
+        .secret("your-eventsub-secret")
+        .method(EventSubTransportMethod.WEBHOOK)
+        .build()
+);
+helix.createEventSubSubscription(null, sub).execute();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val sub = SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+    { builder -> builder.broadcasterUserId("channel-id-goes-here").build() },
+    EventSubTransport.builder()
+        .callback("your-webhook-url")
+        .secret("your-eventsub-secret")
+        .method(EventSubTransportMethod.WEBHOOK)
+        .build()
+)
+helix.createEventSubSubscription(null, sub).execute()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def sub = SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+    { builder -> builder.broadcasterUserId("channel-id-goes-here").build() },
+    EventSubTransport.builder()
+        .callback("your-webhook-url")
+        .secret("your-eventsub-secret")
+        .method(EventSubTransportMethod.WEBHOOK)
+        .build()
+)
+helix.createEventSubSubscription(null, sub).execute()
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+
+EventSub Webhook subscriptions require a shared secret to generate the `Twitch-Eventsub-Message-Signature` header.
+This secret must be between 10 and 100 ASCII characters.
+**Avoid reusing your client secret for the EventSub secret.**
+It is best practice to utilize a cryptographically-secure random generator to create this secret.
+It is acceptable to utilize the same secret across multiple EventSub subscriptions.
+
+:::
+
+While Twitch does not officially document their specific retry policy, it has been observed that they employ exponential backoff to retry failed notifications up to 5 times over a couple minutes. If all retries are exhausted without the webserver responding with a 2xx code, the EventSub subscription would be disabled.
+
+
+## Web Server Logic
+
+You can use any framework you desire to implement the webhook server.
+
+For example, [this gist](https://gist.github.com/iProdigy/53f61e439b81d1d926748d5c15fdf23b) utilizes [Javalin](https://javalin.io/) to handle incoming webhooks.
+
+This example highlights a few important notes:
+
+* To deserialize incoming notification bodies, you can utilize our [`TypeConvert`](https://twitch4j.github.io/javadoc/com/github/twitch4j/common/util/TypeConvert.html) helper. <sup>Under the hood, [`NotificationDeserializer`](https://github.com/twitch4j/twitch4j/blob/master/eventsub-common/src/main/java/com/github/twitch4j/eventsub/util/NotificationDeserializer.java) is used to create [`EventSubNotification`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/EventSubNotification.html) instances.</sup>
+* You should [validate](https://dev.twitch.tv/docs/eventsub/handling-webhook-events/#verifying-the-event-message) the request headers to ensure authenticity and avoid replay attacks. The example above shows how to utilize [`EventSubVerifier`](https://github.com/twitch4j/twitch4j/blob/master/eventsub-common/src/main/java/com/github/twitch4j/eventsub/util/EventSubVerifier.java) to easily perform these verification checks.
+* Upon receiving a valid [notification challenge](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/EventSubNotification.html#getChallenge()), you should set the response body to the same [challenge](https://dev.twitch.tv/docs/eventsub/handling-webhook-events/#responding-to-a-challenge-request) string (and yield a 200 status).
+
+:::tip
+
+For debugging, you can utilize the [Twitch CLI](https://github.com/twitchdev/twitch-cli#download) to [verify](https://github.com/twitchdev/twitch-cli/blob/main/docs/event.md#verify-subscription) subscriptions and [trigger](https://github.com/twitchdev/twitch-cli/blob/main/docs/event.md#trigger) notifications.
+
+:::
+
+For any further clarification, please refer to Twitch's official [documentation](https://dev.twitch.tv/docs/eventsub/handling-webhook-events/) on handling webhook events.

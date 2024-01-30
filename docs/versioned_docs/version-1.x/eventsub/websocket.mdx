@@ -1,0 +1,258 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# WebSocket
+
+EventSub notifications can also be received over websockets, aka EventSockets.
+
+When using websockets, you create eventsub subscriptions with a **user** access token.
+
+For each user ID, you can create up to 900 enabled subscriptions (but `max_total_cost` is only 10 across all subscriptions for that `client_id`-`user_id` tuple).
+
+Twitch4J automatically creates additional websockets to comply with Twitch's limits (each websocket can have up to 300 enabled subscriptions, and each user ID can create up to 3 websocket connections for a given client ID).
+
+:::warning
+
+Due to Twitch restrictions, we create separate websockets for each user ID.
+If you are creating EventSocket subscriptions with tokens from many different users, it may be apt to switch to webhooks to avoid spawning too many websockets.
+
+:::
+
+
+## Module Creation
+
+You can create an [`IEventSubSocket`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/IEventSubSocket.html) instance via [`TwitchClientBuilder`](https://twitch4j.github.io/javadoc/com/github/twitch4j/TwitchClientBuilder.html#withEnableEventSocket(java.lang.Boolean)) or directly via [`TwitchEventSocketPool`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/TwitchEventSocketPool.html#builder()).
+
+If and only if you pass the user access token in the module builder, you can utilize `IEventSubSocket#register` without specifying the token again.
+
+
+### Shared
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+ITwitchClient twitchClient = TwitchClientBuilder.builder()
+    .withEnableEventSocket(true)
+    .withEnableHelix(true)
+    .withDefaultAuthToken(new OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build();
+IEventSubSocket eventSocket = twitchClient.getEventSocket();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val twitchClient = TwitchClientBuilder.builder()
+    .withEnableEventSocket(true)
+    .withEnableHelix(true)
+    .withDefaultAuthToken(OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build()
+val eventSocket = twitchClient.getEventSocket()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def twitchClient = TwitchClientBuilder.builder()
+    .withEnableEventSocket(true)
+    .withEnableHelix(true)
+    .withDefaultAuthToken(new OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build()
+def eventSocket = twitchClient.getEventSocket()
+```
+
+</TabItem>
+</Tabs>
+
+
+### Standalone
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+IEventSubSocket eventSocket = TwitchEventSocketPool.builder()
+    .fallbackToken(new OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build();
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+val eventSocket = TwitchEventSocketPool.builder()
+    .fallbackToken(OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build()
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+def eventSocket = TwitchEventSocketPool.builder()
+    .fallbackToken(new OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build()
+```
+
+</TabItem>
+</Tabs>
+
+:::info
+
+While `TwitchEventSocketPool` can safely be used directly, be wary of directly using `TwitchSingleUserEventSocketPool.builder()` or `TwitchEventSocket.builder()`.
+The former does not support tokens from different user IDs and the latter does not support more than 300 enabled subscriptions.
+
+:::
+
+
+## Subscription Management
+
+To create EventSocket subscriptions, it is easiest to use the [`IEventSubSocket#register(EventSubSubscription)`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/IEventSubSocket.html#register(com.github.twitch4j.eventsub.EventSubSubscription)) method.
+
+If you did not specify a default user token in the module builder, you must utilize [`IEventSubSocket#register(OAuth2Credential, EventSubSubscription)`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/IEventSubSocket.html#register(com.github.philippheuer.credentialmanager.domain.OAuth2Credential,com.github.twitch4j.eventsub.EventSubSubscription)) (the first argument should be a user access token).
+
+It is easiest to create `EventSubSubscription` instances through our [`SubscriptionTypes`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html) utility class.
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+eventSocket.register(
+    SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+        builder -> builder.broadcasterUserId("channel-id-goes-here").build(),
+        null
+    )
+);
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+eventSocket.register(
+    SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+        { builder -> builder.broadcasterUserId("channel-id-goes-here").build() },
+        null
+    )
+)
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+eventSocket.register(
+    SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+        { builder -> builder.broadcasterUserId("channel-id-goes-here").build() },
+        null
+    )
+)
+```
+
+</TabItem>
+</Tabs>
+
+:::warning
+
+The following EventSub subscription types are only supported by **webhooks**:
+`drop.entitlement.grant`, `extension.bits_transaction.create`, `user.authorization.grant`, and `user.authorization.revoke`.
+
+:::
+
+
+## Events
+
+In addition to firing the corresponding events for each subscription type, the websocket module can also fire the following meta-events:
+
+* [`EventSocketSubscriptionSuccessEvent`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/events/EventSocketSubscriptionSuccessEvent.html): Called when an EventSocket successfully registers a subscription with the Helix API.
+* [`EventSocketSubscriptionFailureEvent`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/events/EventSocketSubscriptionFailureEvent.html): Called when an EventSocket fails to register subscription with the Helix API.
+* [`EventSocketDeleteSubscriptionSuccessEvent`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/events/EventSocketDeleteSubscriptionSuccessEvent.html): Called when an EventSocket successfully deletes a subscription via the Helix API.
+* [`EventSocketDeleteSubscriptionFailureEvent`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/events/EventSocketDeleteSubscriptionFailureEvent.html): Called when an EventSocket fails to delete a subscription via the Helix API.
+* [`EventSocketConnectionStateEvent`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/events/EventSocketConnectionStateEvent.html): Called when the connection state of an EventSocket changes.
+* [`EventSocketClosedByTwitchEvent`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/events/EventSocketClosedByTwitchEvent.html): Called when Twitch decides to close our EventSocket.
+
+
+## Code Example
+
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+// build module
+ITwitchClient twitchClient = TwitchClientBuilder.builder()
+    .withEnableEventSocket(true)
+    .withEnableHelix(true)
+    .withDefaultAuthToken(new OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build();
+IEventSubSocket eventSocket = twitchClient.getEventSocket();
+
+// create subscription
+eventSocket.register(
+    SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+        b -> b.broadcasterUserId("channel-id-goes-here").build(),
+        null
+    )
+);
+
+// register event handler
+eventSocket.getEventManager().onEvent(StreamOnlineEvent.class, System.out::println);
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+// build module
+val twitchClient = TwitchClientBuilder.builder()
+    .withEnableEventSocket(true)
+    .withEnableHelix(true)
+    .withDefaultAuthToken(OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build()
+val eventSocket = twitchClient.getEventSocket()
+
+// create subscription
+eventSocket.register(
+    SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+        { b -> b.broadcasterUserId("channel-id-goes-here").build() },
+        null
+    )
+)
+
+// register event handler
+eventSocket.getEventManager().onEvent(StreamOnlineEvent::class.java) {
+    println(it)
+}
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+// build module
+def twitchClient = TwitchClientBuilder.builder()
+    .withEnableEventSocket(true)
+    .withEnableHelix(true)
+    .withDefaultAuthToken(new OAuth2Credential("twitch", "user-access-token-goes-here"))
+    .build()
+def eventSocket = twitchClient.getEventSocket()
+
+// create subscription
+eventSocket.register(
+    SubscriptionTypes.STREAM_ONLINE.prepareSubscription(
+        { b -> b.broadcasterUserId("channel-id-goes-here").build() },
+        null
+    )
+)
+
+// register event handler
+eventSocket.getEventManager().onEvent(StreamOnlineEvent) { event ->
+    System.out.println event
+}
+```
+
+</TabItem>
+</Tabs>
