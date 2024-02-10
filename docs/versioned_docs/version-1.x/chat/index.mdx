@@ -12,28 +12,21 @@ Twitch offers an IRC interface to our chat functionality. This allows you to, fo
 * Develop bots for your channel.
 * Connect to a channel’s chat with an IRC client instead of using the Web interface.
 
-While our IRC server generally follows RFC1459, there are several cases where it behaves slightly differently than other IRC servers; as described below, there are many Twitch-specific IRC capabilities. The differences are necessary to accommodate:
-
-* The massive scale at which our chat servers operate, and
-* Complex Twitch-specific features that we provide (to viewers, broadcasters, and developers).
-
-Rate-Limiting
-
-* The library follows the official rate-limits and has a queue for a maximum of 200 messages.
-* After that old messages will be removed from the queue in favor of more recent messages.
+The library follows the official rate-limits, and will automatically space out your calls to comply with these limits.
+These limits include joining/leaving channels, sending messages, sending whispers, and opening new connections.
 
 ## Methods
 
 * [JoinChannel](./join-channel)
 * [LeaveChannel](./leave-channel)
 * [SendMessage](./send-message)
-* [SendPrivateMessage](./send-private-message)
+* [SendPrivateMessage (deprecated)](./send-private-message)
 * [Handle ChannelMessage](../events/channel-message-event)
 * [Handle PrivateMessage](../events/private-message-event)
 
 ## Use as part of Twitch4J
 
-To use Twitch Chat and events from chat, you need to specify withEnableChat when building the Twitch4J Instance, as shown below:
+To use Twitch Chat and events from chat, you need to specify `withEnableChat` when building the Twitch4J Instance, as shown below:
 
 <Tabs groupId="code">
 <TabItem value="java" label="Java">
@@ -46,7 +39,7 @@ OAuth2Credential credential = new OAuth2Credential("twitch", "oAuthTokenHere");
 TwitchClient twitchClient = TwitchClientBuilder.builder()
             ...
             .withEnableChat(true)
-            .withChatAccount(oAuth2CredentialHere)
+            .withChatAccount(credential)
             ...
             .build();
 ```
@@ -62,7 +55,7 @@ val credential = OAuth2Credential("twitch", "oAuthTokenHere")
 val twitchClient = TwitchClientBuilder.builder().apply {
                 ...
                 withEnableChat(true)
-                withChatAccount(oAuth2CredentialHere)
+                withChatAccount(credential)
                 ...
             }.build()
 ```
@@ -78,7 +71,7 @@ def credential = new OAuth2Credential("twitch", "oAuthTokenHere")
 def twitchClient = TwitchClientBuilder.builder()
             ...
             .withEnableChat(true)
-            .withChatAccount(oAuth2CredentialHere)
+            .withChatAccount(credential)
             ...
             .build()
 ```
@@ -86,26 +79,25 @@ def twitchClient = TwitchClientBuilder.builder()
 </TabItem>
 </Tabs>
 
-A OAuth2Credential is a generic oauth credentials so the first parameter is always `twitch`. The 2nd value is your oauth token, you can generate a chat-bot token [here](https://twitchtokengenerator.com/).
+A OAuth2Credential is a generic oauth credentials so the first parameter is always `twitch`.
+The 2nd value is your oauth token, you can generate a chat-bot token [here](https://twitchtokengenerator.com/).
+
+When specifying a chat account, it must be a user access token with the `chat:read` scope.
+You also will need the `chat:edit` scope to be able to send messages.
+Alternatively, you can join chat anonymously (in read-only mode) by omitting `withChatAccount`.
 
 When you build a TwitchClient Twitch4J will automatically connect you to chat (via WebSocket).
 So you can start joining channels and listening to messages after this - refer to the methods documented above.
 
 ## Use Standalone
 
-Initialize the Chat Feature as Standalone Module, also requires setting up the EventManager and the CredentialManger yourself:
+If you are only using the chat module, instead of creating `TwitchClientBuilder`, you can use `TwitchChatBuilder`:
 
 <Tabs groupId="code">
 <TabItem value="java" label="Java">
 
 ```java
-// credential manager
-CredentialManager credentialManager = CredentialManagerBuilder.builder().build();
-credentialManager.registerIdentityProvider(new TwitchIdentityProvider("jzkbprff40iqj646a697cyrvl0zt2m6", "**SECRET**", ""));
-
-// twitch4j - chat
-TwitchChat client = TwitchChatBuilder.builder()
-        .withCredentialManager(credentialManager)
+ITwitchChat client = TwitchChatBuilder.builder()
         .withChatAccount(oAuth2CredentialHere)
         .build();
 ```
@@ -114,34 +106,19 @@ TwitchChat client = TwitchChatBuilder.builder()
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-// credential manager
-val credentialManager = CredentialManagerBuilder.builder().build().also {
-    it.registerIdentityProvider(TwitchIdentityProvider("jzkbprff40iqj646a697cyrvl0zt2m6", "**SECRET**", ""))
-}
-
-// twitch4j - chat
-val client = TwitchChatBuilder.builder().apply {
-            withCredentialManager(credentialManager)
-            withChatAccount(oAuth2CredentialHere)
-        }.build()
+val client = TwitchChatBuilder.builder()
+        .withChatAccount(oAuth2CredentialHere)
+        .build()
 ```
 
 </TabItem>
 <TabItem value="groovy" label="Groovy">
 
 ```groovy
-// credential manager
-def credentialManager = CredentialManagerBuilder.builder().build()
-credentialManager.registerIdentityProvider(new TwitchIdentityProvider("jzkbprff40iqj646a697cyrvl0zt2m6", "**SECRET**", ""))
-
-// twitch4j - chat
 def client = TwitchChatBuilder.builder()
-        .withCredentialManager(credentialManager)
         .withChatAccount(oAuth2CredentialHere)
         .build()
 ```
 
 </TabItem>
 </Tabs>
-
-The UserId is required, since it will be used to get the oauth credentials

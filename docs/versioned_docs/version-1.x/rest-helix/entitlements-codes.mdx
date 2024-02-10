@@ -11,10 +11,16 @@ import TabItem from '@theme/TabItem';
 
 Gets the status of one or more provided codes. 
 
+:::warning
+
+Twitch decommissioned this endpoint on 2023-02-27.
+
+:::
 
 ## Method Definition
 
 ```java
+@Deprecated
 @RequestLine("GET /entitlements/codes?code={code}&user_id={user_id}")
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<CodeStatusList> getCodeStatus(

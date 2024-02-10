@@ -17,8 +17,8 @@ Updates the description of a user specified by a Bearer token.
 @RequestLine("PUT /users?description={description}")
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<UserList> updateUser(
-	@Param("token") String authToken,
-	@Param("description") String description
+    @Param("token") String authToken,
+    @Param("description") String description
 );
 ```
 
@@ -26,8 +26,8 @@ HystrixCommand<UserList> updateUser(
 
 | Name          | Type      | Description  |
 | ------------- |:---------:| -----------------:|
-| authToken | string | User Auth Token -> `user:edit` |
-| description | string | The new description |
+| authToken | string | User Auth Token with the `user:edit` scope |
+| description | string | The string to update the channel’s description to. The description is limited to a maximum of 300 characters. |
 
 *Optional Parameters*
 

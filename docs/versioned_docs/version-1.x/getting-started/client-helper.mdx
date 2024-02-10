@@ -10,20 +10,27 @@ import TabItem from '@theme/TabItem';
 The Twitch4J Client Helper aims to bundle some common code used by library users to prevent everyone from reinventing the wheel ;)
 
 Current Features:
-- Event: StreamGoLiveEvent / StreamGoOffflineEvent / StreamChangeGameEvent / StreamChangeTitleEvent
-- Event: FollowEvent
+- Stream Updates: `ChannelGoLiveEvent`, `ChannelGoOfflineEvent`, `ChannelChangeGameEvent`, `ChannelChangeTitleEvent`, `ChannelViewerCountUpdateEvent`
+- Clip Updates: `ChannelClipCreatedEvent`
+- Follower Updates: `FollowEvent`, `ChannelFollowCountUpdateEvent`
 
 Those methods require the `Helix Module`, so enable it in the `TwitchClientBuilder`.
 
 ## Default Credential
 
-When using the client helper, you will need to specify a default credential (any) that gets used for all requests for increased ratelimits, this is mandatory!
+Since the client helper makes Helix API calls, you must include a form of authorization when building the client.
+
+In particular, you can pass an app access token or user access token to `withDefaultAuthToken`,
+or specify *both* `withClientId`/`withClientSecret` for the library to automatically generate an app access token.
+
+However, for `FollowEvent`, you will need to specify a user access token of a moderator of the target channel
+with the `moderator:read:followers` scope, due to Twitch [shutting](https://discuss.dev.twitch.com/t/follows-endpoints-and-eventsub-subscription-type-are-now-available-in-open-beta/43322) [down](https://discuss.dev.twitch.com/t/legacy-follows-api-and-eventsub-shutdown-timeline-updated/46769) the (more permissive) legacy follows API in September 2023.
 
 <Tabs groupId="code">
 <TabItem value="java" label="Java">
 
 ```java
-TwitchClient twitchClient = TwitchClientBuilder.builder()
+ITwitchClient twitchClient = TwitchClientBuilder.builder()
     .withDefaultAuthToken(new OAuth2Credential("twitch", "oauthtokenhere"))
     .build();
 ```
@@ -49,7 +56,10 @@ def twitchClient = TwitchClientBuilder.builder()
 </TabItem>
 </Tabs>
 
-## Register for Stream GoLive / GoOffline / GameChange / TitleChange Events
+## Register for Stream Live/Offline/Category/Title Events
+
+Allows `ChannelGoLiveEvent`, `ChannelGoOfflineEvent`, `ChannelChangeGameEvent`, `ChannelChangeTitleEvent`, `ChannelViewerCountUpdateEvent`
+to be fired.
 
 <Tabs groupId="code">
 <TabItem value="java" label="Java">
@@ -77,6 +87,10 @@ twitchClient.clientHelper.enableStreamEventListener("twitch4j");
 
 ## Register for Follow Event
 
+Note: `ChannelFollowCountUpdateEvent` will fire for any user or app access token.
+For `FollowEvent`, you must specify `withDefaultAuthToken` with a user access token (scope: `moderator:read:followers`)
+that represents a moderator of the target channel.
+
 <Tabs groupId="code">
 <TabItem value="java" label="Java">
 
@@ -96,6 +110,34 @@ twitchClient.clientHelper.enableFollowEventListener("twitch4j");
 
 ```groovy
 twitchClient.clientHelper.enableFollowEventListener("twitch4j");
+```
+
+</TabItem>
+</Tabs>
+
+## Register for Clip Events
+
+Allows `ChannelClipCreatedEvent` to be fired.
+
+<Tabs groupId="code">
+<TabItem value="java" label="Java">
+
+```java
+twitchClient.getClientHelper().enableClipEventListener("twitch4j");
+```
+
+</TabItem>
+<TabItem value="kotlin" label="Kotlin">
+
+```kotlin
+twitchClient.clientHelper.enableClipEventListener("twitch4j");
+```
+
+</TabItem>
+<TabItem value="groovy" label="Groovy">
+
+```groovy
+twitchClient.clientHelper.enableClipEventListener("twitch4j");
 ```
 
 </TabItem>

@@ -11,9 +11,16 @@ import TabItem from '@theme/TabItem';
 
 Returns a list of moderators or users added and removed as moderators from a channel.
 
+:::warning
+
+Twitch decommissioned this endpoint on March 15, 2022.
+
+:::
+
 ## Method Definition
 
 ```java
+@Deprecated
 @RequestLine(value = "GET /moderation/moderators/events?broadcaster_id={broadcaster_id}&user_id={user_id}&after={after}", collectionFormat = CollectionFormat.CSV)
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<ModeratorEventList> getModeratorEvents(

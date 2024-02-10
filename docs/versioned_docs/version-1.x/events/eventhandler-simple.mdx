@@ -2,6 +2,7 @@
 sidebar_position: 201
 ---
 
+import { JavaDependency } from '@philippheuer/docusaurus-components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -9,43 +10,11 @@ import TabItem from '@theme/TabItem';
 
 ## Description
 
-The SimpleEventHandler will process all events synchronous in the current thread.
+The SimpleEventHandler will process all events synchronously in the current thread.
 
 ## Dependencies
 
-<Tabs groupId="dependency">
-<TabItem value="gradle-groovy" label="Gradle - Groovy">
-
-```groovy
-dependencies {
-    implementation group: 'com.github.philippheuer.events4j', name: 'events4j-handler-simple', version: '0.9.8'
-}
-```
-
-</TabItem>
-<TabItem value="gradle-kotlin" label="Gradle - Kotlin DSL">
-
-```kotlin
-dependencies {
-    implementation(group = "com.github.philippheuer.events4j", name = "events4j-handler-simple", version = "0.9.8")
-}
-```
-
-</TabItem>
-<TabItem value="maven" label="Maven">
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>com.github.philippheuer.events4j</groupId>
-        <artifactId>events4j-handler-simple</artifactId>
-        <version>0.9.8</version>
-    </dependency>
-</dependencies>
-```
-
-</TabItem>
-</Tabs>
+<JavaDependency group="com.github.philippheuer.events4j" name="events4j-handler-simple" version="0.12.1" scope="implementation" />
 
 ## Set as default in Twitch4J and for eventManager.onEvent
 
@@ -53,7 +22,7 @@ dependencies {
 <TabItem value="java" label="Java">
 
 ```java
-TwitchClient twitchClient = TwitchClientBuilder.builder()
+ITwitchClient twitchClient = TwitchClientBuilder.builder()
     .withDefaultEventHandler(SimpleEventHandler.class)
     .build();
 ```
@@ -62,14 +31,18 @@ TwitchClient twitchClient = TwitchClientBuilder.builder()
 <TabItem value="kotlin" label="Kotlin">
 
 ```kotlin
-
+val twitchClient = TwitchClientBuilder.builder()
+    .withDefaultEventHandler(SimpleEventHandler::class.java)
+    .build();
 ```
 
 </TabItem>
 <TabItem value="groovy" label="Groovy">
 
 ```groovy
-
+def twitchClient = TwitchClientBuilder.builder()
+    .withDefaultEventHandler(SimpleEventHandler)
+    .build();
 ```
 
 </TabItem>

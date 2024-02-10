@@ -13,6 +13,13 @@ Gets vip's, moderators, staff, admins and normal viewers that are currently pres
 
 There is no other way to request information about current viewers, as such this is currently the only way to get a list of people watching a stream.
 
+:::warning
+
+Twitch has decommissioned this endpoint in April 2023.
+Please migrate to [`TwitchHelix#getChatters`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#getChatters(java.lang.String,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String)), which now requires moderator authentication.
+
+:::
+
 ## Method Definition
 
 ```java

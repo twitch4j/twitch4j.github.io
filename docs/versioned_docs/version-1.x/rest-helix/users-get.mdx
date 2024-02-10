@@ -11,27 +11,30 @@ import TabItem from '@theme/TabItem';
 
 Gets information about one or more specified Twitch users. Users are identified by optional user IDs and/or login name. If neither a user ID nor a login name is specified, the user is looked up by Bearer token.
 
+To include the user’s verified email address in the response, you must use a user access token that includes the `user:read:email` scope (and matches their ID).
+
 ## Method Definition
 
 ```java
 @RequestLine("GET /users?id={id}&login={login}")
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<UserList> getUsers(
-	@Param("token") String authToken,
-	@Param("id") List<Long> userIds,
-	@Param("login") List<String> userNames
+    @Param("token") String authToken,
+    @Param("id") List<String> userIds,
+    @Param("login") List<String> userNames
 );
 ```
 
 *Required Parameters*
 
-None
+| Name          | Type      | Description  |
+| ------------- |:---------:| -----------------:|
+| authToken     | string    | User or App Access Token. |
 
 *Optional Parameters*
 
 | Name          | Type      | Description  |
 | ------------- |:---------:| -----------------:|
-| authToken     | string    | Can be used if requesting information about your own account, to include the email |
 | id            | string    | User ID. Multiple user IDs can be specified. Limit: `100`. |
 | login         | string    | User login name. Multiple login names can be specified. Limit: `100`. |
 

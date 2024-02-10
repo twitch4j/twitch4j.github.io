@@ -12,14 +12,21 @@ import TabItem from '@theme/TabItem';
 Gets the list of tags for a specified stream (channel).
 The response has a JSON payload with a data field containing an array of tag elements.
 
+:::warning
+
+Twitch decommissioned this endpoint on 2023-07-13 in favor of the free-form tags system.
+
+:::
+
 ## Method Definition
 
 ```java
+@Deprecated
 @RequestLine("GET /streams/tags?broadcaster_id={broadcaster_id}")    
 @Headers("Authorization: Bearer {token}")
 HystrixCommand<StreamTagList> getStreamTags(
-		@Param("token") String authToken,
-		@Param("broadcaster_id") Long broadcasterId
+    @Param("token") String authToken,
+    @Param("broadcaster_id") String broadcasterId
 );
 ```
 
@@ -27,12 +34,11 @@ HystrixCommand<StreamTagList> getStreamTags(
 
 | Name          | Type      | Description  |
 | ------------- |:---------:| -----------------:|
+| authToken     | string    | User or App Access Token |
 | broadcaster_id | string | ID of the stream thats tags are going to be fetched |
 
 *Optional Parameters*
 
-| Name          | Type      | Description  |
-| ------------- |:---------:| -----------------:|
-| authToken     | string    | User Auth Token |
+None
 
 ## Code-Snippets

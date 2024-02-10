@@ -2,10 +2,10 @@
 
 The documentation is generated from markdown files using [Docusaurus 3](https://docusaurus.io/).
 
-## Contest
+## Contents
 
 - [Documentation](content/docs) - with breadcrumb navigation and sidebar lvl 2 menu
-- [Javadoc](static/javadoc) (generated from JDK9+ - Recommended JDK11 which are current LTS)
+- [Javadoc](static/javadoc) (generated from JDK 9+; JDK 11 or latest LTS is recommended)
 
 ## Build
 
