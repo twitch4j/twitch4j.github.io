@@ -34,6 +34,8 @@ com.github.twitch4j.eventsub.domain.chat
 com.github.twitch4j.eventsub.events
 com.github.twitch4j.eventsub.events.batched
 com.github.twitch4j.eventsub.socket
+com.github.twitch4j.eventsub.socket.conduit
+com.github.twitch4j.eventsub.socket.conduit.exceptions
 com.github.twitch4j.eventsub.socket.domain
 com.github.twitch4j.eventsub.socket.enums
 com.github.twitch4j.eventsub.socket.events
