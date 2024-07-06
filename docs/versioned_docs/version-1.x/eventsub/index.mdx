@@ -53,4 +53,13 @@ You can query your outstanding EventSub subscriptions via [`TwitchHelix#getEvent
 
 To delete an EventSub subscription, simply call [`IEventSubSocket#unregister`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/IEventSubSocket.html#unregister(com.github.twitch4j.eventsub.EventSubSubscription)) (when using websocket) or [`TwitchHelix#deleteEventSubSubscription`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#getEventSubSubscriptions(java.lang.String,com.github.twitch4j.eventsub.EventSubSubscriptionStatus,com.github.twitch4j.eventsub.subscriptions.SubscriptionType,java.lang.String,java.lang.String,java.lang.Integer)) (when using webhook).
 
+:::tip
+
+For webhooks and conduits, you can utilize [`user.authorization.revoke`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/UserAuthorizationRevokeType.html) to track when users revoke authorization,
+so you can delete their EventSub subscriptions to avoid exceeding the `max_total_cost`.
+
+When the `max_total_cost` is reached, new EventSub subscriptions cannot be created, even if they have zero cost.
+
+:::
+
 For further clarification, please read through Twitch's official [documentation](https://dev.twitch.tv/docs/eventsub/manage-subscriptions/) on managing EventSub subscriptions.
