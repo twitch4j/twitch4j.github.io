@@ -23,12 +23,13 @@ EventSub supports the following transport types:
 
 * [Webhook](./webhook)
 * [WebSocket](./websocket)
-* [Conduits (upcoming)](https://discuss.dev.twitch.com/t/rfc-0017-introducing-a-new-eventsub-transport-type-conduit/46972)
+* [Conduit](./conduit)
 
 :::tip
 
 The library handles websockets for you, so this transport tends to be easier to use.<br/>
-Webhooks, on the other hand, require more code on your end to establish an HTTPS webserver and keep the EventSub subscription healthy.
+Webhooks, on the other hand, require more code on your end to establish an HTTPS webserver and keep the EventSub subscription healthy.<br/>
+When webhooks are not feasible, backend applications can utilize conduits backed by websockets.
 
 :::
 
@@ -48,7 +49,7 @@ Each transport mechanism imposes different limits on the total cost (i.e., `max_
 To establish an EventSub subscription, you must obtain an instance of `EventSubSubscription`, which is passed to [`TwitchHelix#createEventSubSubscription`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#createEventSubSubscription(java.lang.String,com.github.twitch4j.eventsub.EventSubSubscription)).
 It is easiest to create `EventSubSubscription` instances through our [`SubscriptionTypes`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html) utility class: [`SubscriptionType#prepareSubscription`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionType.html#prepareSubscription(java.util.function.Function,com.github.twitch4j.eventsub.EventSubTransport)) creates a subscription for the specified condition and transport, which should be passed to [`IEventSubSocket#register`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/IEventSubSocket.html#register(com.github.twitch4j.eventsub.EventSubSubscription)) (when using websocket) or [`TwitchHelix#createEventSubSubscription`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#createEventSubSubscription(java.lang.String,com.github.twitch4j.eventsub.EventSubSubscription)) (when using webhook).
 
-You can query your oustanding EventSub subscriptions via [`TwitchHelix#getEventSubSubscriptions`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#getEventSubSubscriptions(java.lang.String,com.github.twitch4j.eventsub.EventSubSubscriptionStatus,com.github.twitch4j.eventsub.subscriptions.SubscriptionType,java.lang.String,java.lang.String,java.lang.Integer)). This endpoint supports filtering by the subscription type, subscription status (e.g., enabled or disabled), and user id (for subscriptions related to a specific channel).
+You can query your outstanding EventSub subscriptions via [`TwitchHelix#getEventSubSubscriptions`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#getEventSubSubscriptions(java.lang.String,com.github.twitch4j.eventsub.EventSubSubscriptionStatus,com.github.twitch4j.eventsub.subscriptions.SubscriptionType,java.lang.String,java.lang.String,java.lang.Integer)). This endpoint supports filtering by the subscription type, subscription status (e.g., enabled or disabled), and user id (for subscriptions related to a specific channel).
 
 To delete an EventSub subscription, simply call [`IEventSubSocket#unregister`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/socket/IEventSubSocket.html#unregister(com.github.twitch4j.eventsub.EventSubSubscription)) (when using websocket) or [`TwitchHelix#deleteEventSubSubscription`](https://twitch4j.github.io/javadoc/com/github/twitch4j/helix/TwitchHelix.html#getEventSubSubscriptions(java.lang.String,com.github.twitch4j.eventsub.EventSubSubscriptionStatus,com.github.twitch4j.eventsub.subscriptions.SubscriptionType,java.lang.String,java.lang.String,java.lang.Integer)) (when using webhook).
 
