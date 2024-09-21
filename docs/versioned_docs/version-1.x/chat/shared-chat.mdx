@@ -1,4 +1,4 @@
-# Stream Together - Shared Chat
+# Shared Chat
 
 > Supported since v1.22.0
 
@@ -16,10 +16,12 @@ From a user's perspective, their chat window includes more messages (sourced fro
 and when they send a message, it is automatically shared with those other channels.
 As messages arrive, the first-party interface includes the profile picture of the channel the message is sourced from.
 
-:::warning
+:::tip
 
-Without appropriate shared chat logic, your bot could seemingly spam channels upon message triggers,
-if joined to multiple channels in the Shared Chat session.
+Update to Twitch4J v1.22.0 (or later) to avoid edge cases where your bot could spam responses to Shared Chat messages.
+
+By default, we drop mirrored messages that have already been observed, so each unique message is only acted upon once.
+If you run a distributed bot, you will need to write Shared Chat logic yourself to avoid such edge cases.
 
 :::
 
@@ -44,7 +46,7 @@ Message deletions are mirrored to the other channels _if_ the deletion occurred 
 You can detect which channels are participating in a given Shared Chat session
 via [`TwitchHelix#getSharedChatSession(OAuth2Credential, String)`](https://dev.twitch.tv/docs/api/reference/#get-shared-chat-session),
 where the second argument is a channel's ID.\
-This endpoint does not require any scopes, so app access tokens are sufficient.
+This endpoint does not require any scopes, so even app access tokens are sufficient.
 
 Similarly, there are EventSub subscription types to track Shared Chat session updates in real-time.
 
@@ -80,7 +82,8 @@ The following EventSub subscription types also distinguish shared events:
 and [`channel.moderate`](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_MODERATE).
 
 Please read the [Twitch documentation](https://dev.twitch.tv/docs/eventsub/eventsub-subscription-types/)
-or the [javadoc](https://twitch4j.github.io/javadoc/) to understand the updated event payloads.
+or the [javadoc](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/events/package-summary.html)
+to understand the updated event payloads.
 
 :::
 
@@ -99,10 +102,8 @@ More sophisticated bots can conditionally reply to mirrored messages if the bot 
 
 :::tip
 
-If you use [`CommandEvent`](https://twitch4j.github.io/javadoc/com/github/twitch4j/chat/events/CommandEvent.html),
-your bot will only reply to non-mirrored messages.
-
-Be sure to update to the [latest](/getting-started/installation) library version for this patch!
+Twitch4J v1.22.0+ automatically drops duplicate mirrored messages, so most developers will not need to update any logic!
+You can adjust the library's treatment of Shared Chat messages via `MirroredMessagePolicy`.
 
 :::
 
@@ -111,7 +112,9 @@ Be sure to update to the [latest](/getting-started/installation) library version
 1. The main edge case to consider is when your bot is joined to multiple channels in a single Shared Chat session.\
 As a result, for each user message, you could receive up to six (6) events!
 When user messages can trigger bot responses in chat, you should validate the source channel to avoid replying up to six times.
-Since messages are mirrored, all six response messages would appear in each of the six chat rooms (which can look like spam).
+Since messages are mirrored, all six response messages would appear in each of the six chat rooms (which can look like spam).\
+However, when using `MirroredMessagePolicy.REJECT_IF_OBSERVED` (or `REJECT_ALL`), this concern does not apply
+(unless you are running a distributed bot across multiple servers).
 
 2. When your bot is joined to multiple channels in a single Shared Chat session, the two channels could have
 different configurations for the bot, which can complicate determination of appropriate responses.
@@ -126,11 +129,10 @@ different configurations for the bot, which can complicate determination of appr
 
 7. If your bot is `/restrict`ed in one channel in the Shared Chat session, it cannot send messages to other channels in the session (unless it is a moderator).
 
-8. Since this feature is complex and not widely tested yet, there may be bugs in Twitch's implementation.
+8. The `first-msg` flag is not populated on the mirrored messages.
 
-<i>
-    With so many complications, we can thank Dan Clancy for pushing hard on the Stream Together feature that has
-    seen limited adoption, but requires the level of work/consideration as breaking changes would.\
-    We give our condolences to the engineers rushed to deliver this feature before TwitchCon as part of teams that
-    have experienced significant layoffs and reduced morale in the name of profit maximization.
-</i>
+9. When sending messages to a channel in a Shared Chat session, if you are joined to other channels
+in the same session on a different websocket, you will receive events for your own messages.
+However, if the other channels are joined on the same websocket, you will not receive events for your own messages.
+
+10. Since this feature is complex and not widely tested yet, there may be bugs in Twitch's implementation.
