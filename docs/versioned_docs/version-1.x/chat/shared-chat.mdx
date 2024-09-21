@@ -95,7 +95,7 @@ If such a bot observes the same message twice, it may try to execute duplicate m
 
 However, bots that respond to chat commands **should** avoid replying to duplicated shared messages.\
 The simplest approach is to ignore chat commands where `MirrorableEvent#isMirrored` is true.\
-More sophisticated bots can conditionally reply to mirrored messages if the bot is not joined to the source channel.
+More sophisticated bots can conditionally reply to mirrored messages if the bot is not joined to the source channel and the source message id has not been observed already.
 
 :::tip
 
