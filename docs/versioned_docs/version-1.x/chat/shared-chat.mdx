@@ -40,6 +40,8 @@ is subject to change.
 
 In addition, moderation actions (i.e., ban, timeout, unban, untimeout) in one channel are automatically applied to all channels in the Shared Chat session.
 Message deletions are mirrored to the other channels _if_ the deletion occurred in the source channel.
+Since IRC tags do not indicate the source channel of mirrored moderation events, you can obtain this information via
+[EventSub](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_MODERATE) instead.
 
 :::tip
 
