@@ -38,8 +38,12 @@ is subject to change.
 
 :::
 
-In addition, moderation actions (i.e., ban, timeout, unban, untimeout) in one channel are automatically applied to all channels in the Shared Chat session.
-Message deletions are mirrored to the other channels _if_ the deletion occurred in the source channel.
+In addition, moderation actions (i.e., ban, timeout, unban, untimeout, warn) in one channel are automatically applied to all channels in the Shared Chat session.
+Message deletions are mirrored to the other channels _if_ the deletion occurred in the source channel (by source moderators).
+Once the Shared Chat session concludes, _mirrored_ bans, timeouts, and warnings are automatically lifted.
+Streamers can use "Shared Ban Info" to keep users that were banned during the Shared Chat session as restricted chatters after the session ends.
+These intricacies are explained in further detail within the [official help article](https://link.twitch.tv/SharedChatMod).
+
 Since IRC tags do not indicate the source channel of mirrored moderation events, you can obtain this information via
 [EventSub](https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_MODERATE) instead.
 
@@ -130,6 +134,7 @@ different configurations for the bot, which can complicate determination of appr
 6. Channel-specific emotes _do_ render accurately in the mirrored channels (in first-party chat), including cheermotes and follower emotes.
 
 7. If your bot is `/restrict`ed in one channel in the Shared Chat session, it cannot send messages to other channels in the session (unless it is a moderator).
+Yet, if a user is `/monitor`ed in one channel, this does not automatically apply to the other channels in the Shared Chat session.
 
 8. Neither the `first-msg` nor the `returning-chatter` flags are populated on the mirrored messages.
 
@@ -141,4 +146,7 @@ However, if the other channels are joined on the same websocket, you will not re
 As a workaround, you can reduce the number of channels joined on each websocket connection via
 [`TwitchChatConnectionPoolBuilder#maxSubscriptionsPerConnection`](https://twitch4j.github.io/javadoc/com/github/twitch4j/common/pool/SubscriptionConnectionPool.SubscriptionConnectionPoolBuilder.html#maxSubscriptionsPerConnection(int)).
 
-11. Since this feature is complex and not widely tested yet, there may be bugs in Twitch's implementation.
+11. First-party moderation settings such as AutoMod configuration, Blocked Terms, and Chat Mode (e.g., emote only) only apply to messages sent in the corresponding source channel.
+Thus, it can be possible to send a message in a Shared Chat session that contains a blocked term of another channel within the session.
+
+12. Since this feature is complex and not widely tested yet, there may be bugs in Twitch's implementation.
