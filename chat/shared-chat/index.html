@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-1.x docs-doc-page docs-doc-id-chat/shared-chat" data-has-hydrated="false">
 <head>
 <meta charset="UTF-8">
-<meta name="generator" content="Docusaurus v3.9.1">
+<meta name="generator" content="Docusaurus v3.9.2">
 <title data-rh="true">Shared Chat | Twitch4J</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://twitch4j.github.io/chat/shared-chat"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="1.x"><meta data-rh="true" name="docusaurus_tag" content="docs-default-1.x"><meta data-rh="true" name="docsearch:version" content="1.x"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-1.x"><meta data-rh="true" property="og:title" content="Shared Chat | Twitch4J"><meta data-rh="true" name="description" content="Supported since v1.22.0"><meta data-rh="true" property="og:description" content="Supported since v1.22.0"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://twitch4j.github.io/chat/shared-chat"><link data-rh="true" rel="alternate" href="https://twitch4j.github.io/chat/shared-chat" hreflang="en"><link data-rh="true" rel="alternate" href="https://twitch4j.github.io/chat/shared-chat" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://E6S5VU7XKG-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Chat","item":"https://twitch4j.github.io/chat/"},{"@type":"ListItem","position":2,"name":"Shared Chat","item":"https://twitch4j.github.io/chat/shared-chat"}]}</script><link rel="search" type="application/opensearchdescription+xml" title="Twitch4J" href="/opensearch.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel="stylesheet" href="/assets/css/styles.97f2ecc2.css">
-<script src="/assets/js/runtime~main.78039661.js" defer="defer"></script>
-<script src="/assets/js/main.1f75aaf9.js" defer="defer"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel="stylesheet" href="/assets/css/styles.f94c994c.css">
+<script src="/assets/js/runtime~main.3c744daf.js" defer="defer"></script>
+<script src="/assets/js/main.c485248c.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -35,16 +35,16 @@ is subject to change.</p></div></div>
 Message deletions are mirrored to the other channels <em>if</em> the deletion occurred in the source channel (by source moderators).
 Once the Shared Chat session concludes, <em>mirrored</em> bans, timeouts, and warnings are automatically lifted.
 Streamers can use &quot;Shared Ban Info&quot; to keep users that were banned during the Shared Chat session as restricted chatters after the session ends.
-These intricacies are explained in further detail within the <a href="https://link.twitch.tv/SharedChatMod" target="_blank" rel="noopener noreferrer">official help article</a>.</p>
+These intricacies are explained in further detail within the <a href="https://link.twitch.tv/SharedChatMod" target="_blank" rel="noopener noreferrer" class="">official help article</a>.</p>
 <p>Since IRC tags do not indicate the source channel of mirrored moderation events, you can obtain this information via
-<a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_MODERATE" target="_blank" rel="noopener noreferrer">EventSub</a> instead.</p>
+<a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_MODERATE" target="_blank" rel="noopener noreferrer" class="">EventSub</a> instead.</p>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>You can detect which channels are participating in a given Shared Chat session
-via <a href="https://dev.twitch.tv/docs/api/reference/#get-shared-chat-session" target="_blank" rel="noopener noreferrer"><code>TwitchHelix#getSharedChatSession(OAuth2Credential, String)</code></a>,
+via <a href="https://dev.twitch.tv/docs/api/reference/#get-shared-chat-session" target="_blank" rel="noopener noreferrer" class=""><code>TwitchHelix#getSharedChatSession(OAuth2Credential, String)</code></a>,
 where the second argument is a channel&#x27;s ID.<br>
 <!-- -->This endpoint does not require any scopes, so even app access tokens are sufficient.</p><p>Similarly, there are EventSub subscription types to track Shared Chat session updates in real-time.</p></div></div>
-<p>You can read more about this feature in the <a href="https://dev.twitch.tv/docs/chat/irc/#shared-chat" target="_blank" rel="noopener noreferrer">official third-party developer documentation</a>.</p>
+<p>You can read more about this feature in the <a href="https://dev.twitch.tv/docs/chat/irc/#shared-chat" target="_blank" rel="noopener noreferrer" class="">official third-party developer documentation</a>.</p>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>While this page focuses on IRC, these concepts also apply to the chat-related EventSub subscription types.</p></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-do-i-detect-shared-chat-messages">How do I detect Shared Chat messages?<a href="#how-do-i-detect-shared-chat-messages" class="hash-link" aria-label="Direct link to How do I detect Shared Chat messages?" title="Direct link to How do I detect Shared Chat messages?" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-do-i-detect-shared-chat-messages">How do I detect Shared Chat messages?<a href="#how-do-i-detect-shared-chat-messages" class="hash-link" aria-label="Direct link to How do I detect Shared Chat messages?" title="Direct link to How do I detect Shared Chat messages?" translate="no">​</a></h2>
 <p>IRC events that can be mirrored during the Shared Chat session implement the <code>MirrorableEvent</code> interface.</p>
 <p><code>MirrorableEvent#isMirrored</code> tells you whether the given event originally came from a different source channel.</p>
 <p>Then you can use <code>MirrorableEvent#getSourceChannelId</code> to obtain the true source channel.</p>
@@ -53,14 +53,14 @@ to obtain the chat badges associated with the message in the source channel.</p>
 <p>When messages are mirrored, they are assigned new message IDs,
 so you can obtain the original message ID via <code>MirrorableEvent#getSourceMessageId</code> (which is unnecessary for most bots).</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>The following EventSub subscription types also distinguish shared events:
-<a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_CHAT_MESSAGE" target="_blank" rel="noopener noreferrer"><code>channel.chat.message</code></a>,
-<a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_CHAT_NOTIFICATION" target="_blank" rel="noopener noreferrer"><code>channel.chat.notification</code></a>,
-and <a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_MODERATE" target="_blank" rel="noopener noreferrer"><code>channel.moderate</code></a>.</p><p>Please read the <a href="https://dev.twitch.tv/docs/eventsub/eventsub-subscription-types/" target="_blank" rel="noopener noreferrer">Twitch documentation</a>
-or the <a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/events/package-summary.html" target="_blank" rel="noopener noreferrer">javadoc</a>
+<a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_CHAT_MESSAGE" target="_blank" rel="noopener noreferrer" class=""><code>channel.chat.message</code></a>,
+<a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_CHAT_NOTIFICATION" target="_blank" rel="noopener noreferrer" class=""><code>channel.chat.notification</code></a>,
+and <a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/subscriptions/SubscriptionTypes.html#CHANNEL_MODERATE" target="_blank" rel="noopener noreferrer" class=""><code>channel.moderate</code></a>.</p><p>Please read the <a href="https://dev.twitch.tv/docs/eventsub/eventsub-subscription-types/" target="_blank" rel="noopener noreferrer" class="">Twitch documentation</a>
+or the <a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/eventsub/events/package-summary.html" target="_blank" rel="noopener noreferrer" class="">javadoc</a>
 to understand the updated event payloads.</p></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-does-this-mean-for-my-application">What does this mean for my application?<a href="#what-does-this-mean-for-my-application" class="hash-link" aria-label="Direct link to What does this mean for my application?" title="Direct link to What does this mean for my application?" translate="no">​</a></h2>
-<p>Now, when you receive a message (e.g., <a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/chat/events/channel/ChannelMessageEvent.html" target="_blank" rel="noopener noreferrer"><code>ChannelMessageEvent</code></a>),
-it could be directly sent to the channel you have joined (i.e., <a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/chat/events/AbstractChannelEvent.html" target="_blank" rel="noopener noreferrer"><code>AbstractChannelEvent#getChannel</code></a>),
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-does-this-mean-for-my-application">What does this mean for my application?<a href="#what-does-this-mean-for-my-application" class="hash-link" aria-label="Direct link to What does this mean for my application?" title="Direct link to What does this mean for my application?" translate="no">​</a></h2>
+<p>Now, when you receive a message (e.g., <a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/chat/events/channel/ChannelMessageEvent.html" target="_blank" rel="noopener noreferrer" class=""><code>ChannelMessageEvent</code></a>),
+it could be directly sent to the channel you have joined (i.e., <a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/chat/events/AbstractChannelEvent.html" target="_blank" rel="noopener noreferrer" class=""><code>AbstractChannelEvent#getChannel</code></a>),
 or it could be mirrored from another channel (i.e., <code>MirrorableEvent#getSourceChannelId</code>).</p>
 <p>Most moderation bots may not need to change their logic regarding acting upon user messages.
 If such a bot observes the same message twice, it may try to execute duplicate moderation actions, but that is not a substantial concern.</p>
@@ -69,9 +69,9 @@ If such a bot observes the same message twice, it may try to execute duplicate m
 <!-- -->More sophisticated bots can conditionally reply to mirrored messages if the bot is not joined to the source channel and the source message id has not been observed already.</p>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Twitch4J v1.22.0+ automatically drops duplicate mirrored messages, so most developers will not need to update any logic!
 You can adjust the library&#x27;s treatment of Shared Chat messages via <code>MirroredMessagePolicy</code>.</p></div></div>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-edge-cases-should-i-know-about">What edge cases should I know about?<a href="#what-edge-cases-should-i-know-about" class="hash-link" aria-label="Direct link to What edge cases should I know about?" title="Direct link to What edge cases should I know about?" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-edge-cases-should-i-know-about">What edge cases should I know about?<a href="#what-edge-cases-should-i-know-about" class="hash-link" aria-label="Direct link to What edge cases should I know about?" title="Direct link to What edge cases should I know about?" translate="no">​</a></h2>
 <ol>
-<li>
+<li class="">
 <p>The main edge case to consider is when your bot is joined to multiple channels in a single Shared Chat session.<br>
 <!-- -->As a result, for each user message, you could receive up to six (6) events!
 When user messages can trigger bot responses in chat, you should validate the source channel to avoid replying up to six times.
@@ -79,46 +79,46 @@ Since messages are mirrored, all six response messages would appear in each of t
 <!-- -->However, when using <code>MirroredMessagePolicy.REJECT_IF_OBSERVED</code> (or <code>REJECT_ALL</code>), this concern does not apply
 (unless you are running a distributed bot across multiple servers).</p>
 </li>
-<li>
+<li class="">
 <p>When your bot is joined to multiple channels in a single Shared Chat session, the two channels could have
 different configurations for the bot, which can complicate determination of appropriate responses.</p>
 </li>
-<li>
+<li class="">
 <p>Since moderation actions are forwarded, the stricter response will tend to prevail (as timed-out users can be banned, but banned users cannot be timed-out).</p>
 </li>
-<li>
+<li class="">
 <p>While channel points redemptions with text input <em>are</em> mirrored to the other channels, currently redemptions without user input are not.</p>
 </li>
-<li>
+<li class="">
 <p>Mirrored channel points redemptions (with user input) lack context as to what reward was redeemed.</p>
 </li>
-<li>
+<li class="">
 <p>Channel-specific emotes <em>do</em> render accurately in the mirrored channels (in first-party chat), including cheermotes and follower emotes.</p>
 </li>
-<li>
+<li class="">
 <p>If your bot is <code>/restrict</code>ed in one channel in the Shared Chat session, it cannot send messages to other channels in the session (unless it is a moderator).
 Yet, if a user is <code>/monitor</code>ed in one channel, this does not automatically apply to the other channels in the Shared Chat session.</p>
 </li>
-<li>
+<li class="">
 <p>Neither the <code>first-msg</code> nor the <code>returning-chatter</code> flags are populated on the mirrored messages.</p>
 </li>
-<li>
+<li class="">
 <p>When sending messages to a channel in a Shared Chat session, if you are joined to other channels
 in the same session on a different websocket, you will receive events for your own messages.
 However, if the other channels are joined on the same websocket, you will not receive events for your own messages.</p>
 </li>
-<li>
+<li class="">
 <p>If you are joined to many channels and start observing random disconnects, some channels may have started Shared Chat sessions causing your message buffer to fill up.
 As a workaround, you can reduce the number of channels joined on each websocket connection via
-<a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/common/pool/SubscriptionConnectionPool.SubscriptionConnectionPoolBuilder.html#maxSubscriptionsPerConnection(int)" target="_blank" rel="noopener noreferrer"><code>TwitchChatConnectionPoolBuilder#maxSubscriptionsPerConnection</code></a>.</p>
+<a href="https://twitch4j.github.io/javadoc/com/github/twitch4j/common/pool/SubscriptionConnectionPool.SubscriptionConnectionPoolBuilder.html#maxSubscriptionsPerConnection(int)" target="_blank" rel="noopener noreferrer" class=""><code>TwitchChatConnectionPoolBuilder#maxSubscriptionsPerConnection</code></a>.</p>
 </li>
-<li>
+<li class="">
 <p>First-party moderation settings such as AutoMod configuration, Blocked Terms, and Chat Mode (e.g., emote only) only apply to messages sent in the corresponding source channel.
 Thus, it can be possible to send a message in a Shared Chat session that contains a blocked term of another channel within the session.</p>
 </li>
-<li>
+<li class="">
 <p>Since this feature is complex and not widely tested yet, there may be bugs in Twitch&#x27;s implementation.</p>
 </li>
-</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/twitch4j/twitch4j.github.io/tree/master/docs/versioned_docs/version-1.x/chat/shared-chat.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2024-10-11T22:09:18.000Z" itemprop="dateModified">Oct 11, 2024</time></b> by <b>iProdigy</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/chat/send-private-message"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Send Private Message</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/eventsub/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">EventSub</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#how-do-i-detect-shared-chat-messages" class="table-of-contents__link toc-highlight">How do I detect Shared Chat messages?</a></li><li><a href="#what-does-this-mean-for-my-application" class="table-of-contents__link toc-highlight">What does this mean for my application?</a></li><li><a href="#what-edge-cases-should-i-know-about" class="table-of-contents__link toc-highlight">What edge cases should I know about?</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Twitch4J. Twitch4J is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Twitch.</div></div></div></footer></div>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/twitch4j/twitch4j.github.io/tree/master/docs/versioned_docs/version-1.x/chat/shared-chat.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2024-10-11T22:09:18.000Z" itemprop="dateModified">Oct 11, 2024</time></b> by <b>iProdigy</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/chat/send-private-message"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Send Private Message</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/eventsub/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">EventSub</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#how-do-i-detect-shared-chat-messages" class="table-of-contents__link toc-highlight">How do I detect Shared Chat messages?</a></li><li><a href="#what-does-this-mean-for-my-application" class="table-of-contents__link toc-highlight">What does this mean for my application?</a></li><li><a href="#what-edge-cases-should-i-know-about" class="table-of-contents__link toc-highlight">What edge cases should I know about?</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Twitch4J. Twitch4J is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Twitch.</div></div></div></footer></div>
 </body>
 </html>
